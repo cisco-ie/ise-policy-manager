@@ -1,3 +1,4 @@
 .docs/
 *.pyc
 *.DS_Store
+*.env

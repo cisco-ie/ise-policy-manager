@@ -1,4 +1,5 @@
 import os, json, requests
+from dotenv import load_dotenv
 import yaml
 from ciscoisesdk import IdentityServicesEngineAPI
 from ciscoisesdk.exceptions import ApiError
@@ -10,11 +11,12 @@ BACKUP_DIR = "repository/ise-policy-repository-https/policy_sets/"
 class CreateNetworkPolicies(object):
   
   def __init__(self):
-    self.api = IdentityServicesEngineAPI(username='admin',
-                                password='Bundle123$',
+    load_dotenv()
+    self.api = IdentityServicesEngineAPI(username=os.environ['ISE_USERNAME'],
+                                password=os.environ['ISE_PASSWORD'],
                                 uses_api_gateway=True,
-                                base_url='https://10.86.191.239',
-                                version='3.1_Patch_1',
+                                base_url=os.environ['ISE_BASE_URL'],
+                                version=os.environ['ISE_VERSION'],
                                 verify=False,
                                 debug=True,
                                 uses_csrf_token=False)
