@@ -1,7 +1,6 @@
 import os, json, yaml
 import argparse
-from backupNetworkPolicies import BackupNetworkPolicies
-from createNetworkPolicies import CreateNetworkPolicies
+from networkPolicies import NetworkPolicies
 from repository import Repository
 from utils import data
 from datetime import datetime
@@ -14,11 +13,10 @@ def do_import(comment='', commit=None):
     repo = Repository()
     repo.git_revert(commit)
   
-  ise = BackupNetworkPolicies()
+  ise = NetworkPolicies()
   ise.export_policy('taking backup for Import task')
 
-  add = CreateNetworkPolicies()
-  add.create_policy_set(all_policy_sets=True, endingTag='_tmp')
+  ise.create_policy_set(all_policy_sets=True, endingTag='_tmp')
 
   bck_policy_sets = ise.read_backup_tmp_policy_set()
   policies = bck_policy_sets['response']
@@ -40,7 +38,7 @@ def do_import(comment='', commit=None):
 
 def do_export(comment):
 
-  ise = BackupNetworkPolicies()
+  ise = NetworkPolicies()
   ise.export_policy(comment)
 
   repo = Repository()

@@ -5,4 +5,4 @@ ciscoisesdk==2.0.8
 pip-system-certs==4.0
 pyyaml==6.0
 gitpython==3.1.31
-python-dotenv
+python-decouple==3.8

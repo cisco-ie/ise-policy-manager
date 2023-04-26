@@ -3,7 +3,6 @@ import git
 import shutil
 from ciscoisesdk import IdentityServicesEngineAPI
 from ciscoisesdk.exceptions import ApiError
-from backupNetworkPolicies import BackupNetworkPolicies
 
 BACKUP_TMP = "backups_tmp/"
 BACKUP_DIR = "repository/ise-policy-repository-https/policy_sets/"

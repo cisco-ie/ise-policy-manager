@@ -1,22 +1,28 @@
-import os, json, requests
-from dotenv import load_dotenv
-import yaml
+import os, json, yaml, requests
+from base64 import b64encode
+from decouple import config
+from requests.auth import HTTPBasicAuth
+import git
 from ciscoisesdk import IdentityServicesEngineAPI
 from ciscoisesdk.exceptions import ApiError
-from backupNetworkPolicies import BackupNetworkPolicies
 
 BACKUP_TMP = "backups_tmp/"
 BACKUP_DIR = "repository/ise-policy-repository-https/policy_sets/"
+#BACKUP_DIR = "/Users/plencina/Docker/python/Project_Cisco_ISE/ise-policy-repository/policy_sets/"
 
-class CreateNetworkPolicies(object):
+ISE_USERNAME = config('ISE_USERNAME')
+ISE_PASSWORD = config('ISE_PASSWORD')
+ISE_BASE_URL = config('ISE_BASE_URL')
+ISE_VERSION = config('ISE_VERSION')
+
+class NetworkPolicies(object):
   
   def __init__(self):
-    load_dotenv()
-    self.api = IdentityServicesEngineAPI(username=os.environ['ISE_USERNAME'],
-                                password=os.environ['ISE_PASSWORD'],
+    self.api = IdentityServicesEngineAPI(username=ISE_USERNAME,
+                                password=ISE_PASSWORD,
                                 uses_api_gateway=True,
-                                base_url=os.environ['ISE_BASE_URL'],
-                                version=os.environ['ISE_VERSION'],
+                                base_url=ISE_BASE_URL,
+                                version=ISE_VERSION,
                                 verify=False,
                                 debug=True,
                                 uses_csrf_token=False)
@@ -25,6 +31,223 @@ class CreateNetworkPolicies(object):
       os.mkdir(BACKUP_DIR)
 
 
+  def read_backup_tmp_policy_set(self):
+
+    with open(os.path.join(BACKUP_TMP, "policy_sets_tmp.yml")) as f:
+      all_policy_sets = yaml.safe_load(f)
+
+    return all_policy_sets
+
+  
+  def export_policy(self, comment=None):
+    print("Performing Export task")
+    try:
+      policies_result = self.api.network_access_policy_set.get_all().response
+
+      policies_result['version'] = int(self.get_current_version_number()) + 1
+      policies_result['version_comments'] = comment
+
+      policies_count = len(policies_result['response'])
+      print("Found {} policy sets".format(policies_count))
+      for index, item in enumerate(policies_result['response']):
+        
+        authen_policy = self.backup_authentication_policy(item['id'])
+        policies_result['response'][index]['authentication_policy'] = authen_policy['response']
+
+        author_policy = self.backup_authorization_policy(item['id'])
+        policies_result['response'][index]['authorization_policy'] = author_policy['response']
+
+        #author_policy = self.backup_authorization_excepction_policy(item['id'])
+        #policies_result['response'][index]['authorization_exception_policy'] = author_policy['response']
+
+        print("Policy Set #{} exported: {}".format(index+1, item['name']))
+
+        #author_policy = self.backup_authorization_global_exception_policy(item['id'])
+        #policies_result['response'][index]['authorization_global_exception_policy'] = author_policy['response']
+
+      #json_object = json.dumps(policies_result, indent=4)
+
+      #with open(os.path.join(BACKUP_DIR, "bck_all_policy_set.json"), "w") as outfile:
+      #  outfile.write(json_object)
+
+      json_str = json.dumps(policies_result)
+      python_dict = json.loads(json_str)
+      with open(os.path.join(BACKUP_TMP, "policy_sets_tmp.yml"), "w") as f:
+        f.write(yaml.safe_dump(python_dict, sort_keys=False))
+
+    except Exception as e:
+      print("Export failed!!!: {}".format(e))
+
+
+
+  def get_current_version_number(self):
+
+    with open(os.path.join(BACKUP_DIR, "policy_sets.yml")) as f:
+      result = yaml.safe_load(f)
+
+    return result['version']
+
+
+  def get_all_policy_set(self):
+    dictionary_result = self.api.network_access_policy_set.get_all().response
+    return dictionary_result
+
+
+  def backup_authentication_policy(self, policyId):
+    dictionary_result = self.api.network_access_authentication_rules.get_all(policyId).response
+    #print('\n## Get Authentication Policy ##')
+    #print(json.dumps(dictionary_result, indent=4))
+    return dictionary_result
+
+  def backup_authorization_policy(self, policyId):
+    dictionary_result = self.api.network_access_authorization_rules.get_all(policyId).response
+    #print('\n## Get Authorization Policy ##')
+    #print(json.dumps(dictionary_result, indent=4))
+    return dictionary_result
+
+  def backup_authorization_excepction_policy(self, policyId):
+    dictionary_result = self.api.network_access_authorization_exception_rules.get_all(policyId).response
+    #print(dictionary_result)
+    return dictionary_result
+
+  def backup_authorization_global_exception_policy(self, policyId):
+    dictionary_result = self.api.network_access_authorization_global_exception_rules.get_all(policyId).response
+    #print(dictionary_result)
+    return dictionary_result
+
+  def backup_allowed_protocols(self):
+    response = []
+    dictionary_result = self.api.allowed_protocols.get_all().response
+    for item in dictionary_result['SearchResult']['resources']:
+      response.append(self.backup_allowed_protocols_by_Id(item['id']))
+    
+    json_object = json.dumps(response, indent=4)
+
+    with open(os.path.join(BACKUP_DIR, "bck_allowed_protocols.json"), "w") as outfile:
+      outfile.write(json_object)
+
+    return dictionary_result
+
+  def backup_allowed_protocols_by_Id(self, id):
+    dictionary_result = self.api.allowed_protocols.get_allowed_protocol_by_id(id).response
+    #print(json.dumps(dictionary_result, indent=4))
+    return dictionary_result
+
+
+  def backup_authorization_profile(self):
+    response = []
+    dictionary_result = self.api.authorization_profile.get_all().response
+    for item in dictionary_result['SearchResult']['resources']:
+      response.append(self.backup_authorization_profile_by_Id(item['id']))
+    
+    json_object = json.dumps(response, indent=4)
+
+    with open(os.path.join(BACKUP_DIR, "bck_authorization_profile.json"), "w") as outfile:
+      outfile.write(json_object)
+
+    return dictionary_result
+
+  def backup_authorization_profile_by_Id(self, id):
+    dictionary_result = self.api.authorization_profile.get_authorization_profile_by_id(id).response
+    #print(json.dumps(dictionary_result, indent=4))
+    return dictionary_result
+
+  
+  def backup_security_groups(self):
+    response = []
+    dictionary_result = self.api.security_groups.get_all().response
+    for item in dictionary_result['SearchResult']['resources']:
+      response.append(self.backup_security_groups_by_Id(item['id']))
+    
+    json_object = json.dumps(response, indent=4)
+
+    with open(os.path.join(BACKUP_DIR, "bck_security_groups.json"), "w") as outfile:
+      outfile.write(json_object)
+
+    return dictionary_result
+
+  def backup_security_groups_by_Id(self, id):
+    dictionary_result = self.api.security_groups.get_security_group_by_id(id).response
+    #print(json.dumps(dictionary_result, indent=4))
+    return dictionary_result
+  
+
+  def backup_identity_sequence(self):
+    response = []
+    dictionary_result = self.api.identity_sequence.get_all().response
+    for item in dictionary_result['SearchResult']['resources']:
+      response.append(self.backup_identity_sequence_by_Id(item['id']))
+    
+    json_object = json.dumps(response, indent=4)
+
+    with open(os.path.join(BACKUP_DIR, "bck_identity_sequence.json"), "w") as outfile:
+      outfile.write(json_object)
+
+    return dictionary_result
+
+  def backup_identity_sequence_by_Id(self, id):
+    dictionary_result = self.api.identity_sequence.get_identity_sequence_by_id(id).response
+    #print(json.dumps(dictionary_result, indent=4))
+    return dictionary_result
+
+    
+  def backup_identity_stores(self):
+    dictionary_result = self.api.network_access_identity_stores.get_all().response
+    print(json.dumps(dictionary_result, indent=4))
+    return dictionary_result
+
+
+    
+  def backup_dictionary(self):
+    dictionary_result = self.api.network_access_dictionary.get_all().response
+    #print(dictionary_result)
+    json_object = json.dumps(dictionary_result, indent=4)
+  
+    with open(os.path.join(BACKUP_DIR, "bck_all_dictionary.json"), "w") as outfile:
+      outfile.write(json_object)
+
+    json_str = json.dumps(dictionary_result)
+    python_dict = json.loads(json_str)
+
+    with open(os.path.join(BACKUP_DIR, "bck_all_dictionary.yaml"), "w") as f:
+      f.write(yaml.dump(python_dict))
+
+
+  def backup_dictionary_attributes(self):
+    response = []
+    dictionary_result = self.api.network_access_dictionary_attributes_list.get_all_policy_set().response
+    
+    json_object = json.dumps(dictionary_result, indent=4)
+
+    with open(os.path.join(BACKUP_DIR, "bck_dictionary_attributes.json"), "w") as outfile:
+      outfile.write(json_object)
+
+    return dictionary_result
+
+  def get_network_conditions_by_name(self, name):
+    try:
+      dictionary_result = self.api.network_access_conditions.get_network_access_condition_by_name(name).response
+      #print(json.dumps(dictionary_result, indent=4))
+      return dictionary_result.response.id
+    except Exception as e:
+      return
+   
+
+  def get_conditions(self):
+    dictionary_result = self.api.network_access_conditions.get_all().response
+    #print(dictionary_result)
+    json_object = json.dumps(dictionary_result, indent=4)
+
+    with open(os.path.join(BACKUP_DIR, "bck_all_conditions.json"), "w") as outfile:
+      outfile.write(json_object)
+
+
+  def del_policy_set(self, policyId):
+    dictionary_result = self.api.network_access_policy_set.delete_network_access_policy_set_by_id(policyId).response
+    #print(json.dumps(dictionary_result, indent=4))
+    return dictionary_result
+
+  
   def read_file_policy_set(self):
 
     with open(os.path.join(BACKUP_DIR, "policy_sets.yml")) as f:
@@ -52,7 +275,6 @@ class CreateNetworkPolicies(object):
     for data in policies:
 
       if data['name'] != 'Default':
-        ise = BackupNetworkPolicies()
     
         values = {
           'description': '' if data.get('description') == None else data.get('description'),
@@ -87,7 +309,7 @@ class CreateNetworkPolicies(object):
             if item.get('dictionaryValue', False) == None:
               condition.get('children')[index].pop('dictionaryValue')
             if item.get('conditionType') == 'ConditionReference':
-              condition['children'][index]['id'] = ise.get_network_conditions_by_name(item.get('name'))
+              condition['children'][index]['id'] = self.get_network_conditions_by_name(item.get('name'))
               condition.get('children')[index].pop('name')
               condition.get('children')[index].pop('description')
 
@@ -119,7 +341,7 @@ class CreateNetworkPolicies(object):
           print("### Policy Set created: {}. policy_id: {} ###\n".format(values['name'], policy_id))
 
           #authentication rule section
-          current_authen_policy = ise.backup_authentication_policy(dictionary_result.response.id).get('response')[0]
+          current_authen_policy = self.backup_authentication_policy(dictionary_result.response.id).get('response')[0]
 
           for item in authentication_policy:
             if item.get('rule').get('name') != 'Default':
@@ -135,14 +357,14 @@ class CreateNetworkPolicies(object):
 
 
           #authorization rule section
-          current_author_policy = ise.backup_authorization_policy(dictionary_result.response.id).get('response')[0]
+          current_author_policy = self.backup_authorization_policy(dictionary_result.response.id).get('response')[0]
 
           for item in authorization_policy:
             if item.get('rule').get('name') != 'Default':
               #create new authorization rules based on the original backup
               item.get('rule').get('condition').pop('link')
               if item.get('rule').get('condition').get('conditionType') == 'ConditionReference':
-                item['rule']['condition']['id'] = ise.get_network_conditions_by_name(item.get('rule').get('condition').get('name'))
+                item['rule']['condition']['id'] = self.get_network_conditions_by_name(item.get('rule').get('condition').get('name'))
                 item.get('rule').get('condition').pop('name')
               self.create_authorization_rule(policy_id, item)
 
@@ -165,11 +387,13 @@ class CreateNetworkPolicies(object):
     #print('\n### values to update authentication rule ###')
     #print(values)
 
-    url = "https://10.86.191.239/api/v1/policy/network-access/policy-set/{}/authentication/{}".format(policy_id, id)
+    url = "{}/api/v1/policy/network-access/policy-set/{}/authentication/{}".format(ISE_BASE_URL, policy_id, id)
+
+    encoded_credentials = b64encode(bytes(f'{ISE_USERNAME}:{ISE_PASSWORD}',encoding='ascii')).decode('ascii')
 
     headers = {
       'Content-Type': 'application/json',
-      'Authorization': 'Basic YWRtaW46QnVuZGxlMTIzJA=='
+      'Authorization': 'Basic {}'.format(encoded_credentials)
     }
 
     try:
@@ -180,6 +404,7 @@ class CreateNetworkPolicies(object):
     except Exception as e:
       print(" --ERROR --: {}".format(e))
 
+
   def create_authentication_rule(self, policy_id, data):
 
     values = data
@@ -188,10 +413,12 @@ class CreateNetworkPolicies(object):
     #print('\n### values to create authentication rule ###')
     #print(values)
 
-    url = "https://10.86.191.239/api/v1/policy/network-access/policy-set/{}/authentication".format(policy_id)
+    url = "{}/api/v1/policy/network-access/policy-set/{}/authentication".format(ISE_BASE_URL, policy_id)
+    encoded_credentials = b64encode(bytes(f'{ISE_USERNAME}:{ISE_PASSWORD}',encoding='ascii')).decode('ascii')
+
     headers = {
       'Content-Type': 'application/json',
-      'Authorization': 'Basic YWRtaW46QnVuZGxlMTIzJA=='
+      'Authorization': 'Basic {}'.format(encoded_credentials)
     }
 
     try:
@@ -230,10 +457,12 @@ class CreateNetworkPolicies(object):
     #print('\n### values to create authorization rule ###')
     #print(values)
 
-    url = "https://10.86.191.239/api/v1/policy/network-access/policy-set/{}/authorization".format(policy_id)
+    url = "{}/api/v1/policy/network-access/policy-set/{}/authorization".format(ISE_BASE_URL, policy_id)
+    encoded_credentials = b64encode(bytes(f'{ISE_USERNAME}:{ISE_PASSWORD}',encoding='ascii')).decode('ascii')
+
     headers = {
       'Content-Type': 'application/json',
-      'Authorization': 'Basic YWRtaW46QnVuZGxlMTIzJA=='
+      'Authorization': 'Basic {}'.format(encoded_credentials)
     }
 
     try:
@@ -254,11 +483,13 @@ class CreateNetworkPolicies(object):
     #print('\n### values to update authorization rule ###')
     #print(values)
 
-    url = "https://10.86.191.239/api/v1/policy/network-access/policy-set/{}/authorization/{}".format(policy_id, id)
+    url = "{}/api/v1/policy/network-access/policy-set/{}/authorization/{}".format(ISE_BASE_URL, policy_id, id)
+
+    encoded_credentials = b64encode(bytes(f'{ISE_USERNAME}:{ISE_PASSWORD}',encoding='ascii')).decode('ascii')
 
     headers = {
       'Content-Type': 'application/json',
-      'Authorization': 'Basic YWRtaW46QnVuZGxlMTIzJA=='
+      'Authorization': 'Basic {}'.format(encoded_credentials)
     }
 
     try:
@@ -348,11 +579,13 @@ class CreateNetworkPolicies(object):
       'condition': data['condition']
     }
     
-    url = "https://10.86.191.239/api/v1/policy/network-access/policy-set/{}".format(data['id'])
+    url = "{}/api/v1/policy/network-access/policy-set/{}".format(ISE_BASE_URL, data['id'])
+
+    encoded_credentials = b64encode(bytes(f'{ISE_USERNAME}:{ISE_PASSWORD}',encoding='ascii')).decode('ascii')
 
     headers = {
       'Content-Type': 'application/json',
-      'Authorization': 'Basic YWRtaW46QnVuZGxlMTIzJA=='
+      'Authorization': 'Basic {}'.format(encoded_credentials)
     }
 
     try:
