@@ -1,0 +1,3581 @@
+version: 18
+response:
+- default: false
+  id: 0f8b6bfe-8adb-483c-bbe1-f326980895e0
+  name: Wired_MAB_Corp_RollBack
+  description: Empty string
+  hitCounts: 0
+  rank: 0
+  state: enabled
+  condition:
+    link: null
+    conditionType: ConditionAndBlock
+    isNegate: false
+    children:
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: DEVICE
+      attributeName: Device Type
+      operator: equals
+      dictionaryValue: null
+      attributeValue: All Device Types#Access_SW
+    - link: null
+      conditionType: ConditionReference
+      isNegate: false
+      name: Wired_MAB
+      id: e113747e-5663-4c09-8d2f-9a5ca856d699
+      description: A condition to match MAC Authentication Bypass service based authentication
+        requests from switches, according to the corresponding MAB attributes defined
+        in the device profile.
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: DEVICE
+      attributeName: Site_Type
+      operator: equals
+      dictionaryValue: null
+      attributeValue: Site_Type#Site_RollBack
+  serviceName: AMZN_MAB
+  isProxy: false
+  link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/policy-set/0f8b6bfe-8adb-483c-bbe1-f326980895e0
+    type: application/json
+  authentication_policy:
+  - rule:
+      default: true
+      id: 9ce61467-a2e6-4076-a676-7544f9d91773
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    identitySourceName: Internal Endpoints
+    ifAuthFail: REJECT
+    ifUserNotFound: REJECT
+    ifProcessFail: DROP
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/0f8b6bfe-8adb-483c-bbe1-f326980895e0/authentication/9ce61467-a2e6-4076-a676-7544f9d91773
+      type: application/json
+  authorization_policy:
+  - rule:
+      default: false
+      id: 6ec258f5-f935-40ea-ba20-eca594bc652e
+      name: AMZN_NETWORK_POLICY
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: EndPoints
+        attributeName: LogicalProfile
+        operator: equals
+        dictionaryValue: null
+        attributeValue: AMZN_NETWORK
+    profile:
+    - CORP_EXCEPTION
+    securityGroup: CORP_EXCEPTION_SGT
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/0f8b6bfe-8adb-483c-bbe1-f326980895e0/authorization/6ec258f5-f935-40ea-ba20-eca594bc652e
+      type: application/json
+  - rule:
+      default: false
+      id: c51949c3-13b3-4e88-b63e-1f16ae80c2df
+      name: AMZN_PRINT_RICOH_MFP
+      hitCounts: 0
+      rank: 1
+      state: disabled
+      condition:
+        link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: EndPoints
+        attributeName: EndPointPolicy
+        operator: equals
+        dictionaryValue: null
+        attributeValue: 37320d60-17a2-11eb-986d-8ab0296b08e9
+    profile:
+    - CORP_EXCEPTION
+    securityGroup: AMZN_PRINT
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/0f8b6bfe-8adb-483c-bbe1-f326980895e0/authorization/c51949c3-13b3-4e88-b63e-1f16ae80c2df
+      type: application/json
+  - rule:
+      default: false
+      id: b88ed7d1-a276-45eb-b4dc-2acbca67c276
+      name: AMZN_PRINT_POLICY
+      hitCounts: 0
+      rank: 2
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: EndPoints
+        attributeName: LogicalProfile
+        operator: equals
+        dictionaryValue: null
+        attributeValue: AMZN_PRINT
+    profile:
+    - CORP_EXCEPTION
+    securityGroup: AMZN_PRINT
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/0f8b6bfe-8adb-483c-bbe1-f326980895e0/authorization/b88ed7d1-a276-45eb-b4dc-2acbca67c276
+      type: application/json
+  - rule:
+      default: false
+      id: abdef391-0e65-4de0-a680-7c6b25c31ba2
+      name: AMZN_BMS_POLICY
+      hitCounts: 0
+      rank: 3
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: EndPoints
+        attributeName: LogicalProfile
+        operator: equals
+        dictionaryValue: null
+        attributeValue: AMZN_BMS
+    profile:
+    - CORP_EXCEPTION
+    securityGroup: AMZN_BMS
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/0f8b6bfe-8adb-483c-bbe1-f326980895e0/authorization/abdef391-0e65-4de0-a680-7c6b25c31ba2
+      type: application/json
+  - rule:
+      default: false
+      id: 28551ea5-eebd-4681-a15f-6c1e2addcb62
+      name: AMZN_VENDING_POLICY
+      hitCounts: 0
+      rank: 4
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: EndPoints
+        attributeName: LogicalProfile
+        operator: equals
+        dictionaryValue: null
+        attributeValue: AMZN_VENDING
+    profile:
+    - CORP_EXCEPTION
+    securityGroup: AMZN_VENDING
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/0f8b6bfe-8adb-483c-bbe1-f326980895e0/authorization/28551ea5-eebd-4681-a15f-6c1e2addcb62
+      type: application/json
+  - rule:
+      default: false
+      id: 32fd4b6b-bcdd-47c6-957c-69e19661c5b9
+      name: AMZN_SIP_PHONE_POLICY
+      hitCounts: 0
+      rank: 5
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: EndPoints
+        attributeName: LogicalProfile
+        operator: equals
+        dictionaryValue: null
+        attributeValue: AMZN_SIP
+    profile:
+    - CORP_EXCEPTION
+    securityGroup: AMZN_SIP
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/0f8b6bfe-8adb-483c-bbe1-f326980895e0/authorization/32fd4b6b-bcdd-47c6-957c-69e19661c5b9
+      type: application/json
+  - rule:
+      default: false
+      id: 6c3c3cfe-25d4-48d9-a781-a65abe2647b0
+      name: AMZN_SECURITY_CAMERAS_POLICY
+      hitCounts: 0
+      rank: 6
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: EndPoints
+        attributeName: LogicalProfile
+        operator: equals
+        dictionaryValue: null
+        attributeValue: AMZN_SECURITY_CAMERAS
+    profile:
+    - CORP_EXCEPTION
+    securityGroup: AMZN_SECURITY_CAMERAS
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/0f8b6bfe-8adb-483c-bbe1-f326980895e0/authorization/6c3c3cfe-25d4-48d9-a781-a65abe2647b0
+      type: application/json
+  - rule:
+      default: false
+      id: 074f0a2b-6f07-4632-bdb0-0e9b5fd069a8
+      name: AMZN_SECURITY_CONTROLLER_POLICY
+      hitCounts: 0
+      rank: 7
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: EndPoints
+        attributeName: LogicalProfile
+        operator: equals
+        dictionaryValue: null
+        attributeValue: AMZN_SECURITY_CONTROLLER
+    profile:
+    - CORP_EXCEPTION
+    securityGroup: AMZN_SECURITY_CONTROLLER
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/0f8b6bfe-8adb-483c-bbe1-f326980895e0/authorization/074f0a2b-6f07-4632-bdb0-0e9b5fd069a8
+      type: application/json
+  - rule:
+      default: false
+      id: 45222e5c-b65d-4e65-8294-58c43dd192e7
+      name: AMZN_AV_VC_POLICY
+      hitCounts: 0
+      rank: 8
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: EndPoints
+        attributeName: LogicalProfile
+        operator: equals
+        dictionaryValue: null
+        attributeValue: AMZN_AV_VC
+    profile:
+    - CORP_EXCEPTION
+    securityGroup: AMZN_AV_VC
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/0f8b6bfe-8adb-483c-bbe1-f326980895e0/authorization/45222e5c-b65d-4e65-8294-58c43dd192e7
+      type: application/json
+  - rule:
+      default: true
+      id: a92b1077-5d38-4ffa-add2-b4a93cd643d6
+      name: Default
+      hitCounts: 0
+      rank: 9
+      state: enabled
+      condition: null
+    profile:
+    - CORP_EXCEPTION
+    securityGroup: GUEST_NETWORK_SGT
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/0f8b6bfe-8adb-483c-bbe1-f326980895e0/authorization/a92b1077-5d38-4ffa-add2-b4a93cd643d6
+      type: application/json
+- default: false
+  id: c3b88114-641a-40e2-9aea-975560f4a62e
+  name: AZGUEST_Pablo_2.0
+  description: Empty string
+  hitCounts: 0
+  rank: 1
+  state: enabled
+  condition:
+    link: null
+    conditionType: ConditionAndBlock
+    isNegate: false
+    children:
+    - link: null
+      conditionType: ConditionOrBlock
+      isNegate: false
+      children:
+      - link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: DEVICE
+        attributeName: Device Type
+        operator: equals
+        dictionaryValue: null
+        attributeValue: All Device Types#Wireless_Controller
+      - link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: Aruba
+        attributeName: Aruba-Essid-Name
+        operator: equals
+        dictionaryValue: null
+        attributeValue: AZGUEST
+      - link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: Aruba
+        attributeName: Aruba-Essid-Name
+        operator: equals
+        dictionaryValue: null
+        attributeValue: Guest
+    - link: null
+      conditionType: ConditionReference
+      isNegate: false
+      name: Wireless_MAB
+      id: 223b123f-b5a8-443a-bd91-770145a15a46
+      description: A condition to match MAC Authentication Bypass service based authentication
+        requests from wireless LAN controllers, according to the corresponding MAB
+        attributes defined in the device profile.
+  serviceName: Default Network Access
+  isProxy: false
+  link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/policy-set/c3b88114-641a-40e2-9aea-975560f4a62e
+    type: application/json
+  authentication_policy:
+  - rule:
+      default: true
+      id: 486a987f-16b9-458a-a087-381837dc64ab
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    identitySourceName: Internal Endpoints
+    ifAuthFail: REJECT
+    ifUserNotFound: CONTINUE
+    ifProcessFail: DROP
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/c3b88114-641a-40e2-9aea-975560f4a62e/authentication/486a987f-16b9-458a-a087-381837dc64ab
+      type: application/json
+  authorization_policy:
+  - rule:
+      default: false
+      id: 520de027-8c29-49ea-906e-f80b47811d87
+      name: Self Registration Aruba
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAndBlock
+        isNegate: false
+        children:
+        - link: null
+          conditionType: ConditionAttributes
+          isNegate: false
+          dictionaryName: IdentityGroup
+          attributeName: Name
+          operator: equals
+          dictionaryValue: null
+          attributeValue: Endpoint Identity Groups:GuestEndpoints
+        - link: null
+          conditionType: ConditionAttributes
+          isNegate: false
+          dictionaryName: Aruba
+          attributeName: Aruba-Essid-Name
+          operator: equals
+          dictionaryValue: null
+          attributeValue: AZGUEST
+    profile:
+    - AZGUEST_Aruba_Internet
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/c3b88114-641a-40e2-9aea-975560f4a62e/authorization/520de027-8c29-49ea-906e-f80b47811d87
+      type: application/json
+  - rule:
+      default: false
+      id: 186d7c55-c1d6-4733-bcfc-4d8096627bdd
+      name: Self Registration Aruba_Guest
+      hitCounts: 0
+      rank: 1
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAndBlock
+        isNegate: false
+        children:
+        - link: null
+          conditionType: ConditionAttributes
+          isNegate: false
+          dictionaryName: IdentityGroup
+          attributeName: Name
+          operator: equals
+          dictionaryValue: null
+          attributeValue: Endpoint Identity Groups:GuestEndpoints
+        - link: null
+          conditionType: ConditionAttributes
+          isNegate: false
+          dictionaryName: Aruba
+          attributeName: Aruba-Essid-Name
+          operator: equals
+          dictionaryValue: null
+          attributeValue: Guest
+    profile:
+    - AZGUEST_Aruba_Internet
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/c3b88114-641a-40e2-9aea-975560f4a62e/authorization/186d7c55-c1d6-4733-bcfc-4d8096627bdd
+      type: application/json
+  - rule:
+      default: false
+      id: 71abe585-f854-4f77-a6af-007e027e35c9
+      name: Aruba CWA
+      hitCounts: 0
+      rank: 2
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionOrBlock
+        isNegate: false
+        children:
+        - link: null
+          conditionType: ConditionAttributes
+          isNegate: false
+          dictionaryName: Aruba
+          attributeName: Aruba-Essid-Name
+          operator: equals
+          dictionaryValue: null
+          attributeValue: AZGUEST
+        - link: null
+          conditionType: ConditionAttributes
+          isNegate: false
+          dictionaryName: Aruba
+          attributeName: Aruba-Essid-Name
+          operator: equals
+          dictionaryValue: null
+          attributeValue: Guest
+    profile:
+    - AZGUEST_Aruba_CWA
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/c3b88114-641a-40e2-9aea-975560f4a62e/authorization/71abe585-f854-4f77-a6af-007e027e35c9
+      type: application/json
+  - rule:
+      default: true
+      id: 6645dae5-c966-4033-80e5-565d407a9f2f
+      name: Default
+      hitCounts: 0
+      rank: 3
+      state: enabled
+      condition: null
+    profile:
+    - DenyAccess
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/c3b88114-641a-40e2-9aea-975560f4a62e/authorization/6645dae5-c966-4033-80e5-565d407a9f2f
+      type: application/json
+- default: false
+  id: da3487c3-2330-4c9e-972b-2c48724f532d
+  name: Wired_MAB
+  description: Empty string
+  hitCounts: 0
+  rank: 2
+  state: enabled
+  condition:
+    link: null
+    conditionType: ConditionAndBlock
+    isNegate: false
+    children:
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: DEVICE
+      attributeName: Device Type
+      operator: equals
+      dictionaryValue: null
+      attributeValue: All Device Types#Access_SW
+    - link: null
+      conditionType: ConditionReference
+      isNegate: false
+      name: Wired_MAB
+      id: e113747e-5663-4c09-8d2f-9a5ca856d699
+      description: A condition to match MAC Authentication Bypass service based authentication
+        requests from switches, according to the corresponding MAB attributes defined
+        in the device profile.
+  serviceName: AMZN_MAB
+  isProxy: false
+  link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/policy-set/da3487c3-2330-4c9e-972b-2c48724f532d
+    type: application/json
+  authentication_policy:
+  - rule:
+      default: true
+      id: 4685a217-a48e-496a-89c3-a7d388152548
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    identitySourceName: Internal Endpoints
+    ifAuthFail: REJECT
+    ifUserNotFound: REJECT
+    ifProcessFail: DROP
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/da3487c3-2330-4c9e-972b-2c48724f532d/authentication/4685a217-a48e-496a-89c3-a7d388152548
+      type: application/json
+  authorization_policy:
+  - rule:
+      default: false
+      id: 9a7786de-a9af-4a08-b8c5-71984af19f1f
+      name: CORP_Exception
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionReference
+        isNegate: false
+        name: CORP_Exception
+        id: 69051cfa-bce9-4219-b981-40f2f4401bdc
+        description: null
+    profile:
+    - CORP_EXCEPTION
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/da3487c3-2330-4c9e-972b-2c48724f532d/authorization/9a7786de-a9af-4a08-b8c5-71984af19f1f
+      type: application/json
+  - rule:
+      default: false
+      id: 266ca818-e1d3-41a8-9984-b731d7562095
+      name: LAB_Devices
+      hitCounts: 0
+      rank: 1
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionReference
+        isNegate: false
+        name: LAB_Devices_API
+        id: 3db476a7-f0a9-410b-abeb-0aa44e675767
+        description: null
+    profile:
+    - LAB_ACCESS
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/da3487c3-2330-4c9e-972b-2c48724f532d/authorization/266ca818-e1d3-41a8-9984-b731d7562095
+      type: application/json
+  - rule:
+      default: false
+      id: 8b8319e7-093a-4507-ae2d-da542cc64bb0
+      name: INFRA_AV
+      hitCounts: 0
+      rank: 2
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionReference
+        isNegate: false
+        name: INFRA_AV
+        id: 41af1079-d419-45e2-8f1a-b32028d233a3
+        description: null
+    profile:
+    - INFRA_ACCESS
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/da3487c3-2330-4c9e-972b-2c48724f532d/authorization/8b8319e7-093a-4507-ae2d-da542cc64bb0
+      type: application/json
+  - rule:
+      default: false
+      id: 31af8d62-7504-4fec-9b0b-9cbe7af089db
+      name: INFRA_TWITCH
+      hitCounts: 0
+      rank: 3
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionReference
+        isNegate: false
+        name: Twitch_INFRA
+        id: 60f81ab8-b38b-4573-aa70-6aea8ba7fdb8
+        description: null
+    profile:
+    - INFRA_ACCESS
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/da3487c3-2330-4c9e-972b-2c48724f532d/authorization/31af8d62-7504-4fec-9b0b-9cbe7af089db
+      type: application/json
+  - rule:
+      default: false
+      id: 04fd4641-dfcb-4d0c-96bb-4c1d7bcc0bdd
+      name: INFRA_A9IT
+      hitCounts: 0
+      rank: 4
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionReference
+        isNegate: false
+        name: INFRA_A9IT_API
+        id: fe36bcaf-ef17-47d5-92ab-8868ac3de9d1
+        description: null
+    profile:
+    - INFRA_ACCESS
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/da3487c3-2330-4c9e-972b-2c48724f532d/authorization/04fd4641-dfcb-4d0c-96bb-4c1d7bcc0bdd
+      type: application/json
+  - rule:
+      default: false
+      id: 011cb7d4-48de-49cf-a97a-fe39a21a27a1
+      name: INFRA_ACS
+      hitCounts: 0
+      rank: 5
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionReference
+        isNegate: false
+        name: INFRA_ACS
+        id: 1219856a-baaf-4d2b-a4a5-53c6c8778ca9
+        description: null
+    profile:
+    - INFRA_ACCESS
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/da3487c3-2330-4c9e-972b-2c48724f532d/authorization/011cb7d4-48de-49cf-a97a-fe39a21a27a1
+      type: application/json
+  - rule:
+      default: false
+      id: 489758e2-7c53-4d96-885f-3611d10f885c
+      name: INFRA_IT
+      hitCounts: 0
+      rank: 6
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionReference
+        isNegate: false
+        name: INFRA_IT_API
+        id: abf5198b-8aa9-4e12-8d95-93e9c5c38e82
+        description: null
+    profile:
+    - INFRA_ACCESS
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/da3487c3-2330-4c9e-972b-2c48724f532d/authorization/489758e2-7c53-4d96-885f-3611d10f885c
+      type: application/json
+  - rule:
+      default: false
+      id: 7bb91e82-ce14-42e4-a2a2-06e3e2bbba2a
+      name: INFRA_CIS
+      hitCounts: 0
+      rank: 7
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionReference
+        isNegate: false
+        name: INFRA_CIS_API
+        id: 67a0526e-3b77-447d-afa7-1a85af5df608
+        description: null
+    profile:
+    - INFRA_ACCESS
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/da3487c3-2330-4c9e-972b-2c48724f532d/authorization/7bb91e82-ce14-42e4-a2a2-06e3e2bbba2a
+      type: application/json
+  - rule:
+      default: false
+      id: df13d574-421e-4e45-a46e-609cc801e1b6
+      name: INFRA_EE
+      hitCounts: 0
+      rank: 8
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionReference
+        isNegate: false
+        name: INFRA_EE_API
+        id: 3b2317d0-1b6d-465f-8a9a-dc7d1124f410
+        description: null
+    profile:
+    - INFRA_ACCESS
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/da3487c3-2330-4c9e-972b-2c48724f532d/authorization/df13d574-421e-4e45-a46e-609cc801e1b6
+      type: application/json
+  - rule:
+      default: false
+      id: 49dbb6f9-aada-4671-be12-7dccf7171a0b
+      name: INFRA_Legal
+      hitCounts: 0
+      rank: 9
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionReference
+        isNegate: false
+        name: INFRA_Legal_API
+        id: 7e8e9d23-4a52-487f-a3da-616560dcb84d
+        description: null
+    profile:
+    - INFRA_ACCESS
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/da3487c3-2330-4c9e-972b-2c48724f532d/authorization/49dbb6f9-aada-4671-be12-7dccf7171a0b
+      type: application/json
+  - rule:
+      default: false
+      id: 8927afeb-2f0d-4cca-b33b-0df1e15e1f26
+      name: INFRA_GREF
+      hitCounts: 0
+      rank: 10
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionReference
+        isNegate: false
+        name: INFRA_GREF_API
+        id: 1db9a5cf-5504-4926-9960-3aac912aed75
+        description: null
+    profile:
+    - INFRA_ACCESS
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/da3487c3-2330-4c9e-972b-2c48724f532d/authorization/8927afeb-2f0d-4cca-b33b-0df1e15e1f26
+      type: application/json
+  - rule:
+      default: false
+      id: 3eb8cb4a-ab3a-4290-8c2e-525e9be982bd
+      name: INFRA_UC
+      hitCounts: 0
+      rank: 11
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionReference
+        isNegate: false
+        name: INFRA_UC
+        id: 5e040f68-6b3b-4308-a4d0-ccf25eb30a51
+        description: null
+    profile:
+    - INFRA_ACCESS
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/da3487c3-2330-4c9e-972b-2c48724f532d/authorization/3eb8cb4a-ab3a-4290-8c2e-525e9be982bd
+      type: application/json
+  - rule:
+      default: false
+      id: ee991ece-5540-4a09-ba17-8f84c84ce1df
+      name: INFRA_ADC
+      hitCounts: 0
+      rank: 12
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionReference
+        isNegate: false
+        name: ADC
+        id: 9be14f15-66fb-44bb-9e6e-1d33ded5ea7b
+        description: null
+    profile:
+    - INFRA_ACCESS
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/da3487c3-2330-4c9e-972b-2c48724f532d/authorization/ee991ece-5540-4a09-ba17-8f84c84ce1df
+      type: application/json
+  - rule:
+      default: false
+      id: 3df46867-1462-4fb0-b24a-625a7264b397
+      name: AMZN_LAB_ACCESS
+      hitCounts: 0
+      rank: 13
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: IdentityGroup
+        attributeName: Name
+        operator: equals
+        dictionaryValue: null
+        attributeValue: Endpoint Identity Groups:NARC_Lab_AmazonManagedClients
+    profile:
+    - LAB_ACCESS
+    securityGroup: Guests
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/da3487c3-2330-4c9e-972b-2c48724f532d/authorization/3df46867-1462-4fb0-b24a-625a7264b397
+      type: application/json
+  - rule:
+      default: false
+      id: fe8c1bba-80a6-4996-8a29-f394321f5213
+      name: AMZN_NETWORK_POLICY
+      hitCounts: 0
+      rank: 14
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: EndPoints
+        attributeName: LogicalProfile
+        operator: equals
+        dictionaryValue: null
+        attributeValue: AMZN_NETWORK
+    profile:
+    - CORP_EXCEPTION
+    securityGroup: CORP_EXCEPTION_SGT
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/da3487c3-2330-4c9e-972b-2c48724f532d/authorization/fe8c1bba-80a6-4996-8a29-f394321f5213
+      type: application/json
+  - rule:
+      default: false
+      id: 91a13453-6906-44fe-8a4d-3f735fe2ef6d
+      name: AMZN_PRINT_RICOH_MFP
+      hitCounts: 0
+      rank: 15
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: EndPoints
+        attributeName: EndPointPolicy
+        operator: equals
+        dictionaryValue: null
+        attributeValue: 37320d60-17a2-11eb-986d-8ab0296b08e9
+    profile:
+    - CORP_EXCEPTION
+    securityGroup: AMZN_PRINT
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/da3487c3-2330-4c9e-972b-2c48724f532d/authorization/91a13453-6906-44fe-8a4d-3f735fe2ef6d
+      type: application/json
+  - rule:
+      default: false
+      id: 07600cb3-9d93-4059-9b5e-fb7fc7881bd0
+      name: AMZN_RICOH_MFP_CORP
+      hitCounts: 0
+      rank: 16
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: EndPoints
+        attributeName: LogicalProfile
+        operator: equals
+        dictionaryValue: null
+        attributeValue: AMZN_PRINT_RICOH
+    profile:
+    - CORP_EXCEPTION
+    securityGroup: AMZN_PRINT
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/da3487c3-2330-4c9e-972b-2c48724f532d/authorization/07600cb3-9d93-4059-9b5e-fb7fc7881bd0
+      type: application/json
+  - rule:
+      default: false
+      id: c6ed7c16-c8d9-4271-ba3e-94bc35f1e61a
+      name: AMZN_PRINT_POLICY
+      hitCounts: 0
+      rank: 17
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: EndPoints
+        attributeName: LogicalProfile
+        operator: equals
+        dictionaryValue: null
+        attributeValue: AMZN_PRINT
+    profile:
+    - INFRA_ACCESS
+    securityGroup: AMZN_PRINT
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/da3487c3-2330-4c9e-972b-2c48724f532d/authorization/c6ed7c16-c8d9-4271-ba3e-94bc35f1e61a
+      type: application/json
+  - rule:
+      default: false
+      id: d01e0f59-f7a2-4d77-b8d2-bdce26ccea14
+      name: AMZN_BMS_POLICY
+      hitCounts: 0
+      rank: 18
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: EndPoints
+        attributeName: LogicalProfile
+        operator: equals
+        dictionaryValue: null
+        attributeValue: AMZN_BMS
+    profile:
+    - INFRA_ACCESS
+    securityGroup: AMZN_BMS
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/da3487c3-2330-4c9e-972b-2c48724f532d/authorization/d01e0f59-f7a2-4d77-b8d2-bdce26ccea14
+      type: application/json
+  - rule:
+      default: false
+      id: 7fb22156-53f3-4654-bf40-7891af80e60b
+      name: AMZN_VENDING_POLICY
+      hitCounts: 0
+      rank: 19
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: EndPoints
+        attributeName: LogicalProfile
+        operator: equals
+        dictionaryValue: null
+        attributeValue: AMZN_VENDING
+    profile:
+    - INFRA_ACCESS
+    securityGroup: AMZN_VENDING
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/da3487c3-2330-4c9e-972b-2c48724f532d/authorization/7fb22156-53f3-4654-bf40-7891af80e60b
+      type: application/json
+  - rule:
+      default: false
+      id: 2bb1fbf6-2f4e-4af2-9499-99d67484dd97
+      name: AMZN_SIP_PHONE_POLICY
+      hitCounts: 0
+      rank: 20
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: EndPoints
+        attributeName: LogicalProfile
+        operator: equals
+        dictionaryValue: null
+        attributeValue: AMZN_SIP
+    profile:
+    - INFRA_ACCESS
+    securityGroup: AMZN_SIP
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/da3487c3-2330-4c9e-972b-2c48724f532d/authorization/2bb1fbf6-2f4e-4af2-9499-99d67484dd97
+      type: application/json
+  - rule:
+      default: false
+      id: 3b887d1b-c571-4aa2-b475-ad3c26eee280
+      name: AMZN_SECURITY_CAMERAS_POLICY
+      hitCounts: 0
+      rank: 21
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: EndPoints
+        attributeName: LogicalProfile
+        operator: equals
+        dictionaryValue: null
+        attributeValue: AMZN_SECURITY_CAMERAS
+    profile:
+    - INFRA_ACCESS
+    securityGroup: AMZN_SECURITY_CAMERAS
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/da3487c3-2330-4c9e-972b-2c48724f532d/authorization/3b887d1b-c571-4aa2-b475-ad3c26eee280
+      type: application/json
+  - rule:
+      default: false
+      id: aa9a2db0-eb4e-420b-bf73-5cee02bf231d
+      name: AMZN_SECURITY_CONTROLLER_POLICY
+      hitCounts: 0
+      rank: 22
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: EndPoints
+        attributeName: LogicalProfile
+        operator: equals
+        dictionaryValue: null
+        attributeValue: AMZN_SECURITY_CONTROLLER
+    profile:
+    - INFRA_ACCESS
+    securityGroup: AMZN_SECURITY_CONTROLLER
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/da3487c3-2330-4c9e-972b-2c48724f532d/authorization/aa9a2db0-eb4e-420b-bf73-5cee02bf231d
+      type: application/json
+  - rule:
+      default: false
+      id: 8cc3648c-2324-4d6d-b260-7cfced3302bc
+      name: AMZN_AV_VC_POLICY
+      hitCounts: 0
+      rank: 23
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: EndPoints
+        attributeName: LogicalProfile
+        operator: equals
+        dictionaryValue: null
+        attributeValue: AMZN_AV_VC
+    profile:
+    - INFRA_ACCESS
+    securityGroup: AMZN_AV_VC
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/da3487c3-2330-4c9e-972b-2c48724f532d/authorization/8cc3648c-2324-4d6d-b260-7cfced3302bc
+      type: application/json
+  - rule:
+      default: false
+      id: 2913dfc5-a943-4afc-9ba4-a7754be8dab6
+      name: AMZN_INFRA_EXCEPTION
+      hitCounts: 0
+      rank: 24
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: IdentityGroup
+        attributeName: Name
+        operator: equals
+        dictionaryValue: null
+        attributeValue: Endpoint Identity Groups:AMZN_INFRA_EXCEPTION
+    profile:
+    - INFRA_ACCESS
+    securityGroup: Unknown
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/da3487c3-2330-4c9e-972b-2c48724f532d/authorization/2913dfc5-a943-4afc-9ba4-a7754be8dab6
+      type: application/json
+  - rule:
+      default: false
+      id: 36aaa3b4-c1d3-4a37-af3a-ab18b59ea505
+      name: AMZN_CORP_EXCEPTION
+      hitCounts: 0
+      rank: 25
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionReference
+        isNegate: false
+        name: CORP_Exception
+        id: 69051cfa-bce9-4219-b981-40f2f4401bdc
+        description: null
+    profile:
+    - CORP_EXCEPTION
+    securityGroup: Unknown
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/da3487c3-2330-4c9e-972b-2c48724f532d/authorization/36aaa3b4-c1d3-4a37-af3a-ab18b59ea505
+      type: application/json
+  - rule:
+      default: false
+      id: 84ed0f0a-2bf0-4797-ac84-1e6448132bf7
+      name: AMZN_INFRA_ACCESS
+      hitCounts: 0
+      rank: 26
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionOrBlock
+        isNegate: false
+        children:
+        - link: null
+          conditionType: ConditionReference
+          isNegate: false
+          name: INFRA_ACS
+          id: 1219856a-baaf-4d2b-a4a5-53c6c8778ca9
+          description: null
+        - link: null
+          conditionType: ConditionReference
+          isNegate: false
+          name: INFRA_A9IT_API
+          id: fe36bcaf-ef17-47d5-92ab-8868ac3de9d1
+          description: null
+    profile:
+    - INFRA_ACCESS
+    securityGroup: Unknown
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/da3487c3-2330-4c9e-972b-2c48724f532d/authorization/84ed0f0a-2bf0-4797-ac84-1e6448132bf7
+      type: application/json
+  - rule:
+      default: true
+      id: eaebbe49-b063-493c-b28f-ce8cdb4b4ef7
+      name: Default
+      hitCounts: 0
+      rank: 27
+      state: enabled
+      condition: null
+    profile:
+    - GUEST_ACCESS
+    securityGroup: GUEST_NETWORK_SGT
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/da3487c3-2330-4c9e-972b-2c48724f532d/authorization/eaebbe49-b063-493c-b28f-ce8cdb4b4ef7
+      type: application/json
+- default: false
+  id: 7df6d1e6-b11e-4d8d-af46-6acfd6cd4b6c
+  name: Wireless_802.1X
+  description: Empty string
+  hitCounts: 0
+  rank: 3
+  state: enabled
+  condition:
+    link: null
+    conditionType: ConditionAndBlock
+    isNegate: false
+    children:
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: DEVICE
+      attributeName: Device Type
+      operator: equals
+      dictionaryValue: null
+      attributeValue: All Device Types#Wireless_Controller
+    - link: null
+      conditionType: ConditionReference
+      isNegate: false
+      name: Wireless_802.1X
+      id: 07ed7ca9-9081-4593-ab0c-4a135ac40f5e
+      description: A condition to match 802.1X based authentication requests from
+        wireless LAN controllers, according to the corresponding 802.1x attributes
+        defined in the device profile.
+  serviceName: AMZN_EAP-TLS
+  isProxy: false
+  link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/policy-set/7df6d1e6-b11e-4d8d-af46-6acfd6cd4b6c
+    type: application/json
+  authentication_policy:
+  - rule:
+      default: false
+      id: fa51a9d6-7beb-4a4c-a75e-7e05701403ec
+      name: Wired_Laptops
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: CERTIFICATE
+        attributeName: Issuer - Common Name
+        operator: contains
+        dictionaryValue: null
+        attributeValue: Amazon.com CIA
+    identitySourceName: AMZN_EAP_TLS_Wireless
+    ifAuthFail: REJECT
+    ifUserNotFound: REJECT
+    ifProcessFail: DROP
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/7df6d1e6-b11e-4d8d-af46-6acfd6cd4b6c/authentication/fa51a9d6-7beb-4a4c-a75e-7e05701403ec
+      type: application/json
+  - rule:
+      default: false
+      id: 059f90a6-3dad-4acb-bdf7-99461cf36122
+      name: Wired_Laptops_G5
+      hitCounts: 0
+      rank: 1
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: CERTIFICATE
+        attributeName: Issuer - Common Name
+        operator: contains
+        dictionaryValue: null
+        attributeValue: CIA-CRT-G5
+    identitySourceName: AMZN_EAP_TLS_Wireless
+    ifAuthFail: REJECT
+    ifUserNotFound: REJECT
+    ifProcessFail: DROP
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/7df6d1e6-b11e-4d8d-af46-6acfd6cd4b6c/authentication/059f90a6-3dad-4acb-bdf7-99461cf36122
+      type: application/json
+  - rule:
+      default: true
+      id: f7bd0d54-c07b-47eb-889a-eb4feffffb38
+      name: Default
+      hitCounts: 0
+      rank: 2
+      state: enabled
+      condition: null
+    identitySourceName: AMZN_EAP_TLS
+    ifAuthFail: REJECT
+    ifUserNotFound: CONTINUE
+    ifProcessFail: DROP
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/7df6d1e6-b11e-4d8d-af46-6acfd6cd4b6c/authentication/f7bd0d54-c07b-47eb-889a-eb4feffffb38
+      type: application/json
+  authorization_policy:
+  - rule:
+      default: false
+      id: 09324a6d-bbfe-4196-b058-032de85c44c2
+      name: AMZN_CSOS_POLICY
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAndBlock
+        isNegate: false
+        children:
+        - link: null
+          conditionType: ConditionAttributes
+          isNegate: false
+          dictionaryName: CERTIFICATE
+          attributeName: Issuer - Common Name
+          operator: contains
+          dictionaryValue: null
+          attributeValue: CSOS 802.1x Intermediate
+        - link: null
+          conditionType: ConditionAttributes
+          isNegate: false
+          dictionaryName: CERTIFICATE
+          attributeName: Is Expired
+          operator: equals
+          dictionaryValue: null
+          attributeValue: 'false'
+    profile:
+    - Wireless_CLIENT_ACCESS
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/7df6d1e6-b11e-4d8d-af46-6acfd6cd4b6c/authorization/09324a6d-bbfe-4196-b058-032de85c44c2
+      type: application/json
+  - rule:
+      default: false
+      id: 2d2581dc-7d51-4e71-8d16-19b093ad317d
+      name: AMZN_COMPUTER_POLICY_G5
+      hitCounts: 0
+      rank: 1
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionOrBlock
+        isNegate: false
+        children:
+        - link: null
+          conditionType: ConditionAndBlock
+          isNegate: false
+          children:
+          - link: null
+            conditionType: ConditionAttributes
+            isNegate: false
+            dictionaryName: CERTIFICATE
+            attributeName: Issuer - Common Name
+            operator: contains
+            dictionaryValue: null
+            attributeValue: Amazon.com CIA
+          - link: null
+            conditionType: ConditionAttributes
+            isNegate: false
+            dictionaryName: CERTIFICATE
+            attributeName: Is Expired
+            operator: equals
+            dictionaryValue: null
+            attributeValue: 'false'
+        - link: null
+          conditionType: ConditionAndBlock
+          isNegate: false
+          children:
+          - link: null
+            conditionType: ConditionAttributes
+            isNegate: false
+            dictionaryName: CERTIFICATE
+            attributeName: Issuer - Common Name
+            operator: contains
+            dictionaryValue: null
+            attributeValue: CIA-CRT-G5
+          - link: null
+            conditionType: ConditionAttributes
+            isNegate: false
+            dictionaryName: CERTIFICATE
+            attributeName: Is Expired
+            operator: equals
+            dictionaryValue: null
+            attributeValue: 'false'
+    profile:
+    - Wireless_CLIENT_ACCESS
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/7df6d1e6-b11e-4d8d-af46-6acfd6cd4b6c/authorization/2d2581dc-7d51-4e71-8d16-19b093ad317d
+      type: application/json
+  - rule:
+      default: false
+      id: 5b6efa71-7051-47c2-90b6-8e8e2392978f
+      name: AMZN_COMPUTER_POLICY
+      hitCounts: 0
+      rank: 2
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAndBlock
+        isNegate: false
+        children:
+        - link: null
+          conditionType: ConditionAttributes
+          isNegate: false
+          dictionaryName: CERTIFICATE
+          attributeName: Issuer - Common Name
+          operator: contains
+          dictionaryValue: null
+          attributeValue: Amazon.com CIA
+        - link: null
+          conditionType: ConditionAttributes
+          isNegate: false
+          dictionaryName: CERTIFICATE
+          attributeName: Is Expired
+          operator: equals
+          dictionaryValue: null
+          attributeValue: 'false'
+    profile:
+    - Wireless_CLIENT_ACCESS
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/7df6d1e6-b11e-4d8d-af46-6acfd6cd4b6c/authorization/5b6efa71-7051-47c2-90b6-8e8e2392978f
+      type: application/json
+  - rule:
+      default: true
+      id: 1f205c43-99f7-4509-8ac2-231057a8c70f
+      name: Default
+      hitCounts: 0
+      rank: 3
+      state: enabled
+      condition: null
+    profile:
+    - DenyAccess
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/7df6d1e6-b11e-4d8d-af46-6acfd6cd4b6c/authorization/1f205c43-99f7-4509-8ac2-231057a8c70f
+      type: application/json
+- default: false
+  id: ee392489-15c5-4d32-9eb9-c98a1177e7a9
+  name: Wired_802.1X
+  description: Empty string
+  hitCounts: 0
+  rank: 4
+  state: enabled
+  condition:
+    link: null
+    conditionType: ConditionAndBlock
+    isNegate: false
+    children:
+    - link: null
+      conditionType: ConditionReference
+      isNegate: false
+      name: Wired_802.1X
+      id: 61041d6d-b460-4990-8d45-085eb53d069f
+      description: A condition to match 802.1X based authentication requests from
+        switches, according to the corresponding 802.1x attributes defined in the
+        device profile.
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: DEVICE
+      attributeName: Device Type
+      operator: equals
+      dictionaryValue: null
+      attributeValue: All Device Types#Access_SW
+  serviceName: AMZN_EAP-TLS
+  isProxy: false
+  link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/policy-set/ee392489-15c5-4d32-9eb9-c98a1177e7a9
+    type: application/json
+  authentication_policy:
+  - rule:
+      default: false
+      id: b790897b-fff2-4fd9-b8ea-29f1ed34437c
+      name: Wired_Laptops
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: CERTIFICATE
+        attributeName: Issuer
+        operator: equals
+        dictionaryValue: null
+        attributeValue: Amazon.com CIA
+    identitySourceName: AMZN_EAP_TLS_Wireless
+    ifAuthFail: REJECT
+    ifUserNotFound: REJECT
+    ifProcessFail: DROP
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/ee392489-15c5-4d32-9eb9-c98a1177e7a9/authentication/b790897b-fff2-4fd9-b8ea-29f1ed34437c
+      type: application/json
+  - rule:
+      default: false
+      id: cb7aea5e-4dc7-4a2c-9d65-5d6e2c2e4bad
+      name: Wired_Laptops_copy
+      hitCounts: 0
+      rank: 1
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: CERTIFICATE
+        attributeName: Issuer
+        operator: contains
+        dictionaryValue: null
+        attributeValue: CIA-CRT-G5
+    identitySourceName: AMZN_EAP_TLS_Wireless
+    ifAuthFail: REJECT
+    ifUserNotFound: REJECT
+    ifProcessFail: DROP
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/ee392489-15c5-4d32-9eb9-c98a1177e7a9/authentication/cb7aea5e-4dc7-4a2c-9d65-5d6e2c2e4bad
+      type: application/json
+  - rule:
+      default: true
+      id: 53afcf45-fae8-4df4-95ab-b6b545538079
+      name: Default
+      hitCounts: 0
+      rank: 2
+      state: enabled
+      condition: null
+    identitySourceName: AMZN_EAP_TLS
+    ifAuthFail: REJECT
+    ifUserNotFound: REJECT
+    ifProcessFail: DROP
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/ee392489-15c5-4d32-9eb9-c98a1177e7a9/authentication/53afcf45-fae8-4df4-95ab-b6b545538079
+      type: application/json
+  authorization_policy:
+  - rule:
+      default: false
+      id: de7627b3-8b39-4e8b-bfe0-5bd1f51360c1
+      name: AV_VC_POLICY_Meetx_CorpException
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAndBlock
+        isNegate: false
+        children:
+        - link: null
+          conditionType: ConditionAttributes
+          isNegate: false
+          dictionaryName: CERTIFICATE
+          attributeName: Is Expired
+          operator: equals
+          dictionaryValue: null
+          attributeValue: 'false'
+        - link: null
+          conditionType: ConditionAttributes
+          isNegate: false
+          dictionaryName: CERTIFICATE
+          attributeName: Issuer - Common Name
+          operator: contains
+          dictionaryValue: null
+          attributeValue: meetex-sub-ca-prod
+        - link: null
+          conditionType: ConditionReference
+          isNegate: false
+          name: CORP_Exception
+          id: 69051cfa-bce9-4219-b981-40f2f4401bdc
+          description: null
+    profile:
+    - CORP_EXCEPTION
+    securityGroup: AMZN_AV_VC
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/ee392489-15c5-4d32-9eb9-c98a1177e7a9/authorization/de7627b3-8b39-4e8b-bfe0-5bd1f51360c1
+      type: application/json
+  - rule:
+      default: false
+      id: 916de8ad-3931-413b-9122-e8b811b41680
+      name: AMZN_AV_VC_POLICY
+      hitCounts: 0
+      rank: 1
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAndBlock
+        isNegate: false
+        children:
+        - link: null
+          conditionType: ConditionAttributes
+          isNegate: false
+          dictionaryName: EndPoints
+          attributeName: EndPointPolicy
+          operator: equals
+          dictionaryValue: null
+          attributeValue: 33648aa0-17a2-11eb-986d-8ab0296b08e9
+        - link: null
+          conditionType: ConditionAttributes
+          isNegate: false
+          dictionaryName: CERTIFICATE
+          attributeName: Is Expired
+          operator: equals
+          dictionaryValue: null
+          attributeValue: 'false'
+        - link: null
+          conditionType: ConditionAttributes
+          isNegate: false
+          dictionaryName: CERTIFICATE
+          attributeName: Issuer
+          operator: contains
+          dictionaryValue: null
+          attributeValue: meetings.amazon.com
+    profile:
+    - INFRA_ACCESS
+    securityGroup: AMZN_AV_VC
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/ee392489-15c5-4d32-9eb9-c98a1177e7a9/authorization/916de8ad-3931-413b-9122-e8b811b41680
+      type: application/json
+  - rule:
+      default: false
+      id: 9b24d0e0-a444-439b-ac3b-99e41018ba66
+      name: AV_VC_POLICY_Meetx
+      hitCounts: 0
+      rank: 2
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAndBlock
+        isNegate: false
+        children:
+        - link: null
+          conditionType: ConditionAttributes
+          isNegate: false
+          dictionaryName: IdentityGroup
+          attributeName: Name
+          operator: equals
+          dictionaryValue: null
+          attributeValue: Endpoint Identity Groups:NARC_AV_Codecs
+        - link: null
+          conditionType: ConditionAttributes
+          isNegate: false
+          dictionaryName: CERTIFICATE
+          attributeName: Is Expired
+          operator: equals
+          dictionaryValue: null
+          attributeValue: 'false'
+        - link: null
+          conditionType: ConditionAttributes
+          isNegate: false
+          dictionaryName: CERTIFICATE
+          attributeName: Issuer - Common Name
+          operator: contains
+          dictionaryValue: null
+          attributeValue: meetex-sub-ca-prod
+    profile:
+    - INFRA_ACCESS
+    securityGroup: AMZN_AV_VC
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/ee392489-15c5-4d32-9eb9-c98a1177e7a9/authorization/9b24d0e0-a444-439b-ac3b-99e41018ba66
+      type: application/json
+  - rule:
+      default: false
+      id: 3e61c6f8-b386-44dd-9af1-31e531005817
+      name: AMZN_AV_VC_POLICY_Meetx
+      hitCounts: 0
+      rank: 3
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAndBlock
+        isNegate: false
+        children:
+        - link: null
+          conditionType: ConditionAttributes
+          isNegate: false
+          dictionaryName: EndPoints
+          attributeName: EndPointPolicy
+          operator: equals
+          dictionaryValue: null
+          attributeValue: 33648aa0-17a2-11eb-986d-8ab0296b08e9
+        - link: null
+          conditionType: ConditionAttributes
+          isNegate: false
+          dictionaryName: CERTIFICATE
+          attributeName: Is Expired
+          operator: equals
+          dictionaryValue: null
+          attributeValue: 'false'
+        - link: null
+          conditionType: ConditionAttributes
+          isNegate: false
+          dictionaryName: CERTIFICATE
+          attributeName: Issuer - Common Name
+          operator: contains
+          dictionaryValue: null
+          attributeValue: meetex-sub-ca-prod
+    profile:
+    - INFRA_ACCESS
+    securityGroup: AMZN_AV_VC
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/ee392489-15c5-4d32-9eb9-c98a1177e7a9/authorization/3e61c6f8-b386-44dd-9af1-31e531005817
+      type: application/json
+  - rule:
+      default: false
+      id: aead8c42-881f-4f05-8d58-8b12f30a582d
+      name: LAB_ACCESS
+      hitCounts: 0
+      rank: 4
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionOrBlock
+        isNegate: false
+        children:
+        - link: null
+          conditionType: ConditionAndBlock
+          isNegate: false
+          children:
+          - link: null
+            conditionType: ConditionAttributes
+            isNegate: false
+            dictionaryName: CERTIFICATE
+            attributeName: Issuer - Common Name
+            operator: contains
+            dictionaryValue: null
+            attributeValue: Amazon.com CIA
+          - link: null
+            conditionType: ConditionAttributes
+            isNegate: false
+            dictionaryName: CERTIFICATE
+            attributeName: Is Expired
+            operator: equals
+            dictionaryValue: null
+            attributeValue: 'false'
+          - link: null
+            conditionType: ConditionAttributes
+            isNegate: false
+            dictionaryName: IdentityGroup
+            attributeName: Name
+            operator: equals
+            dictionaryValue: null
+            attributeValue: Endpoint Identity Groups:NARC_Lab_AmazonManagedClients
+        - link: null
+          conditionType: ConditionAndBlock
+          isNegate: false
+          children:
+          - link: null
+            conditionType: ConditionAttributes
+            isNegate: false
+            dictionaryName: CERTIFICATE
+            attributeName: Issuer - Common Name
+            operator: contains
+            dictionaryValue: null
+            attributeValue: CIA-CRT-G5
+          - link: null
+            conditionType: ConditionAttributes
+            isNegate: false
+            dictionaryName: CERTIFICATE
+            attributeName: Is Expired
+            operator: equals
+            dictionaryValue: null
+            attributeValue: 'false'
+          - link: null
+            conditionType: ConditionAttributes
+            isNegate: false
+            dictionaryName: IdentityGroup
+            attributeName: Name
+            operator: equals
+            dictionaryValue: null
+            attributeValue: Endpoint Identity Groups:NARC_Lab_AmazonManagedClients
+    profile:
+    - LAB_ACCESS
+    securityGroup: AMZN_COMPUTER
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/ee392489-15c5-4d32-9eb9-c98a1177e7a9/authorization/aead8c42-881f-4f05-8d58-8b12f30a582d
+      type: application/json
+  - rule:
+      default: false
+      id: f735660a-f1ba-4808-b296-d2bcd41023cf
+      name: NARC_COMPUTER_POLICY_CORP_EXCEPTION
+      hitCounts: 0
+      rank: 5
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionOrBlock
+        isNegate: false
+        children:
+        - link: null
+          conditionType: ConditionAndBlock
+          isNegate: false
+          children:
+          - link: null
+            conditionType: ConditionAttributes
+            isNegate: false
+            dictionaryName: CERTIFICATE
+            attributeName: Issuer - Common Name
+            operator: contains
+            dictionaryValue: null
+            attributeValue: Amazon.com CIA
+          - link: null
+            conditionType: ConditionAttributes
+            isNegate: false
+            dictionaryName: CERTIFICATE
+            attributeName: Is Expired
+            operator: equals
+            dictionaryValue: null
+            attributeValue: 'false'
+          - link: null
+            conditionType: ConditionReference
+            isNegate: false
+            name: CORP_Exception
+            id: 69051cfa-bce9-4219-b981-40f2f4401bdc
+            description: null
+        - link: null
+          conditionType: ConditionAndBlock
+          isNegate: false
+          children:
+          - link: null
+            conditionType: ConditionAttributes
+            isNegate: false
+            dictionaryName: CERTIFICATE
+            attributeName: Issuer - Common Name
+            operator: contains
+            dictionaryValue: null
+            attributeValue: CIA-CRT-G5
+          - link: null
+            conditionType: ConditionAttributes
+            isNegate: false
+            dictionaryName: CERTIFICATE
+            attributeName: Is Expired
+            operator: equals
+            dictionaryValue: null
+            attributeValue: 'false'
+          - link: null
+            conditionType: ConditionReference
+            isNegate: false
+            name: CORP_Exception
+            id: 69051cfa-bce9-4219-b981-40f2f4401bdc
+            description: null
+    profile:
+    - CORP_EXCEPTION
+    securityGroup: AMZN_COMPUTER
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/ee392489-15c5-4d32-9eb9-c98a1177e7a9/authorization/f735660a-f1ba-4808-b296-d2bcd41023cf
+      type: application/json
+  - rule:
+      default: false
+      id: 57ffbc6a-1a7d-49a3-9529-86980cb1df41
+      name: AMZN_NARC_CORP
+      hitCounts: 0
+      rank: 6
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAndBlock
+        isNegate: false
+        children:
+        - link: null
+          conditionType: ConditionOrBlock
+          isNegate: false
+          children:
+          - link: null
+            conditionType: ConditionAndBlock
+            isNegate: false
+            children:
+            - link: null
+              conditionType: ConditionAttributes
+              isNegate: false
+              dictionaryName: CERTIFICATE
+              attributeName: Issuer - Common Name
+              operator: contains
+              dictionaryValue: null
+              attributeValue: Amazon.com CIA
+            - link: null
+              conditionType: ConditionAttributes
+              isNegate: false
+              dictionaryName: CERTIFICATE
+              attributeName: Is Expired
+              operator: equals
+              dictionaryValue: null
+              attributeValue: 'false'
+          - link: null
+            conditionType: ConditionAndBlock
+            isNegate: false
+            children:
+            - link: null
+              conditionType: ConditionAttributes
+              isNegate: false
+              dictionaryName: CERTIFICATE
+              attributeName: Issuer - Common Name
+              operator: contains
+              dictionaryValue: null
+              attributeValue: CIA-CRT-G5
+            - link: null
+              conditionType: ConditionAttributes
+              isNegate: false
+              dictionaryName: CERTIFICATE
+              attributeName: Is Expired
+              operator: equals
+              dictionaryValue: null
+              attributeValue: 'false'
+          - link: null
+            conditionType: ConditionAndBlock
+            isNegate: false
+            children:
+            - link: null
+              conditionType: ConditionAttributes
+              isNegate: false
+              dictionaryName: CERTIFICATE
+              attributeName: Issuer - Common Name
+              operator: contains
+              dictionaryValue: null
+              attributeValue: CSOS 802.1x Intermediate
+            - link: null
+              conditionType: ConditionAttributes
+              isNegate: false
+              dictionaryName: CERTIFICATE
+              attributeName: Is Expired
+              operator: equals
+              dictionaryValue: null
+              attributeValue: 'false'
+        - link: null
+          conditionType: ConditionAttributes
+          isNegate: false
+          dictionaryName: IdentityGroup
+          attributeName: Name
+          operator: equals
+          dictionaryValue: null
+          attributeValue: Endpoint Identity Groups:NARC_CORP_Devices
+    profile:
+    - CORP_EXCEPTION
+    securityGroup: AMZN_COMPUTER
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/ee392489-15c5-4d32-9eb9-c98a1177e7a9/authorization/57ffbc6a-1a7d-49a3-9529-86980cb1df41
+      type: application/json
+  - rule:
+      default: false
+      id: 1fd3b04c-2bef-48f9-ae9d-4dae5a9d9608
+      name: AMZN_NARC_LAB
+      hitCounts: 0
+      rank: 7
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAndBlock
+        isNegate: false
+        children:
+        - link: null
+          conditionType: ConditionOrBlock
+          isNegate: false
+          children:
+          - link: null
+            conditionType: ConditionAndBlock
+            isNegate: false
+            children:
+            - link: null
+              conditionType: ConditionAttributes
+              isNegate: false
+              dictionaryName: CERTIFICATE
+              attributeName: Issuer - Common Name
+              operator: contains
+              dictionaryValue: null
+              attributeValue: Amazon.com CIA
+            - link: null
+              conditionType: ConditionAttributes
+              isNegate: false
+              dictionaryName: CERTIFICATE
+              attributeName: Is Expired
+              operator: equals
+              dictionaryValue: null
+              attributeValue: 'false'
+          - link: null
+            conditionType: ConditionAndBlock
+            isNegate: false
+            children:
+            - link: null
+              conditionType: ConditionAttributes
+              isNegate: false
+              dictionaryName: CERTIFICATE
+              attributeName: Issuer - Common Name
+              operator: contains
+              dictionaryValue: null
+              attributeValue: CIA-CRT-G5
+            - link: null
+              conditionType: ConditionAttributes
+              isNegate: false
+              dictionaryName: CERTIFICATE
+              attributeName: Is Expired
+              operator: equals
+              dictionaryValue: null
+              attributeValue: 'false'
+          - link: null
+            conditionType: ConditionAndBlock
+            isNegate: false
+            children:
+            - link: null
+              conditionType: ConditionAttributes
+              isNegate: false
+              dictionaryName: CERTIFICATE
+              attributeName: Issuer - Common Name
+              operator: contains
+              dictionaryValue: null
+              attributeValue: CSOS 802.1x Intermediate
+            - link: null
+              conditionType: ConditionAttributes
+              isNegate: false
+              dictionaryName: CERTIFICATE
+              attributeName: Is Expired
+              operator: equals
+              dictionaryValue: null
+              attributeValue: 'false'
+        - link: null
+          conditionType: ConditionAttributes
+          isNegate: false
+          dictionaryName: IdentityGroup
+          attributeName: Name
+          operator: equals
+          dictionaryValue: null
+          attributeValue: Endpoint Identity Groups:NARC_Lab_Devices
+    profile:
+    - LAB_ACCESS
+    securityGroup: AMZN_COMPUTER
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/ee392489-15c5-4d32-9eb9-c98a1177e7a9/authorization/1fd3b04c-2bef-48f9-ae9d-4dae5a9d9608
+      type: application/json
+  - rule:
+      default: false
+      id: 9ef2ec6f-d7cd-43e6-b94e-f391b892de57
+      name: AMZN_CSOS_POLICY
+      hitCounts: 0
+      rank: 8
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAndBlock
+        isNegate: false
+        children:
+        - link: null
+          conditionType: ConditionAttributes
+          isNegate: false
+          dictionaryName: CERTIFICATE
+          attributeName: Issuer - Common Name
+          operator: contains
+          dictionaryValue: null
+          attributeValue: CSOS 802.1x Intermediate
+        - link: null
+          conditionType: ConditionAttributes
+          isNegate: false
+          dictionaryName: CERTIFICATE
+          attributeName: Is Expired
+          operator: equals
+          dictionaryValue: null
+          attributeValue: 'false'
+    profile:
+    - CLIENT_ACCESS
+    securityGroup: AMZN_COMPUTER
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/ee392489-15c5-4d32-9eb9-c98a1177e7a9/authorization/9ef2ec6f-d7cd-43e6-b94e-f391b892de57
+      type: application/json
+  - rule:
+      default: false
+      id: 51ca94cd-654f-42f5-b79d-5a314f5da623
+      name: AMZN_COMPUTER_POLICY
+      hitCounts: 0
+      rank: 9
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAndBlock
+        isNegate: false
+        children:
+        - link: null
+          conditionType: ConditionAttributes
+          isNegate: false
+          dictionaryName: CERTIFICATE
+          attributeName: Issuer - Common Name
+          operator: contains
+          dictionaryValue: null
+          attributeValue: Amazon.com CIA
+        - link: null
+          conditionType: ConditionAttributes
+          isNegate: false
+          dictionaryName: CERTIFICATE
+          attributeName: Is Expired
+          operator: equals
+          dictionaryValue: null
+          attributeValue: 'false'
+    profile:
+    - CLIENT_ACCESS
+    securityGroup: AMZN_COMPUTER
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/ee392489-15c5-4d32-9eb9-c98a1177e7a9/authorization/51ca94cd-654f-42f5-b79d-5a314f5da623
+      type: application/json
+  - rule:
+      default: false
+      id: e2e9a16d-b21d-475a-8b1f-6e86e5a67129
+      name: AMZN_COMPUTER_POLICY_G5
+      hitCounts: 0
+      rank: 10
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionOrBlock
+        isNegate: false
+        children:
+        - link: null
+          conditionType: ConditionAndBlock
+          isNegate: false
+          children:
+          - link: null
+            conditionType: ConditionAttributes
+            isNegate: false
+            dictionaryName: CERTIFICATE
+            attributeName: Issuer - Common Name
+            operator: contains
+            dictionaryValue: null
+            attributeValue: Amazon.com CIA
+          - link: null
+            conditionType: ConditionAttributes
+            isNegate: false
+            dictionaryName: CERTIFICATE
+            attributeName: Is Expired
+            operator: equals
+            dictionaryValue: null
+            attributeValue: 'false'
+        - link: null
+          conditionType: ConditionAndBlock
+          isNegate: false
+          children:
+          - link: null
+            conditionType: ConditionAttributes
+            isNegate: false
+            dictionaryName: CERTIFICATE
+            attributeName: Issuer - Common Name
+            operator: contains
+            dictionaryValue: null
+            attributeValue: CIA-CRT-G5
+          - link: null
+            conditionType: ConditionAttributes
+            isNegate: false
+            dictionaryName: CERTIFICATE
+            attributeName: Is Expired
+            operator: equals
+            dictionaryValue: null
+            attributeValue: 'false'
+    profile:
+    - CLIENT_ACCESS
+    securityGroup: AMZN_COMPUTER
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/ee392489-15c5-4d32-9eb9-c98a1177e7a9/authorization/e2e9a16d-b21d-475a-8b1f-6e86e5a67129
+      type: application/json
+  - rule:
+      default: true
+      id: 6109268f-338b-422f-8a0c-157eb64e0853
+      name: Default
+      hitCounts: 0
+      rank: 11
+      state: enabled
+      condition: null
+    profile:
+    - DenyAccess
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/ee392489-15c5-4d32-9eb9-c98a1177e7a9/authorization/6109268f-338b-422f-8a0c-157eb64e0853
+      type: application/json
+- default: false
+  id: 38998a9d-485c-437d-bf8d-50fde2ca530e
+  name: Wireless_MAB-LAB_SSID
+  description: Empty string
+  hitCounts: 0
+  rank: 5
+  state: enabled
+  condition:
+    link: null
+    conditionType: ConditionAndBlock
+    isNegate: false
+    children:
+    - link: null
+      conditionType: ConditionReference
+      isNegate: false
+      name: Wireless_MAB
+      id: 223b123f-b5a8-443a-bd91-770145a15a46
+      description: A condition to match MAC Authentication Bypass service based authentication
+        requests from wireless LAN controllers, according to the corresponding MAB
+        attributes defined in the device profile.
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: Aruba
+      attributeName: Aruba-Essid-Name
+      operator: contains
+      dictionaryValue: null
+      attributeValue: lab
+  serviceName: AMZN_MAB
+  isProxy: false
+  link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/policy-set/38998a9d-485c-437d-bf8d-50fde2ca530e
+    type: application/json
+  authentication_policy:
+  - rule:
+      default: true
+      id: f7481cc9-5930-4aae-b8d0-c7140ef995c8
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    identitySourceName: Internal Endpoints
+    ifAuthFail: REJECT
+    ifUserNotFound: DROP
+    ifProcessFail: DROP
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/38998a9d-485c-437d-bf8d-50fde2ca530e/authentication/f7481cc9-5930-4aae-b8d0-c7140ef995c8
+      type: application/json
+  authorization_policy:
+  - rule:
+      default: true
+      id: 77698b8f-8ab6-4e59-a214-a5328ba499e4
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    profile:
+    - DenyAccess
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/38998a9d-485c-437d-bf8d-50fde2ca530e/authorization/77698b8f-8ab6-4e59-a214-a5328ba499e4
+      type: application/json
+- default: false
+  id: 3bb36081-fedb-43d0-9709-dd8b93777a05
+  name: LUX18_Switch_Exception
+  description: Empty string
+  hitCounts: 0
+  rank: 6
+  state: enabled
+  condition:
+    link: null
+    conditionType: ConditionReference
+    isNegate: false
+    name: LUX18_Blade_Exception_Corp
+    id: d550aeb0-989c-4f16-acc0-67b057f432ba
+    description: null
+  serviceName: Default Network Access
+  isProxy: false
+  link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/policy-set/3bb36081-fedb-43d0-9709-dd8b93777a05
+    type: application/json
+  authentication_policy:
+  - rule:
+      default: true
+      id: 115b5bd6-4a23-4778-8576-6341508f0b8f
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    identitySourceName: Internal Endpoints
+    ifAuthFail: REJECT
+    ifUserNotFound: CONTINUE
+    ifProcessFail: DROP
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/3bb36081-fedb-43d0-9709-dd8b93777a05/authentication/115b5bd6-4a23-4778-8576-6341508f0b8f
+      type: application/json
+  authorization_policy:
+  - rule:
+      default: true
+      id: f42200b4-5a8c-4187-85fb-87c93b34ec17
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    profile:
+    - CORP_EXCEPTION
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/3bb36081-fedb-43d0-9709-dd8b93777a05/authorization/f42200b4-5a8c-4187-85fb-87c93b34ec17
+      type: application/json
+- default: false
+  id: aa34f682-5663-4b77-8aa5-667efdd37208
+  name: LHR14_Switch_Exception
+  description: Empty string
+  hitCounts: 0
+  rank: 7
+  state: enabled
+  condition:
+    link: null
+    conditionType: ConditionReference
+    isNegate: false
+    name: LHR14_Switch_Exception_API
+    id: 0db175ca-18d3-4886-b161-e407e2480b08
+    description: null
+  serviceName: Default Network Access
+  isProxy: false
+  link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/policy-set/aa34f682-5663-4b77-8aa5-667efdd37208
+    type: application/json
+  authentication_policy:
+  - rule:
+      default: true
+      id: 85d9bc2f-cf75-4122-bfdc-abaafce718c1
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    identitySourceName: Internal Endpoints
+    ifAuthFail: REJECT
+    ifUserNotFound: CONTINUE
+    ifProcessFail: DROP
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/aa34f682-5663-4b77-8aa5-667efdd37208/authentication/85d9bc2f-cf75-4122-bfdc-abaafce718c1
+      type: application/json
+  authorization_policy:
+  - rule:
+      default: true
+      id: 0c782553-a940-40f2-9a49-02ccf372015d
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    profile:
+    - CORP_EXCEPTION
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/aa34f682-5663-4b77-8aa5-667efdd37208/authorization/0c782553-a940-40f2-9a49-02ccf372015d
+      type: application/json
+- default: false
+  id: c85b5899-bdbe-49d6-b754-053c07b77974
+  name: LHR13_Blade_Exception
+  description: Empty string
+  hitCounts: 0
+  rank: 8
+  state: enabled
+  condition:
+    link: null
+    conditionType: ConditionReference
+    isNegate: false
+    name: LHR13_Blade_Exception_Corp
+    id: 0dbb39c8-9291-470f-bafd-98aa5f34b35e
+    description: This exception is for blade 7 which will be used for provisioning,
+      we do not expect any provisioned/infra device to connect on this blade
+  serviceName: Default Network Access
+  isProxy: false
+  link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/policy-set/c85b5899-bdbe-49d6-b754-053c07b77974
+    type: application/json
+  authentication_policy:
+  - rule:
+      default: true
+      id: c244ff4f-463e-4377-bf50-5a96b7f32911
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    identitySourceName: Internal Endpoints
+    ifAuthFail: REJECT
+    ifUserNotFound: CONTINUE
+    ifProcessFail: DROP
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/c85b5899-bdbe-49d6-b754-053c07b77974/authentication/c244ff4f-463e-4377-bf50-5a96b7f32911
+      type: application/json
+  authorization_policy:
+  - rule:
+      default: true
+      id: 98f67223-d05c-4671-8d1c-964eaab3d4bb
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    profile:
+    - CORP_EXCEPTION
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/c85b5899-bdbe-49d6-b754-053c07b77974/authorization/98f67223-d05c-4671-8d1c-964eaab3d4bb
+      type: application/json
+- default: false
+  id: 580e165e-b25b-4b7e-ace0-530927a8cc60
+  name: Switch_Blade_10_Corp_Exception
+  description: Empty string
+  hitCounts: 0
+  rank: 9
+  state: enabled
+  condition:
+    link: null
+    conditionType: ConditionAndBlock
+    isNegate: false
+    children:
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: DEVICE
+      attributeName: Corp_Exception_SW10_Enabled
+      operator: equals
+      dictionaryValue: null
+      attributeValue: Corp_Exception_SW10_Enabled#Yes
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: Radius
+      attributeName: NAS-Port-Id
+      operator: contains
+      dictionaryValue: null
+      attributeValue: Ethernet10/0
+  serviceName: Default Network Access
+  isProxy: false
+  link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/policy-set/580e165e-b25b-4b7e-ace0-530927a8cc60
+    type: application/json
+  authentication_policy:
+  - rule:
+      default: true
+      id: 631275d4-088b-45a0-bfce-338a17dbd43f
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    identitySourceName: Internal Endpoints
+    ifAuthFail: REJECT
+    ifUserNotFound: CONTINUE
+    ifProcessFail: DROP
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/580e165e-b25b-4b7e-ace0-530927a8cc60/authentication/631275d4-088b-45a0-bfce-338a17dbd43f
+      type: application/json
+  authorization_policy:
+  - rule:
+      default: true
+      id: 09960e83-d3b2-405e-8ae5-c2a2d9ddf3da
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    profile:
+    - CORP_EXCEPTION
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/580e165e-b25b-4b7e-ace0-530927a8cc60/authorization/09960e83-d3b2-405e-8ae5-c2a2d9ddf3da
+      type: application/json
+- default: false
+  id: 54e67084-b210-4f88-b2da-da4344cc5b2d
+  name: Switch_Blade_9_Corp_Exception
+  description: Empty string
+  hitCounts: 0
+  rank: 10
+  state: enabled
+  condition:
+    link: null
+    conditionType: ConditionAndBlock
+    isNegate: false
+    children:
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: DEVICE
+      attributeName: Corp_Exception_SW9_Enabled
+      operator: equals
+      dictionaryValue: null
+      attributeValue: Corp_Exception_SW9_Enabled#Yes
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: Radius
+      attributeName: NAS-Port-Id
+      operator: contains
+      dictionaryValue: null
+      attributeValue: Ethernet9/0
+  serviceName: Default Network Access
+  isProxy: false
+  link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/policy-set/54e67084-b210-4f88-b2da-da4344cc5b2d
+    type: application/json
+  authentication_policy:
+  - rule:
+      default: true
+      id: 6ea16317-4b17-4d94-b22c-a41dc4e8d777
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    identitySourceName: Internal Endpoints
+    ifAuthFail: REJECT
+    ifUserNotFound: CONTINUE
+    ifProcessFail: DROP
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/54e67084-b210-4f88-b2da-da4344cc5b2d/authentication/6ea16317-4b17-4d94-b22c-a41dc4e8d777
+      type: application/json
+  authorization_policy:
+  - rule:
+      default: true
+      id: 8128bca5-7c48-4004-856c-929100ca3cf3
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    profile:
+    - CORP_EXCEPTION
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/54e67084-b210-4f88-b2da-da4344cc5b2d/authorization/8128bca5-7c48-4004-856c-929100ca3cf3
+      type: application/json
+- default: false
+  id: b411986c-9b9a-440f-9a02-efaad35733cc
+  name: Switch_Blade_8_Corp_Exception
+  description: Empty string
+  hitCounts: 0
+  rank: 11
+  state: enabled
+  condition:
+    link: null
+    conditionType: ConditionAndBlock
+    isNegate: false
+    children:
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: DEVICE
+      attributeName: Corp_Exception_SW8_Enabled
+      operator: equals
+      dictionaryValue: null
+      attributeValue: Corp_Exception_SW8_Enabled#Yes
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: Radius
+      attributeName: NAS-Port-Id
+      operator: contains
+      dictionaryValue: null
+      attributeValue: Ethernet8/0
+  serviceName: Default Network Access
+  isProxy: false
+  link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/policy-set/b411986c-9b9a-440f-9a02-efaad35733cc
+    type: application/json
+  authentication_policy:
+  - rule:
+      default: true
+      id: a6c3bcd8-5836-47ea-9c5a-98b80970b6b1
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    identitySourceName: Internal Endpoints
+    ifAuthFail: REJECT
+    ifUserNotFound: CONTINUE
+    ifProcessFail: DROP
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/b411986c-9b9a-440f-9a02-efaad35733cc/authentication/a6c3bcd8-5836-47ea-9c5a-98b80970b6b1
+      type: application/json
+  authorization_policy:
+  - rule:
+      default: true
+      id: 314011d9-9afd-44c2-95b2-e1b1ae86705b
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    profile:
+    - CORP_EXCEPTION
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/b411986c-9b9a-440f-9a02-efaad35733cc/authorization/314011d9-9afd-44c2-95b2-e1b1ae86705b
+      type: application/json
+- default: false
+  id: 5be26b30-6a84-4ed9-9cb8-5901c3407bce
+  name: Switch_Blade_7_Corp_Exception
+  description: Empty string
+  hitCounts: 0
+  rank: 12
+  state: enabled
+  condition:
+    link: null
+    conditionType: ConditionAndBlock
+    isNegate: false
+    children:
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: DEVICE
+      attributeName: Corp_Exception_SW7_Enabled
+      operator: equals
+      dictionaryValue: null
+      attributeValue: Corp_Exception_SW7_Enabled#Yes
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: Radius
+      attributeName: NAS-Port-Id
+      operator: contains
+      dictionaryValue: null
+      attributeValue: Ethernet7/0
+  serviceName: Default Network Access
+  isProxy: false
+  link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/policy-set/5be26b30-6a84-4ed9-9cb8-5901c3407bce
+    type: application/json
+  authentication_policy:
+  - rule:
+      default: true
+      id: 417a1516-6e04-4e01-96f0-ecd821a0fb3a
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    identitySourceName: Internal Endpoints
+    ifAuthFail: REJECT
+    ifUserNotFound: CONTINUE
+    ifProcessFail: DROP
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/5be26b30-6a84-4ed9-9cb8-5901c3407bce/authentication/417a1516-6e04-4e01-96f0-ecd821a0fb3a
+      type: application/json
+  authorization_policy:
+  - rule:
+      default: true
+      id: 438d8b94-72ce-4a83-8e48-eca377aa55da
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    profile:
+    - CORP_EXCEPTION
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/5be26b30-6a84-4ed9-9cb8-5901c3407bce/authorization/438d8b94-72ce-4a83-8e48-eca377aa55da
+      type: application/json
+- default: false
+  id: 1326f047-7cad-4866-9702-fa8aebb2e065
+  name: Switch_Blade_6_Corp_Exception
+  description: Empty string
+  hitCounts: 0
+  rank: 13
+  state: enabled
+  condition:
+    link: null
+    conditionType: ConditionAndBlock
+    isNegate: false
+    children:
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: DEVICE
+      attributeName: Corp_Exception_SW6_Enabled
+      operator: equals
+      dictionaryValue: null
+      attributeValue: Corp_Exception_SW6_Enabled#Yes
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: Radius
+      attributeName: NAS-Port-Id
+      operator: contains
+      dictionaryValue: null
+      attributeValue: Ethernet6/0
+  serviceName: Default Network Access
+  isProxy: false
+  link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/policy-set/1326f047-7cad-4866-9702-fa8aebb2e065
+    type: application/json
+  authentication_policy:
+  - rule:
+      default: true
+      id: 57f0be8e-7db7-4b13-b99a-69aee99b33e8
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    identitySourceName: All_User_ID_Stores
+    ifAuthFail: REJECT
+    ifUserNotFound: REJECT
+    ifProcessFail: DROP
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/1326f047-7cad-4866-9702-fa8aebb2e065/authentication/57f0be8e-7db7-4b13-b99a-69aee99b33e8
+      type: application/json
+  authorization_policy:
+  - rule:
+      default: true
+      id: 19d2658c-e4eb-4cbd-a379-7b73a8f6f5e8
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    profile:
+    - DenyAccess
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/1326f047-7cad-4866-9702-fa8aebb2e065/authorization/19d2658c-e4eb-4cbd-a379-7b73a8f6f5e8
+      type: application/json
+- default: false
+  id: 91750295-3e73-407e-bfe0-b92742597d08
+  name: Switch_Blade_5_Corp_Exception
+  description: Empty string
+  hitCounts: 0
+  rank: 14
+  state: enabled
+  condition:
+    link: null
+    conditionType: ConditionAndBlock
+    isNegate: false
+    children:
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: DEVICE
+      attributeName: Corp_Exception_SW5_Enabled
+      operator: equals
+      dictionaryValue: null
+      attributeValue: Corp_Exception_SW5_Enabled#Yes
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: Radius
+      attributeName: NAS-Port-Id
+      operator: contains
+      dictionaryValue: null
+      attributeValue: Ethernet5/0
+  serviceName: Default Network Access
+  isProxy: false
+  link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/policy-set/91750295-3e73-407e-bfe0-b92742597d08
+    type: application/json
+  authentication_policy:
+  - rule:
+      default: true
+      id: 5fe42207-98f7-4c6e-ae33-41b1bbe1d7ca
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    identitySourceName: Internal Endpoints
+    ifAuthFail: REJECT
+    ifUserNotFound: CONTINUE
+    ifProcessFail: DROP
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/91750295-3e73-407e-bfe0-b92742597d08/authentication/5fe42207-98f7-4c6e-ae33-41b1bbe1d7ca
+      type: application/json
+  authorization_policy:
+  - rule:
+      default: true
+      id: 25b7d669-768a-4978-8001-e75c5ecdb307
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    profile:
+    - CORP_EXCEPTION
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/91750295-3e73-407e-bfe0-b92742597d08/authorization/25b7d669-768a-4978-8001-e75c5ecdb307
+      type: application/json
+- default: false
+  id: 717dcca8-59be-4d29-a92e-d8e0e1f03cec
+  name: Switch_Blade_4_Corp_Exception
+  description: Empty string
+  hitCounts: 0
+  rank: 15
+  state: enabled
+  condition:
+    link: null
+    conditionType: ConditionAndBlock
+    isNegate: false
+    children:
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: DEVICE
+      attributeName: Corp_Exception_SW4_Enabled
+      operator: equals
+      dictionaryValue: null
+      attributeValue: Corp_Exception_SW4_Enabled#Yes
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: Radius
+      attributeName: NAS-Port-Id
+      operator: contains
+      dictionaryValue: null
+      attributeValue: Ethernet4/0
+  serviceName: Default Network Access
+  isProxy: false
+  link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/policy-set/717dcca8-59be-4d29-a92e-d8e0e1f03cec
+    type: application/json
+  authentication_policy:
+  - rule:
+      default: true
+      id: a037144d-fe13-4982-8365-7038d5428ad1
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    identitySourceName: Internal Endpoints
+    ifAuthFail: REJECT
+    ifUserNotFound: CONTINUE
+    ifProcessFail: DROP
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/717dcca8-59be-4d29-a92e-d8e0e1f03cec/authentication/a037144d-fe13-4982-8365-7038d5428ad1
+      type: application/json
+  authorization_policy:
+  - rule:
+      default: true
+      id: 442860a5-d9d9-4350-9eec-7ffc29aa9d3d
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    profile:
+    - CORP_EXCEPTION
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/717dcca8-59be-4d29-a92e-d8e0e1f03cec/authorization/442860a5-d9d9-4350-9eec-7ffc29aa9d3d
+      type: application/json
+- default: false
+  id: c7146168-e73a-4ef3-8ba8-c1ca9eed74ed
+  name: Switch_Blade_3_Corp_Exception
+  description: Empty string
+  hitCounts: 0
+  rank: 16
+  state: enabled
+  condition:
+    link: null
+    conditionType: ConditionAndBlock
+    isNegate: false
+    children:
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: DEVICE
+      attributeName: Corp_Exception_SW3_Enabled
+      operator: equals
+      dictionaryValue: null
+      attributeValue: Corp_Exception_SW3_Enabled#Yes
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: Radius
+      attributeName: NAS-Port-Id
+      operator: contains
+      dictionaryValue: null
+      attributeValue: Ethernet3/0
+  serviceName: Default Network Access
+  isProxy: false
+  link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/policy-set/c7146168-e73a-4ef3-8ba8-c1ca9eed74ed
+    type: application/json
+  authentication_policy:
+  - rule:
+      default: true
+      id: 143f00c2-bdc0-4db2-9b32-2a7a4a1b86e0
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    identitySourceName: Internal Endpoints
+    ifAuthFail: REJECT
+    ifUserNotFound: CONTINUE
+    ifProcessFail: DROP
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/c7146168-e73a-4ef3-8ba8-c1ca9eed74ed/authentication/143f00c2-bdc0-4db2-9b32-2a7a4a1b86e0
+      type: application/json
+  authorization_policy:
+  - rule:
+      default: true
+      id: af026068-0b78-4cff-a825-efd804d29777
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    profile:
+    - CORP_EXCEPTION
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/c7146168-e73a-4ef3-8ba8-c1ca9eed74ed/authorization/af026068-0b78-4cff-a825-efd804d29777
+      type: application/json
+- default: false
+  id: ebdc482d-aa0d-46f4-9eeb-76b5a2ab7066
+  name: Switch_Blade_2_Corp_Exception
+  description: Empty string
+  hitCounts: 0
+  rank: 17
+  state: enabled
+  condition:
+    link: null
+    conditionType: ConditionAndBlock
+    isNegate: false
+    children:
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: DEVICE
+      attributeName: Corp_Exception_SW2_Enabled
+      operator: equals
+      dictionaryValue: null
+      attributeValue: Corp_Exception_SW2_Enabled#Yes
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: Radius
+      attributeName: NAS-Port-Id
+      operator: contains
+      dictionaryValue: null
+      attributeValue: Ethernet2/0
+  serviceName: Default Network Access
+  isProxy: false
+  link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/policy-set/ebdc482d-aa0d-46f4-9eeb-76b5a2ab7066
+    type: application/json
+  authentication_policy:
+  - rule:
+      default: true
+      id: eb579fa8-2752-4673-9e72-908f67c797af
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    identitySourceName: Internal Endpoints
+    ifAuthFail: REJECT
+    ifUserNotFound: CONTINUE
+    ifProcessFail: DROP
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/ebdc482d-aa0d-46f4-9eeb-76b5a2ab7066/authentication/eb579fa8-2752-4673-9e72-908f67c797af
+      type: application/json
+  authorization_policy:
+  - rule:
+      default: true
+      id: 755cf8ae-c6e4-4472-9eab-b9d89ed247f7
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    profile:
+    - CORP_EXCEPTION
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/ebdc482d-aa0d-46f4-9eeb-76b5a2ab7066/authorization/755cf8ae-c6e4-4472-9eab-b9d89ed247f7
+      type: application/json
+- default: false
+  id: 369c7d5d-4deb-485e-9479-c1519f53b42b
+  name: Switch_Blade_1_Corp_Exception
+  description: Empty string
+  hitCounts: 0
+  rank: 18
+  state: enabled
+  condition:
+    link: null
+    conditionType: ConditionAndBlock
+    isNegate: false
+    children:
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: DEVICE
+      attributeName: Corp_Exception_SW1_Enabled
+      operator: equals
+      dictionaryValue: null
+      attributeValue: Corp_Exception_SW1_Enabled#Yes
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: Radius
+      attributeName: NAS-Port-Id
+      operator: contains
+      dictionaryValue: null
+      attributeValue: Ethernet1/0
+  serviceName: Default Network Access
+  isProxy: false
+  link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/policy-set/369c7d5d-4deb-485e-9479-c1519f53b42b
+    type: application/json
+  authentication_policy:
+  - rule:
+      default: true
+      id: a9660b37-e27c-4efd-a29f-d29f1a385a2a
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    identitySourceName: Internal Endpoints
+    ifAuthFail: REJECT
+    ifUserNotFound: CONTINUE
+    ifProcessFail: DROP
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/369c7d5d-4deb-485e-9479-c1519f53b42b/authentication/a9660b37-e27c-4efd-a29f-d29f1a385a2a
+      type: application/json
+  authorization_policy:
+  - rule:
+      default: true
+      id: 0f72a7a3-e8a1-4b25-9f00-fc7ba2c7079c
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    profile:
+    - CORP_EXCEPTION
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/369c7d5d-4deb-485e-9479-c1519f53b42b/authorization/0f72a7a3-e8a1-4b25-9f00-fc7ba2c7079c
+      type: application/json
+- default: false
+  id: f0e5f8a8-ffb0-4b55-8678-56a5fabeec8e
+  name: ISE_Loop_vidcast
+  description: Empty string
+  hitCounts: 0
+  rank: 19
+  state: enabled
+  condition:
+    link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: DEVICE
+    attributeName: Device Type
+    operator: equals
+    dictionaryValue: null
+    attributeValue: All Device Types#ISE
+  serviceName: AMZN_EAP-TLS
+  isProxy: false
+  link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/policy-set/f0e5f8a8-ffb0-4b55-8678-56a5fabeec8e
+    type: application/json
+  authentication_policy:
+  - rule:
+      default: true
+      id: 13c49e44-e45b-4e3c-91e1-b09cc6f14dd2
+      name: Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition: null
+    identitySourceName: Midway_Servers
+    ifAuthFail: REJECT
+    ifUserNotFound: REJECT
+    ifProcessFail: DROP
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/f0e5f8a8-ffb0-4b55-8678-56a5fabeec8e/authentication/13c49e44-e45b-4e3c-91e1-b09cc6f14dd2
+      type: application/json
+  authorization_policy:
+  - rule:
+      default: false
+      id: 702401d8-2bfb-4cca-a038-7eb707d8ee46
+      name: AWS All
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: LDAP_Cisco
+        attributeName: ExternalGroups
+        operator: equals
+        dictionaryValue: null
+        attributeValue: all-aws-employees
+    profile:
+    - PermitAccess
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/f0e5f8a8-ffb0-4b55-8678-56a5fabeec8e/authorization/702401d8-2bfb-4cca-a038-7eb707d8ee46
+      type: application/json
+  - rule:
+      default: false
+      id: 47294363-e8a3-4e2d-b89f-f1719391c8e7
+      name: AWS All_copy
+      hitCounts: 0
+      rank: 1
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: LDAP_Cisco
+        attributeName: amznbadgecolorcode
+        operator: equals
+        dictionaryValue: null
+        attributeValue: F
+    profile:
+    - PermitAccess
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/f0e5f8a8-ffb0-4b55-8678-56a5fabeec8e/authorization/47294363-e8a3-4e2d-b89f-f1719391c8e7
+      type: application/json
+  - rule:
+      default: true
+      id: db691628-2f7c-46ef-aa91-69ed4283e0ad
+      name: Default
+      hitCounts: 0
+      rank: 2
+      state: enabled
+      condition: null
+    profile:
+    - DenyAccess
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/f0e5f8a8-ffb0-4b55-8678-56a5fabeec8e/authorization/db691628-2f7c-46ef-aa91-69ed4283e0ad
+      type: application/json
+- default: true
+  id: 082794c9-c7b7-44a0-8488-dad6f402ae34
+  name: Default
+  description: Default policy set
+  hitCounts: 0
+  rank: 20
+  state: enabled
+  condition: null
+  serviceName: Default Network Access
+  isProxy: false
+  link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/policy-set/082794c9-c7b7-44a0-8488-dad6f402ae34
+    type: application/json
+  authentication_policy:
+  - rule:
+      default: false
+      id: 6d1e6803-7383-47f5-8cac-e5f69b0d9b6a
+      name: MAB
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionOrBlock
+        isNegate: false
+        children:
+        - link: null
+          conditionType: ConditionReference
+          isNegate: false
+          name: Wired_MAB
+          id: e113747e-5663-4c09-8d2f-9a5ca856d699
+          description: A condition to match MAC Authentication Bypass service based
+            authentication requests from switches, according to the corresponding
+            MAB attributes defined in the device profile.
+        - link: null
+          conditionType: ConditionReference
+          isNegate: false
+          name: Wireless_MAB
+          id: 223b123f-b5a8-443a-bd91-770145a15a46
+          description: A condition to match MAC Authentication Bypass service based
+            authentication requests from wireless LAN controllers, according to the
+            corresponding MAB attributes defined in the device profile.
+    identitySourceName: Internal Endpoints
+    ifAuthFail: REJECT
+    ifUserNotFound: CONTINUE
+    ifProcessFail: DROP
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/082794c9-c7b7-44a0-8488-dad6f402ae34/authentication/6d1e6803-7383-47f5-8cac-e5f69b0d9b6a
+      type: application/json
+  - rule:
+      default: false
+      id: 4cd3b78e-9494-49de-84fc-81e53f21b26f
+      name: Dot1X
+      hitCounts: 0
+      rank: 1
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionOrBlock
+        isNegate: false
+        children:
+        - link: null
+          conditionType: ConditionReference
+          isNegate: false
+          name: Wired_802.1X
+          id: 61041d6d-b460-4990-8d45-085eb53d069f
+          description: A condition to match 802.1X based authentication requests from
+            switches, according to the corresponding 802.1x attributes defined in
+            the device profile.
+        - link: null
+          conditionType: ConditionReference
+          isNegate: false
+          name: Wireless_802.1X
+          id: 07ed7ca9-9081-4593-ab0c-4a135ac40f5e
+          description: A condition to match 802.1X based authentication requests from
+            wireless LAN controllers, according to the corresponding 802.1x attributes
+            defined in the device profile.
+    identitySourceName: All_User_ID_Stores
+    ifAuthFail: REJECT
+    ifUserNotFound: REJECT
+    ifProcessFail: DROP
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/082794c9-c7b7-44a0-8488-dad6f402ae34/authentication/4cd3b78e-9494-49de-84fc-81e53f21b26f
+      type: application/json
+  - rule:
+      default: true
+      id: 28834738-43c4-4edf-bef5-607e46d17707
+      name: Default
+      hitCounts: 0
+      rank: 2
+      state: enabled
+      condition: null
+    identitySourceName: All_User_ID_Stores
+    ifAuthFail: REJECT
+    ifUserNotFound: REJECT
+    ifProcessFail: DROP
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/082794c9-c7b7-44a0-8488-dad6f402ae34/authentication/28834738-43c4-4edf-bef5-607e46d17707
+      type: application/json
+  authorization_policy:
+  - rule:
+      default: false
+      id: 3ccb46cd-6328-4220-99de-6b7806a3caa3
+      name: Wireless Black List Default
+      hitCounts: 0
+      rank: 0
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAndBlock
+        isNegate: false
+        children:
+        - link: null
+          conditionType: ConditionReference
+          isNegate: false
+          name: Wireless_Access
+          id: c1a4d781-e879-46c4-a16d-23f1892f05f2
+          description: Default condition used to match any authentication request
+            from Cisco Wireless LAN Controller.
+        - link: null
+          conditionType: ConditionAttributes
+          isNegate: false
+          dictionaryName: IdentityGroup
+          attributeName: Name
+          operator: equals
+          dictionaryValue: null
+          attributeValue: Endpoint Identity Groups:Blocked List
+    profile:
+    - Blackhole_Wireless_Access
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/082794c9-c7b7-44a0-8488-dad6f402ae34/authorization/3ccb46cd-6328-4220-99de-6b7806a3caa3
+      type: application/json
+  - rule:
+      default: false
+      id: 2d93cbce-d23a-4102-b401-fd32965d47d5
+      name: Profiled Cisco IP Phones
+      hitCounts: 0
+      rank: 1
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: IdentityGroup
+        attributeName: Name
+        operator: equals
+        dictionaryValue: null
+        attributeValue: Endpoint Identity Groups:Profiled:Cisco-IP-Phone
+    profile:
+    - Cisco_IP_Phones
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/082794c9-c7b7-44a0-8488-dad6f402ae34/authorization/2d93cbce-d23a-4102-b401-fd32965d47d5
+      type: application/json
+  - rule:
+      default: false
+      id: be4bc023-7444-4633-bdcf-27fe89dbfb55
+      name: Profiled Non Cisco IP Phones
+      hitCounts: 0
+      rank: 2
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionReference
+        isNegate: false
+        name: Non_Cisco_Profiled_Phones
+        id: 25f0a85d-98b3-4ea0-8ca4-66490f621c36
+        description: Default condition used to match Non Cisco IP Phones
+    profile:
+    - Non_Cisco_IP_Phones
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/082794c9-c7b7-44a0-8488-dad6f402ae34/authorization/be4bc023-7444-4633-bdcf-27fe89dbfb55
+      type: application/json
+  - rule:
+      default: false
+      id: 15ba4dc5-0d0a-4124-8d93-e9b08eb00342
+      name: Unknown_Compliance_Redirect
+      hitCounts: 0
+      rank: 3
+      state: disabled
+      condition:
+        link: null
+        conditionType: ConditionAndBlock
+        isNegate: false
+        children:
+        - link: null
+          conditionType: ConditionReference
+          isNegate: false
+          name: Network_Access_Authentication_Passed
+          id: a3d9928c-4d93-46db-81d9-b2b4f6667499
+          description: Default condition used for basic Network Access requiring that
+            authentication was successful.
+        - link: null
+          conditionType: ConditionReference
+          isNegate: false
+          name: Compliance_Unknown_Devices
+          id: 1b5022d9-08af-4b5f-9d90-0fa3b8832d05
+          description: Default condition for unknown compliance devices
+    profile:
+    - Cisco_Temporal_Onboard
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/082794c9-c7b7-44a0-8488-dad6f402ae34/authorization/15ba4dc5-0d0a-4124-8d93-e9b08eb00342
+      type: application/json
+  - rule:
+      default: false
+      id: 9ce98278-5800-4dbd-92a9-0f3f48192fad
+      name: NonCompliant_Devices_Redirect
+      hitCounts: 0
+      rank: 4
+      state: disabled
+      condition:
+        link: null
+        conditionType: ConditionAndBlock
+        isNegate: false
+        children:
+        - link: null
+          conditionType: ConditionReference
+          isNegate: false
+          name: Network_Access_Authentication_Passed
+          id: a3d9928c-4d93-46db-81d9-b2b4f6667499
+          description: Default condition used for basic Network Access requiring that
+            authentication was successful.
+        - link: null
+          conditionType: ConditionReference
+          isNegate: false
+          name: Non_Compliant_Devices
+          id: 8d4070ee-850d-41ce-a610-7e9a6d0f3994
+          description: Default condition for non-compliant devices
+    profile:
+    - Cisco_Temporal_Onboard
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/082794c9-c7b7-44a0-8488-dad6f402ae34/authorization/9ce98278-5800-4dbd-92a9-0f3f48192fad
+      type: application/json
+  - rule:
+      default: false
+      id: 32abe47a-28b8-49ee-8ffd-ecc3c10b2728
+      name: Compliant_Devices_Access
+      hitCounts: 0
+      rank: 5
+      state: disabled
+      condition:
+        link: null
+        conditionType: ConditionAndBlock
+        isNegate: false
+        children:
+        - link: null
+          conditionType: ConditionReference
+          isNegate: false
+          name: Network_Access_Authentication_Passed
+          id: a3d9928c-4d93-46db-81d9-b2b4f6667499
+          description: Default condition used for basic Network Access requiring that
+            authentication was successful.
+        - link: null
+          conditionType: ConditionReference
+          isNegate: false
+          name: Compliant_Devices
+          id: 34928d47-7631-47af-a2ba-e433c843ebad
+          description: Default condition for compliant devices
+    profile:
+    - PermitAccess
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/082794c9-c7b7-44a0-8488-dad6f402ae34/authorization/32abe47a-28b8-49ee-8ffd-ecc3c10b2728
+      type: application/json
+  - rule:
+      default: false
+      id: 255a8213-576b-4f9a-ac5c-2d33041129b3
+      name: Employee_EAP-TLS
+      hitCounts: 0
+      rank: 6
+      state: disabled
+      condition:
+        link: null
+        conditionType: ConditionAndBlock
+        isNegate: false
+        children:
+        - link: null
+          conditionType: ConditionReference
+          isNegate: false
+          name: Wireless_802.1X
+          id: 07ed7ca9-9081-4593-ab0c-4a135ac40f5e
+          description: A condition to match 802.1X based authentication requests from
+            wireless LAN controllers, according to the corresponding 802.1x attributes
+            defined in the device profile.
+        - link: null
+          conditionType: ConditionReference
+          isNegate: false
+          name: BYOD_is_Registered
+          id: c7d39b95-3059-49b0-911f-dbbccd9ecb71
+          description: Default condition for BYOD flow for any device that has passed
+            the NSP process
+        - link: null
+          conditionType: ConditionReference
+          isNegate: false
+          name: EAP-TLS
+          id: 1742821d-d50f-4e54-ab4d-d36dc12d6426
+          description: Default condition for BYOD flow for any device that has passed
+            the NSP process
+        - link: null
+          conditionType: ConditionReference
+          isNegate: false
+          name: MAC_in_SAN
+          id: 30487595-a6d0-413b-a474-3145c5626fe5
+          description: Default condition for BYOD flow for any device that has passed
+            the NSP process
+    profile:
+    - PermitAccess
+    securityGroup: BYOD
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/082794c9-c7b7-44a0-8488-dad6f402ae34/authorization/255a8213-576b-4f9a-ac5c-2d33041129b3
+      type: application/json
+  - rule:
+      default: false
+      id: 707c06d5-0679-445c-b628-cfa2af2d85cc
+      name: Employee_Onboarding
+      hitCounts: 0
+      rank: 7
+      state: disabled
+      condition:
+        link: null
+        conditionType: ConditionAndBlock
+        isNegate: false
+        children:
+        - link: null
+          conditionType: ConditionReference
+          isNegate: false
+          name: Wireless_802.1X
+          id: 07ed7ca9-9081-4593-ab0c-4a135ac40f5e
+          description: A condition to match 802.1X based authentication requests from
+            wireless LAN controllers, according to the corresponding 802.1x attributes
+            defined in the device profile.
+        - link: null
+          conditionType: ConditionReference
+          isNegate: false
+          name: EAP-MSCHAPv2
+          id: 5372618d-334c-44d1-8cd3-ed2fc4215d38
+          description: Default condition for BYOD Onboarding flow
+    profile:
+    - NSP_Onboard
+    securityGroup: BYOD
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/082794c9-c7b7-44a0-8488-dad6f402ae34/authorization/707c06d5-0679-445c-b628-cfa2af2d85cc
+      type: application/json
+  - rule:
+      default: false
+      id: 75627111-e56f-4523-a180-11e50f7e5a0e
+      name: Wi-Fi_Guest_Access
+      hitCounts: 0
+      rank: 8
+      state: disabled
+      condition:
+        link: null
+        conditionType: ConditionAndBlock
+        isNegate: false
+        children:
+        - link: null
+          conditionType: ConditionReference
+          isNegate: false
+          name: Guest_Flow
+          id: eba6ffb7-1fae-486e-ac85-332f62b52e58
+          description: Default condition for guest flow
+        - link: null
+          conditionType: ConditionReference
+          isNegate: false
+          name: Wireless_MAB
+          id: 223b123f-b5a8-443a-bd91-770145a15a46
+          description: A condition to match MAC Authentication Bypass service based
+            authentication requests from wireless LAN controllers, according to the
+            corresponding MAB attributes defined in the device profile.
+    profile:
+    - PermitAccess
+    securityGroup: Guests
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/082794c9-c7b7-44a0-8488-dad6f402ae34/authorization/75627111-e56f-4523-a180-11e50f7e5a0e
+      type: application/json
+  - rule:
+      default: false
+      id: 9b95d6b5-10bc-44c7-8ac2-8cb278ea7117
+      name: Wi-Fi_Redirect_to_Guest_Login
+      hitCounts: 0
+      rank: 9
+      state: disabled
+      condition:
+        link: null
+        conditionType: ConditionReference
+        isNegate: false
+        name: Wireless_MAB
+        id: 223b123f-b5a8-443a-bd91-770145a15a46
+        description: A condition to match MAC Authentication Bypass service based
+          authentication requests from wireless LAN controllers, according to the
+          corresponding MAB attributes defined in the device profile.
+    profile:
+    - Cisco_WebAuth
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/082794c9-c7b7-44a0-8488-dad6f402ae34/authorization/9b95d6b5-10bc-44c7-8ac2-8cb278ea7117
+      type: application/json
+  - rule:
+      default: false
+      id: 71c939ad-0fb5-4363-b57d-30df6a282cee
+      name: Basic_Authenticated_Access
+      hitCounts: 0
+      rank: 10
+      state: enabled
+      condition:
+        link: null
+        conditionType: ConditionReference
+        isNegate: false
+        name: Network_Access_Authentication_Passed
+        id: a3d9928c-4d93-46db-81d9-b2b4f6667499
+        description: Default condition used for basic Network Access requiring that
+          authentication was successful.
+    profile:
+    - PermitAccess
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/082794c9-c7b7-44a0-8488-dad6f402ae34/authorization/71c939ad-0fb5-4363-b57d-30df6a282cee
+      type: application/json
+  - rule:
+      default: true
+      id: fac92cad-2929-4209-b4d9-8b86b744b8da
+      name: Default
+      hitCounts: 0
+      rank: 11
+      state: enabled
+      condition: null
+    profile:
+    - DenyAccess
+    securityGroup: null
+    link:
+      rel: self
+      href: https://10.86.191.239/api/v1/policy/network-access/policy-set/082794c9-c7b7-44a0-8488-dad6f402ae34/authorization/fac92cad-2929-4209-b4d9-8b86b744b8da
+      type: application/json
+version_comments: taking backup for Import task

@@ -26,16 +26,15 @@ class Repository(object):
         git.Repo.clone_from('https://wwwin-github.cisco.com/spa-ie/ise-policy-repository.git', 'ise-policy-repository-https')
 
  
-    def add_repo(self, filename='policy_sets.yml'):
+    def add_repo(self, target='policy_sets'):
 
         print("adding files to stagging area")
         # Provide a list of the files to stage
-        self.repo.index.add(['policy_sets/'+filename])
+        self.repo.index.add(['policy_sets/'+target+'.yml'])
         print("files added!")
 
 
     def commit_repo(self, comment):
-
         print("Commit changes")
         self.repo.index.commit(comment)
         print("commit done!")
@@ -49,25 +48,25 @@ class Repository(object):
         print("Push Done!")
 
 
-    def copy_from_tmp(self):
+    def copy_from_tmp(self, target='policy_sets'):
 
-        shutil.copy(BACKUP_TMP+'policy_sets_tmp.yml', BACKUP_DIR+'policy_sets.yml')
+        shutil.copy(BACKUP_TMP+target+'_tmp.yml', BACKUP_DIR+target+'.yml')
 
 
-    def save_to_repo(self, comment):
+    def save_to_repo(self, comment, target=None):
 
-        self.copy_from_tmp()
-        self.add_repo()
+        self.copy_from_tmp(target)
+        self.add_repo(target)
         self.commit_repo(comment)
         self.push_repo()
 
 
-    def git_revert(self, commit, comment=''):
+    def git_revert(self, commit, comment='', target='policy_sets'):
 
         self.repo.git.checkout(commit)
-        shutil.copy(BACKUP_DIR+'policy_sets.yml', BACKUP_TMP+'policy_sets_revert.yml')
+        shutil.copy(BACKUP_DIR+target+'.yml', BACKUP_TMP+target+'_revert.yml')
         self.repo.git.checkout('main')
-        shutil.copy(BACKUP_TMP+'policy_sets_revert.yml', BACKUP_DIR+'policy_sets.yml')
-        self.add_repo()
+        shutil.copy(BACKUP_TMP+target+'_revert.yml', BACKUP_DIR+target+'.yml')
+        self.add_repo(target)
         self.commit_repo(comment)
         self.push_repo()

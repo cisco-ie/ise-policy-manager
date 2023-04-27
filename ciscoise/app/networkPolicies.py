@@ -31,15 +31,15 @@ class NetworkPolicies(object):
       os.mkdir(BACKUP_DIR)
 
 
-  def read_backup_tmp_policy_set(self):
+  def read_backup_tmp_policy_set(self, target='policy_sets'):
 
-    with open(os.path.join(BACKUP_TMP, "policy_sets_tmp.yml")) as f:
+    with open(os.path.join(BACKUP_TMP, target+"_tmp.yml")) as f:
       all_policy_sets = yaml.safe_load(f)
 
     return all_policy_sets
 
   
-  def export_policy(self, comment=None):
+  def export_policy(self, comment=None, target='policy_sets'):
     print("Performing Export task")
     try:
       policies_result = self.api.network_access_policy_set.get_all().response
@@ -72,7 +72,8 @@ class NetworkPolicies(object):
 
       json_str = json.dumps(policies_result)
       python_dict = json.loads(json_str)
-      with open(os.path.join(BACKUP_TMP, "policy_sets_tmp.yml"), "w") as f:
+   
+      with open(os.path.join(BACKUP_TMP, target+"_tmp.yml"), "w") as f:
         f.write(yaml.safe_dump(python_dict, sort_keys=False))
 
     except Exception as e:
@@ -89,7 +90,7 @@ class NetworkPolicies(object):
 
 
   def get_all_policy_set(self):
-    dictionary_result = self.api.network_access_policy_set.get_all().response
+    dictionary_result = self.api.network_access_policy_set.get_all()
     return dictionary_result
 
 
@@ -217,7 +218,7 @@ class NetworkPolicies(object):
     response = []
     dictionary_result = self.api.network_access_dictionary_attributes_list.get_all_policy_set().response
     
-    json_object = json.dumps(dictionary_result, indent=4)
+    json_object = json.dumps(dictionary_result.response, indent=4)
 
     with open(os.path.join(BACKUP_DIR, "bck_dictionary_attributes.json"), "w") as outfile:
       outfile.write(json_object)
@@ -232,8 +233,12 @@ class NetworkPolicies(object):
     except Exception as e:
       return
    
+  def get_all_conditions(self):
+    dictionary_result = self.api.network_access_conditions.get_all()
+    return dictionary_result
+    
 
-  def get_conditions(self):
+  def backup_all_conditions(self):
     dictionary_result = self.api.network_access_conditions.get_all().response
     #print(dictionary_result)
     json_object = json.dumps(dictionary_result, indent=4)
@@ -248,17 +253,17 @@ class NetworkPolicies(object):
     return dictionary_result
 
   
-  def read_file_policy_set(self):
+  def read_file_policy_set(self, target='policy_sets'):
 
-    with open(os.path.join(BACKUP_DIR, "policy_sets.yml")) as f:
+    with open(os.path.join(BACKUP_DIR, target+".yml")) as f:
       all_policy_sets = yaml.safe_load(f)
 
     return all_policy_sets
 
 
-  def create_policy_set(self, name=None, all_policy_sets=False, endingTag=''):
+  def create_policy_set(self, name=None, all_policy_sets=False, endingTag='', target=None):
 
-    file_policy_sets = self.read_file_policy_set()
+    file_policy_sets = self.read_file_policy_set(target)
     policies = []
 
     if all_policy_sets:
