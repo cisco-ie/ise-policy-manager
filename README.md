@@ -19,7 +19,7 @@ Appropriate access privileges to install Python packages and associated dependen
 Clone the repository. When cloning a repository the `.git` can be left off the end.
 
 ```bash
-$ git clone https://wwwin-github.cisco.com/spa-ie/ise-policy-manager.git
+$ git clone https://github.com/cisco-ie/ise-policy-manager.git
 ```
 
 ```bash
@@ -43,11 +43,6 @@ $ docker-compose up -d
 ```
 
 ## Support Information
-
-
-### Support Contacts
-
-* [Innovation Edge Dev Team](mailto:cisco-ie-dev@cisco.com)
 
 
 ## Authors / Contributors
