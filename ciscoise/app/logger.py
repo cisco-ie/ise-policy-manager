@@ -14,9 +14,12 @@ class Logger(object):
         fmt = logging.Formatter(
             "%(name)s: %(asctime)s | %(levelname)s | %(message)s"
         )
-        fileHandler = logging.FileHandler(LOGGER_DIR+"logs.txt")
+        stdoutHandler = logging.StreamHandler(stream=sys.stdout)
+        self.logger.addHandler(stdoutHandler)
 
-        fileHandler.setFormatter(fmt)
+        fileHandler = logging.FileHandler(LOGGER_DIR+"logs.txt")
         self.logger.addHandler(fileHandler)
 
+        fileHandler.setFormatter(fmt)
+        
         self.logger.setLevel(logging.INFO)

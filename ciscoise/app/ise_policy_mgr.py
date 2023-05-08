@@ -53,18 +53,23 @@ def do_export(comment, target=None):
 def do_precheck():
   #several functions to validate that policy can be successfully imported
 
-  print("\n### Performing pre-checks to validate that policy can be successfully imported to target device")
+  #print("\n### Performing pre-checks to validate that policy can be successfully imported to target device")
+  logger.info("Performing pre-checks to validate that policy can be successfully imported to target device")
   ise = NetworkPolicies()
   pre_check = True
   try: 
     if ise.get_all_policy_set().status_code == 200:
-      print("\n### Get all Policy Sets: OK")
+      #print("\n### Get all Policy Sets: OK")
+      logger.info("Get all Policy Sets: OK")
     else:
-      print("\n### Get all Policy Sets: Fail!!!")
+      #print("\n### Get all Policy Sets: Fail!!!")
+      logger.error("Get all Policy Sets: Fail!!!")
       pre_check = False
   except Exception as e:
-    print("### Get all Policy Sets: Fail!!!")
-    print("### Exception: {}".format(e))
+    #print("### Get all Policy Sets: Fail!!!")
+    #print("### Exception: {}".format(e))
+    logger.error("Get all Policy Sets: Fail!!!")
+    logger.error("Exception: {}".format(e))
     pre_check = False
     
   try:
@@ -79,10 +84,12 @@ def do_precheck():
     pre_check = False
 
   if pre_check:
-    print("\n### All pre-check validations were successfully validated\n")
+    #print("\n### All pre-check validations were successfully validated\n")
+    logger.info("All pre-check validations were successfully validated\n")
     return True
   else:
-    print("\n### Pre-check validations failed\n")
+    #print("\n### Pre-check validations failed\n")
+    logger.info("Pre-check validations failed")
     return False
 
 
