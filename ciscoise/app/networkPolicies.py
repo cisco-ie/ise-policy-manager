@@ -51,10 +51,10 @@ class NetworkPolicies(object):
       print("Found {} policy sets".format(policies_count))
       for index, item in enumerate(policies_result['response']):
         
-        authen_policy = self.backup_authentication_policy(item['id'])
+        authen_policy = self.get_authentication_policy_by_Id(item['id']).response
         policies_result['response'][index]['authentication_policy'] = authen_policy['response']
 
-        author_policy = self.backup_authorization_policy(item['id'])
+        author_policy = self.get_authorization_policy_by_Id(item['id']).response
         policies_result['response'][index]['authorization_policy'] = author_policy['response']
 
         #author_policy = self.backup_authorization_excepction_policy(item['id'])
@@ -94,14 +94,14 @@ class NetworkPolicies(object):
     return dictionary_result
 
 
-  def backup_authentication_policy(self, policyId):
-    dictionary_result = self.api.network_access_authentication_rules.get_all(policyId).response
+  def get_authentication_policy_by_Id(self, policyId):
+    dictionary_result = self.api.network_access_authentication_rules.get_all(policyId)
     #print('\n## Get Authentication Policy ##')
     #print(json.dumps(dictionary_result, indent=4))
     return dictionary_result
 
-  def backup_authorization_policy(self, policyId):
-    dictionary_result = self.api.network_access_authorization_rules.get_all(policyId).response
+  def get_authorization_policy_by_Id(self, policyId):
+    dictionary_result = self.api.network_access_authorization_rules.get_all(policyId)
     #print('\n## Get Authorization Policy ##')
     #print(json.dumps(dictionary_result, indent=4))
     return dictionary_result
@@ -346,7 +346,7 @@ class NetworkPolicies(object):
           print("### Policy Set created: {}. policy_id: {} ###\n".format(values['name'], policy_id))
 
           #authentication rule section
-          current_authen_policy = self.backup_authentication_policy(dictionary_result.response.id).get('response')[0]
+          current_authen_policy = self.get_authentication_policy_by_Id(dictionary_result.response.id).response.get('response')[0]
 
           for item in authentication_policy:
             if item.get('rule').get('name') != 'Default':
@@ -362,7 +362,7 @@ class NetworkPolicies(object):
 
 
           #authorization rule section
-          current_author_policy = self.backup_authorization_policy(dictionary_result.response.id).get('response')[0]
+          current_author_policy = self.get_authorization_policy_by_Id(dictionary_result.response.id).response.get('response')[0]
 
           for item in authorization_policy:
             if item.get('rule').get('name') != 'Default':

@@ -76,10 +76,10 @@ def do_precheck():
     pre_check = False
 
   if pre_check:
-    print("\n### All pre-check validations were successfully validated")
+    print("\n### All pre-check validations were successfully validated\n")
     return True
   else:
-    print("\n### Pre-check validations failed")
+    print("\n### Pre-check validations failed\n")
     return False
 
 
