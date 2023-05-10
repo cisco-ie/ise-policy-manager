@@ -9,8 +9,9 @@ from logger import Logger
 
 logger = Logger().logger
 
-BACKUP_TMP = "backups_tmp/"
-BACKUP_DIR = "repository/ise-policy-repository-https/policy_sets/"
+
+BACKUP_TMP = "../backups_tmp/"
+BACKUP_DIR = "../repository/ise-policy-repository-https/policy_sets/"
 #BACKUP_DIR = "/Users/plencina/Docker/python/Project_Cisco_ISE/ise-policy-repository/policy_sets/"
 
 ISE_USERNAME = config('ISE_USERNAME')

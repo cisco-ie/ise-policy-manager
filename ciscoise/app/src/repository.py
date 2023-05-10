@@ -3,9 +3,12 @@ import git
 import shutil
 from ciscoisesdk import IdentityServicesEngineAPI
 from ciscoisesdk.exceptions import ApiError
+from logger import Logger
 
-BACKUP_TMP = "backups_tmp/"
-BACKUP_DIR = "repository/ise-policy-repository-https/policy_sets/"
+logger = Logger().logger
+
+BACKUP_TMP = "../backups_tmp/"
+BACKUP_DIR = "../repository/ise-policy-repository-https/policy_sets/"
 
 class Repository(object):
 

@@ -1,7 +1,7 @@
 import sys, os
 import logging
 
-LOGGER_DIR = "logs/"
+LOGGER_DIR = "../logs/"
 
 class Logger(object):
 
@@ -14,8 +14,8 @@ class Logger(object):
         fmt = logging.Formatter(
             "%(name)s: %(asctime)s | %(levelname)s | %(message)s"
         )
-        stdoutHandler = logging.StreamHandler(stream=sys.stdout)
-        self.logger.addHandler(stdoutHandler)
+        #stdoutHandler = logging.StreamHandler(stream=sys.stdout)
+        #self.logger.addHandler(stdoutHandler)
 
         fileHandler = logging.FileHandler(LOGGER_DIR+"logs.txt")
         self.logger.addHandler(fileHandler)

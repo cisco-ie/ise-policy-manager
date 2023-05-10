@@ -1,0 +1,18 @@
+logger: 2023-05-08 18:06:56,229 | INFO | Performing pre-checks to validate that policy can be successfully imported to target device
+logger: 2023-05-08 18:06:56,229 | INFO | Performing pre-checks to validate that policy can be successfully imported to target device
+logger: 2023-05-08 18:08:56,688 | ERROR | Get all Policy Sets: Fail!!!
+logger: 2023-05-08 18:08:56,688 | ERROR | Get all Policy Sets: Fail!!!
+logger: 2023-05-08 18:08:56,699 | ERROR | Exception: Socket error HTTPSConnectionPool(host='10.86.191.239', port=443): Max retries exceeded with url: /api/v1/policy/network-access/policy-set (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0xffffae41d9d0>, 'Connection to 10.86.191.239 timed out. (connect timeout=60)'))
+logger: 2023-05-08 18:08:56,699 | ERROR | Exception: Socket error HTTPSConnectionPool(host='10.86.191.239', port=443): Max retries exceeded with url: /api/v1/policy/network-access/policy-set (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0xffffae41d9d0>, 'Connection to 10.86.191.239 timed out. (connect timeout=60)'))
+logger: 2023-05-10 12:07:44,001 | INFO | Performing pre-checks to validate that policy can be successfully imported to target device
+logger: 2023-05-10 12:07:44,001 | INFO | Performing pre-checks to validate that policy can be successfully imported to target device
+logger: 2023-05-10 12:07:44,001 | INFO | Performing pre-checks to validate that policy can be successfully imported to target device
+logger: 2023-05-10 12:07:50,471 | INFO | Get all Policy Sets: OK
+logger: 2023-05-10 12:07:50,471 | INFO | Get all Policy Sets: OK
+logger: 2023-05-10 12:07:50,471 | INFO | Get all Policy Sets: OK
+logger: 2023-05-10 12:07:52,843 | INFO | All pre-check validations were successfully validated
+
+logger: 2023-05-10 12:07:52,843 | INFO | All pre-check validations were successfully validated
+
+logger: 2023-05-10 12:07:52,843 | INFO | All pre-check validations were successfully validated
+
