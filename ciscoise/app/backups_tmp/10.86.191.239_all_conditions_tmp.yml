@@ -1,0 +1,1029 @@
+version: 1.0.0
+response:
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/eba6ffb7-1fae-486e-ac85-332f62b52e58
+    type: application/json
+  conditionType: LibraryConditionAttributes
+  isNegate: false
+  dictionaryName: Network Access
+  attributeName: UseCase
+  operator: equals
+  dictionaryValue: null
+  attributeValue: Guest Flow
+  name: Guest_Flow
+  id: eba6ffb7-1fae-486e-ac85-332f62b52e58
+  description: Default condition for guest flow
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/30487595-a6d0-413b-a474-3145c5626fe5
+    type: application/json
+  conditionType: LibraryConditionAttributes
+  isNegate: false
+  dictionaryName: CERTIFICATE
+  attributeName: Subject Alternative Name
+  operator: equals
+  dictionaryValue: Radius
+  attributeValue: Calling-Station-ID
+  name: MAC_in_SAN
+  id: 30487595-a6d0-413b-a474-3145c5626fe5
+  description: Default condition for BYOD flow for any device that has passed the
+    NSP process
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/a3d9928c-4d93-46db-81d9-b2b4f6667499
+    type: application/json
+  conditionType: LibraryConditionAttributes
+  isNegate: false
+  dictionaryName: Network Access
+  attributeName: AuthenticationStatus
+  operator: equals
+  dictionaryValue: null
+  attributeValue: AuthenticationPassed
+  name: Network_Access_Authentication_Passed
+  id: a3d9928c-4d93-46db-81d9-b2b4f6667499
+  description: Default condition used for basic Network Access requiring that authentication
+    was successful.
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/07ed7ca9-9081-4593-ab0c-4a135ac40f5e
+    type: application/json
+  conditionType: LibraryConditionAttributes
+  isNegate: false
+  dictionaryName: Normalised Radius
+  attributeName: RadiusFlowType
+  operator: equals
+  dictionaryValue: null
+  attributeValue: Wireless802_1x
+  name: Wireless_802.1X
+  id: 07ed7ca9-9081-4593-ab0c-4a135ac40f5e
+  description: A condition to match 802.1X based authentication requests from wireless
+    LAN controllers, according to the corresponding 802.1x attributes defined in the
+    device profile.
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/6bdabcc7-01e4-46cf-a623-dcb18767869c
+    type: application/json
+  conditionType: LibraryConditionAttributes
+  isNegate: false
+  dictionaryName: Normalised Radius
+  attributeName: RadiusFlowType
+  operator: equals
+  dictionaryValue: null
+  attributeValue: WiredWebAuth
+  name: Switch_Web_Authentication
+  id: 6bdabcc7-01e4-46cf-a623-dcb18767869c
+  description: A condition to match requests for web authentication from switches,
+    according to the corresponding Web Authentication attributes defined in the device
+    profile.
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/e113747e-5663-4c09-8d2f-9a5ca856d699
+    type: application/json
+  conditionType: LibraryConditionAttributes
+  isNegate: false
+  dictionaryName: Normalised Radius
+  attributeName: RadiusFlowType
+  operator: equals
+  dictionaryValue: null
+  attributeValue: WiredMAB
+  name: Wired_MAB
+  id: e113747e-5663-4c09-8d2f-9a5ca856d699
+  description: A condition to match MAC Authentication Bypass service based authentication
+    requests from switches, according to the corresponding MAB attributes defined
+    in the device profile.
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/61041d6d-b460-4990-8d45-085eb53d069f
+    type: application/json
+  conditionType: LibraryConditionAttributes
+  isNegate: false
+  dictionaryName: Normalised Radius
+  attributeName: RadiusFlowType
+  operator: equals
+  dictionaryValue: null
+  attributeValue: Wired802_1x
+  name: Wired_802.1X
+  id: 61041d6d-b460-4990-8d45-085eb53d069f
+  description: A condition to match 802.1X based authentication requests from switches,
+    according to the corresponding 802.1x attributes defined in the device profile.
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/223b123f-b5a8-443a-bd91-770145a15a46
+    type: application/json
+  conditionType: LibraryConditionAttributes
+  isNegate: false
+  dictionaryName: Normalised Radius
+  attributeName: RadiusFlowType
+  operator: equals
+  dictionaryValue: null
+  attributeValue: WirelessMAB
+  name: Wireless_MAB
+  id: 223b123f-b5a8-443a-bd91-770145a15a46
+  description: A condition to match MAC Authentication Bypass service based authentication
+    requests from wireless LAN controllers, according to the corresponding MAB attributes
+    defined in the device profile.
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/25460d00-daab-448d-bca4-288f83d10130
+    type: application/json
+  conditionType: LibraryConditionAttributes
+  isNegate: false
+  dictionaryName: Normalised Radius
+  attributeName: RadiusFlowType
+  operator: equals
+  dictionaryValue: null
+  attributeValue: WirelessWebAuth
+  name: WLC_Web_Authentication
+  id: 25460d00-daab-448d-bca4-288f83d10130
+  description: A condition to match requests for web authentication from wireless
+    LAN controllers, according to the corresponding Web Authentication attributes
+    defined in the device profile.
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/1b5022d9-08af-4b5f-9d90-0fa3b8832d05
+    type: application/json
+  conditionType: LibraryConditionAttributes
+  isNegate: false
+  dictionaryName: Session
+  attributeName: PostureStatus
+  operator: equals
+  dictionaryValue: null
+  attributeValue: Unknown
+  name: Compliance_Unknown_Devices
+  id: 1b5022d9-08af-4b5f-9d90-0fa3b8832d05
+  description: Default condition for unknown compliance devices
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/8d4070ee-850d-41ce-a610-7e9a6d0f3994
+    type: application/json
+  conditionType: LibraryConditionAttributes
+  isNegate: false
+  dictionaryName: Session
+  attributeName: PostureStatus
+  operator: equals
+  dictionaryValue: null
+  attributeValue: NonCompliant
+  name: Non_Compliant_Devices
+  id: 8d4070ee-850d-41ce-a610-7e9a6d0f3994
+  description: Default condition for non-compliant devices
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/34928d47-7631-47af-a2ba-e433c843ebad
+    type: application/json
+  conditionType: LibraryConditionAttributes
+  isNegate: false
+  dictionaryName: Session
+  attributeName: PostureStatus
+  operator: equals
+  dictionaryValue: null
+  attributeValue: Compliant
+  name: Compliant_Devices
+  id: 34928d47-7631-47af-a2ba-e433c843ebad
+  description: Default condition for compliant devices
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/25f0a85d-98b3-4ea0-8ca4-66490f621c36
+    type: application/json
+  conditionType: LibraryConditionAttributes
+  isNegate: false
+  dictionaryName: EndPoints
+  attributeName: LogicalProfile
+  operator: equals
+  dictionaryValue: null
+  attributeValue: IP-Phones
+  name: Non_Cisco_Profiled_Phones
+  id: 25f0a85d-98b3-4ea0-8ca4-66490f621c36
+  description: Default condition used to match Non Cisco IP Phones
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/6dababa9-b743-47d7-844b-cdc97c3e70ca
+    type: application/json
+  conditionType: LibraryConditionAndBlock
+  isNegate: false
+  children:
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: Radius
+    attributeName: Service-Type
+    operator: equals
+    dictionaryValue: null
+    attributeValue: Outbound
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: Radius
+    attributeName: NAS-Port-Type
+    operator: equals
+    dictionaryValue: null
+    attributeValue: Ethernet
+  name: Switch_Local_Web_Authentication
+  id: 6dababa9-b743-47d7-844b-cdc97c3e70ca
+  description: A condition to match authentication requests for Local Web Authentication
+    from Cisco Catalyst Switches
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/228959b0-f36a-440d-a3fd-5a297d76e99a
+    type: application/json
+  conditionType: LibraryConditionAndBlock
+  isNegate: false
+  children:
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: Radius
+    attributeName: Service-Type
+    operator: equals
+    dictionaryValue: null
+    attributeValue: Outbound
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: Radius
+    attributeName: NAS-Port-Type
+    operator: equals
+    dictionaryValue: null
+    attributeValue: Ethernet
+  name: Catalyst_Switch_Local_Web_Authentication
+  id: 228959b0-f36a-440d-a3fd-5a297d76e99a
+  description: Default condition used to match authentication requests for Local Web
+    Authentication from Cisco Catalyst Switches
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/c1a4d781-e879-46c4-a16d-23f1892f05f2
+    type: application/json
+  conditionType: LibraryConditionAttributes
+  isNegate: false
+  dictionaryName: Radius
+  attributeName: NAS-Port-Type
+  operator: equals
+  dictionaryValue: null
+  attributeValue: Wireless - IEEE 802.11
+  name: Wireless_Access
+  id: c1a4d781-e879-46c4-a16d-23f1892f05f2
+  description: Default condition used to match any authentication request from Cisco
+    Wireless LAN Controller.
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/c7d39b95-3059-49b0-911f-dbbccd9ecb71
+    type: application/json
+  conditionType: LibraryConditionAttributes
+  isNegate: false
+  dictionaryName: EndPoints
+  attributeName: BYODRegistration
+  operator: equals
+  dictionaryValue: null
+  attributeValue: 'Yes'
+  name: BYOD_is_Registered
+  id: c7d39b95-3059-49b0-911f-dbbccd9ecb71
+  description: Default condition for BYOD flow for any device that has passed the
+    NSP process
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/5372618d-334c-44d1-8cd3-ed2fc4215d38
+    type: application/json
+  conditionType: LibraryConditionAttributes
+  isNegate: false
+  dictionaryName: Network Access
+  attributeName: EapAuthentication
+  operator: equals
+  dictionaryValue: null
+  attributeValue: EAP-MSCHAPv2
+  name: EAP-MSCHAPv2
+  id: 5372618d-334c-44d1-8cd3-ed2fc4215d38
+  description: Default condition for BYOD Onboarding flow
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/1742821d-d50f-4e54-ab4d-d36dc12d6426
+    type: application/json
+  conditionType: LibraryConditionAttributes
+  isNegate: false
+  dictionaryName: Network Access
+  attributeName: EapAuthentication
+  operator: equals
+  dictionaryValue: null
+  attributeValue: EAP-TLS
+  name: EAP-TLS
+  id: 1742821d-d50f-4e54-ab4d-d36dc12d6426
+  description: Default condition for BYOD flow for any device that has passed the
+    NSP process
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/c814ee40-32ea-43e2-85ec-bab6f1887130
+    type: application/json
+  conditionType: LibraryConditionAndBlock
+  isNegate: false
+  children:
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: CERTIFICATE
+    attributeName: Issuer - Common Name
+    operator: contains
+    dictionaryValue: null
+    attributeValue: Amazon.com CIA
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: CERTIFICATE
+    attributeName: Is Expired
+    operator: equals
+    dictionaryValue: null
+    attributeValue: 'false'
+  - link: null
+    conditionType: ConditionReference
+    isNegate: false
+    name: CORP_Exception
+    id: 69051cfa-bce9-4219-b981-40f2f4401bdc
+    description: null
+  name: Corp_Exception_Test
+  id: c814ee40-32ea-43e2-85ec-bab6f1887130
+  description: null
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/79b825f2-bfc4-465e-aa9c-66f22bdd7838
+    type: application/json
+  conditionType: LibraryConditionOrBlock
+  isNegate: false
+  children:
+  - link: null
+    conditionType: ConditionAndBlock
+    isNegate: false
+    children:
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: CERTIFICATE
+      attributeName: Issuer - Common Name
+      operator: contains
+      dictionaryValue: null
+      attributeValue: Amazon.com CIA
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: CERTIFICATE
+      attributeName: Is Expired
+      operator: equals
+      dictionaryValue: null
+      attributeValue: 'false'
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: IdentityGroup
+      attributeName: Name
+      operator: equals
+      dictionaryValue: null
+      attributeValue: Endpoint Identity Groups:NARC_Lab_Devices
+  - link: null
+    conditionType: ConditionAndBlock
+    isNegate: false
+    children:
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: CERTIFICATE
+      attributeName: Issuer - Common Name
+      operator: contains
+      dictionaryValue: null
+      attributeValue: CIA-CRT-G5
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: CERTIFICATE
+      attributeName: Is Expired
+      operator: equals
+      dictionaryValue: null
+      attributeValue: 'false'
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: IdentityGroup
+      attributeName: Name
+      operator: equals
+      dictionaryValue: null
+      attributeValue: Endpoint Identity Groups:NARC_Lab_Devices
+  name: certs-amazon
+  id: 79b825f2-bfc4-465e-aa9c-66f22bdd7838
+  description: null
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/68f6a3ab-a8ae-47f2-acbf-382b340b37d4
+    type: application/json
+  conditionType: LibraryConditionOrBlock
+  isNegate: false
+  children:
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: DEVICE
+    attributeName: Device Type
+    operator: equals
+    dictionaryValue: null
+    attributeValue: All Device Types#Wireless_Controller
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: Aruba
+    attributeName: Aruba-Essid-Name
+    operator: equals
+    dictionaryValue: null
+    attributeValue: AZGUEST
+  name: GUEST
+  id: 68f6a3ab-a8ae-47f2-acbf-382b340b37d4
+  description: null
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/69051cfa-bce9-4219-b981-40f2f4401bdc
+    type: application/json
+  conditionType: LibraryConditionOrBlock
+  isNegate: false
+  children:
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: IdentityGroup
+    attributeName: Name
+    operator: equals
+    dictionaryValue: null
+    attributeValue: Endpoint Identity Groups:Profiled:NARC_CORP_Desktops
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: IdentityGroup
+    attributeName: Name
+    operator: equals
+    dictionaryValue: null
+    attributeValue: Endpoint Identity Groups:Profiled:NARC_CORP_Devices
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: IdentityGroup
+    attributeName: Name
+    operator: equals
+    dictionaryValue: null
+    attributeValue: Endpoint Identity Groups:AMZN_CORP_EXCEPTION
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: IdentityGroup
+    attributeName: Name
+    operator: equals
+    dictionaryValue: null
+    attributeValue: Endpoint Identity Groups:NARC_CORP_AmazonManagedClients
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: IdentityGroup
+    attributeName: Name
+    operator: equals
+    dictionaryValue: null
+    attributeValue: Endpoint Identity Groups:NARC_CORP_ILAW
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: IdentityGroup
+    attributeName: Name
+    operator: equals
+    dictionaryValue: null
+    attributeValue: Endpoint Identity Groups:NARC_CORP_Devices
+  name: CORP_Exception
+  id: 69051cfa-bce9-4219-b981-40f2f4401bdc
+  description: null
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/1219856a-baaf-4d2b-a4a5-53c6c8778ca9
+    type: application/json
+  conditionType: LibraryConditionOrBlock
+  isNegate: false
+  children:
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: IdentityGroup
+    attributeName: Name
+    operator: equals
+    dictionaryValue: null
+    attributeValue: Endpoint Identity Groups:NARC_INFRA_ACS
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: IdentityGroup
+    attributeName: Name
+    operator: equals
+    dictionaryValue: null
+    attributeValue: Endpoint Identity Groups:Profiled:NARC_ACS_TrakaCabinets
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: IdentityGroup
+    attributeName: Name
+    operator: equals
+    dictionaryValue: null
+    attributeValue: Endpoint Identity Groups:NARC_ACS_PhysicalSecurity_Devices
+  name: INFRA_ACS
+  id: 1219856a-baaf-4d2b-a4a5-53c6c8778ca9
+  description: null
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/692f1951-1db8-4acd-84b8-d9ca716be381
+    type: application/json
+  conditionType: LibraryConditionAndBlock
+  isNegate: false
+  children:
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: CERTIFICATE
+    attributeName: Issuer - Common Name
+    operator: contains
+    dictionaryValue: null
+    attributeValue: Amazon.com CIA
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: CERTIFICATE
+    attributeName: Is Expired
+    operator: equals
+    dictionaryValue: null
+    attributeValue: 'false'
+  name: certs
+  id: 692f1951-1db8-4acd-84b8-d9ca716be381
+  description: null
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/d550aeb0-989c-4f16-acc0-67b057f432ba
+    type: application/json
+  conditionType: LibraryConditionOrBlock
+  isNegate: false
+  children:
+  - link: null
+    conditionType: ConditionAndBlock
+    isNegate: false
+    children:
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: Network Access
+      attributeName: NetworkDeviceName
+      operator: equals
+      dictionaryValue: null
+      attributeValue: lux18-co-acc-rswb10101
+    - link: null
+      conditionType: ConditionOrBlock
+      isNegate: false
+      children:
+      - link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: Radius
+        attributeName: NAS-Port-Id
+        operator: contains
+        dictionaryValue: null
+        attributeValue: GigabitEthernet9/0/
+      - link: null
+        conditionType: ConditionAttributes
+        isNegate: false
+        dictionaryName: Radius
+        attributeName: NAS-Port-Id
+        operator: contains
+        dictionaryValue: null
+        attributeValue: GigabitEthernet10/0/
+  - link: null
+    conditionType: ConditionAndBlock
+    isNegate: false
+    children:
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: Network Access
+      attributeName: NetworkDeviceName
+      operator: equals
+      dictionaryValue: null
+      attributeValue: lux18-co-acc-rsw000101
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: Radius
+      attributeName: NAS-Port-Id
+      operator: contains
+      dictionaryValue: null
+      attributeValue: GigabitEthernet7/0/
+  name: LUX18_Blade_Exception_Corp
+  id: d550aeb0-989c-4f16-acc0-67b057f432ba
+  description: null
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/41af1079-d419-45e2-8f1a-b32028d233a3
+    type: application/json
+  conditionType: LibraryConditionAttributes
+  isNegate: false
+  dictionaryName: IdentityGroup
+  attributeName: Name
+  operator: equals
+  dictionaryValue: null
+  attributeValue: Endpoint Identity Groups:NARC_AV_Devices
+  name: INFRA_AV
+  id: 41af1079-d419-45e2-8f1a-b32028d233a3
+  description: null
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/0dbb39c8-9291-470f-bafd-98aa5f34b35e
+    type: application/json
+  conditionType: LibraryConditionAndBlock
+  isNegate: false
+  children:
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: Network Access
+    attributeName: NetworkDeviceName
+    operator: equals
+    dictionaryValue: null
+    attributeValue: lhr13-co-acc-rsw4
+  - link: null
+    conditionType: ConditionOrBlock
+    isNegate: false
+    children:
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: Radius
+      attributeName: NAS-Port-Id
+      operator: contains
+      dictionaryValue: null
+      attributeValue: GigabitEthernet7/0
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: Radius
+      attributeName: NAS-Port-Id
+      operator: contains
+      dictionaryValue: null
+      attributeValue: TenGigabitEthernet7/0
+  name: LHR13_Blade_Exception_Corp
+  id: 0dbb39c8-9291-470f-bafd-98aa5f34b35e
+  description: This exception is for blade 7 which will be used for provisioning,
+    we do not expect any provisioned/infra device to connect on this blade
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/9be14f15-66fb-44bb-9e6e-1d33ded5ea7b
+    type: application/json
+  conditionType: LibraryConditionAttributes
+  isNegate: false
+  dictionaryName: IdentityGroup
+  attributeName: Name
+  operator: equals
+  dictionaryValue: null
+  attributeValue: Endpoint Identity Groups:NARC_ADC_ZeroClients
+  name: ADC
+  id: 9be14f15-66fb-44bb-9e6e-1d33ded5ea7b
+  description: null
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/5e040f68-6b3b-4308-a4d0-ccf25eb30a51
+    type: application/json
+  conditionType: LibraryConditionAttributes
+  isNegate: false
+  dictionaryName: IdentityGroup
+  attributeName: Name
+  operator: equals
+  dictionaryValue: null
+  attributeValue: Endpoint Identity Groups:NARC_UC_Devices
+  name: INFRA_UC
+  id: 5e040f68-6b3b-4308-a4d0-ccf25eb30a51
+  description: null
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/f28396d6-ecbd-43f9-a6f0-a40dd41dc021
+    type: application/json
+  conditionType: LibraryConditionAttributes
+  isNegate: false
+  dictionaryName: IdentityGroup
+  attributeName: Name
+  operator: equals
+  dictionaryValue: null
+  attributeValue: Endpoint Identity Groups:NARC_Lab_AmazonManagedClients
+  name: LAB_AmazonManagedClients
+  id: f28396d6-ecbd-43f9-a6f0-a40dd41dc021
+  description: null
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/60f81ab8-b38b-4573-aa70-6aea8ba7fdb8
+    type: application/json
+  conditionType: LibraryConditionAttributes
+  isNegate: false
+  dictionaryName: IdentityGroup
+  attributeName: Name
+  operator: equals
+  dictionaryValue: null
+  attributeValue: Endpoint Identity Groups:NARC_Twitch_Infra_Devices
+  name: Twitch_INFRA
+  id: 60f81ab8-b38b-4573-aa70-6aea8ba7fdb8
+  description: null
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/47a33316-852b-40d9-a2f6-a10517cffb2c
+    type: application/json
+  conditionType: LibraryConditionAndBlock
+  isNegate: false
+  children:
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: CERTIFICATE
+    attributeName: Issuer - Common Name
+    operator: contains
+    dictionaryValue: null
+    attributeValue: CIA-CRT-G5
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: CERTIFICATE
+    attributeName: Is Expired
+    operator: equals
+    dictionaryValue: null
+    attributeValue: 'false'
+  name: certsg5
+  id: 47a33316-852b-40d9-a2f6-a10517cffb2c
+  description: null
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/4edeceea-22ef-42dc-8cc2-b68a77979ad9
+    type: application/json
+  conditionType: LibraryConditionAndBlock
+  isNegate: false
+  children:
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: CERTIFICATE
+    attributeName: Issuer - Common Name
+    operator: contains
+    dictionaryValue: null
+    attributeValue: Amazon.com CIA
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: CERTIFICATE
+    attributeName: Is Expired
+    operator: equals
+    dictionaryValue: null
+    attributeValue: 'false'
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: IdentityGroup
+    attributeName: Name
+    operator: equals
+    dictionaryValue: null
+    attributeValue: Endpoint Identity Groups:NARC_Lab_AmazonManagedClients
+  name: Lab_Access_Test
+  id: 4edeceea-22ef-42dc-8cc2-b68a77979ad9
+  description: null
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/3b2317d0-1b6d-465f-8a9a-dc7d1124f410
+    type: application/json
+  conditionType: LibraryConditionOrBlock
+  isNegate: false
+  children:
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: IdentityGroup
+    attributeName: Name
+    operator: equals
+    dictionaryValue: null
+    attributeValue: Endpoint Identity Groups:NARC_INFRA_EE
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: IdentityGroup
+    attributeName: Name
+    operator: equals
+    dictionaryValue: null
+    attributeValue: Endpoint Identity Groups:NARC_SimplePrint_Devices
+  name: INFRA_EE_API
+  id: 3b2317d0-1b6d-465f-8a9a-dc7d1124f410
+  description: null
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/7e8e9d23-4a52-487f-a3da-616560dcb84d
+    type: application/json
+  conditionType: LibraryConditionOrBlock
+  isNegate: false
+  children:
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: IdentityGroup
+    attributeName: Name
+    operator: equals
+    dictionaryValue: null
+    attributeValue: Endpoint Identity Groups:NARC_INFRA_Legal
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: IdentityGroup
+    attributeName: Name
+    operator: equals
+    dictionaryValue: null
+    attributeValue: Endpoint Identity Groups:NARC_Legal_Printers
+  name: INFRA_Legal_API
+  id: 7e8e9d23-4a52-487f-a3da-616560dcb84d
+  description: null
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/0db175ca-18d3-4886-b161-e407e2480b08
+    type: application/json
+  conditionType: LibraryConditionOrBlock
+  isNegate: false
+  children:
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: Network Access
+    attributeName: NetworkDeviceName
+    operator: equals
+    dictionaryValue: null
+    attributeValue: lhr14-co-acc-rsw9
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: Network Access
+    attributeName: NetworkDeviceName
+    operator: equals
+    dictionaryValue: null
+    attributeValue: lhr14-co-acc-rsw8
+  name: LHR14_Switch_Exception_API
+  id: 0db175ca-18d3-4886-b161-e407e2480b08
+  description: null
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/fe36bcaf-ef17-47d5-92ab-8868ac3de9d1
+    type: application/json
+  conditionType: LibraryConditionOrBlock
+  isNegate: false
+  children:
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: IdentityGroup
+    attributeName: Name
+    operator: equals
+    dictionaryValue: null
+    attributeValue: Endpoint Identity Groups:NARC_A9IT_Devices
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: IdentityGroup
+    attributeName: Name
+    operator: equals
+    dictionaryValue: null
+    attributeValue: Endpoint Identity Groups:NARC_A9IT_Devices
+  name: INFRA_A9IT_API
+  id: fe36bcaf-ef17-47d5-92ab-8868ac3de9d1
+  description: null
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/67a0526e-3b77-447d-afa7-1a85af5df608
+    type: application/json
+  conditionType: LibraryConditionOrBlock
+  isNegate: false
+  children:
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: IdentityGroup
+    attributeName: Name
+    operator: equals
+    dictionaryValue: null
+    attributeValue: Endpoint Identity Groups:NARC_INFRA_CIS
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: IdentityGroup
+    attributeName: Name
+    operator: equals
+    dictionaryValue: null
+    attributeValue: Endpoint Identity Groups:NARC_IT_Auxiliary_Devices
+  name: INFRA_CIS_API
+  id: 67a0526e-3b77-447d-afa7-1a85af5df608
+  description: null
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/1db9a5cf-5504-4926-9960-3aac912aed75
+    type: application/json
+  conditionType: LibraryConditionOrBlock
+  isNegate: false
+  children:
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: IdentityGroup
+    attributeName: Name
+    operator: equals
+    dictionaryValue: null
+    attributeValue: Endpoint Identity Groups:NARC_INFRA_GREF
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: IdentityGroup
+    attributeName: Name
+    operator: equals
+    dictionaryValue: null
+    attributeValue: Endpoint Identity Groups:NARC_GREF_Devices
+  name: INFRA_GREF_API
+  id: 1db9a5cf-5504-4926-9960-3aac912aed75
+  description: null
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/3db476a7-f0a9-410b-abeb-0aa44e675767
+    type: application/json
+  conditionType: LibraryConditionAndBlock
+  isNegate: false
+  children:
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: IdentityGroup
+    attributeName: Name
+    operator: equals
+    dictionaryValue: null
+    attributeValue: Endpoint Identity Groups:NARC_Lab_AmazonManagedClients
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: IdentityGroup
+    attributeName: Name
+    operator: equals
+    dictionaryValue: null
+    attributeValue: Endpoint Identity Groups:NARC_Lab_Devices
+  name: LAB_Devices_API
+  id: 3db476a7-f0a9-410b-abeb-0aa44e675767
+  description: null
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/4c750c2b-0572-4401-aaf3-3945c96d741d
+    type: application/json
+  conditionType: LibraryConditionOrBlock
+  isNegate: false
+  children:
+  - link: null
+    conditionType: ConditionAndBlock
+    isNegate: false
+    children:
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: IdentityGroup
+      attributeName: Name
+      operator: equals
+      dictionaryValue: null
+      attributeValue: Endpoint Identity Groups:Blocked List
+    - link: null
+      conditionType: ConditionAttributes
+      isNegate: false
+      dictionaryName: IdentityGroup
+      attributeName: Name
+      operator: equals
+      dictionaryValue: null
+      attributeValue: Endpoint Identity Groups:NARC_INFRA_IT
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: IdentityGroup
+    attributeName: Name
+    operator: equals
+    dictionaryValue: null
+    attributeValue: Endpoint Identity Groups:NARC_IT_Vending_Devices
+  name: INFRA-IT-API2
+  id: 4c750c2b-0572-4401-aaf3-3945c96d741d
+  description: null
+- link:
+    rel: self
+    href: https://10.86.191.239/api/v1/policy/network-access/condition/abf5198b-8aa9-4e12-8d95-93e9c5c38e82
+    type: application/json
+  conditionType: LibraryConditionOrBlock
+  isNegate: false
+  children:
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: IdentityGroup
+    attributeName: Name
+    operator: equals
+    dictionaryValue: null
+    attributeValue: Endpoint Identity Groups:NARC_INFRA_IT
+  - link: null
+    conditionType: ConditionAttributes
+    isNegate: false
+    dictionaryName: IdentityGroup
+    attributeName: Name
+    operator: equals
+    dictionaryValue: null
+    attributeValue: Endpoint Identity Groups:NARC_IT_Vending_Devices
+  name: INFRA_IT_API
+  id: abf5198b-8aa9-4e12-8d95-93e9c5c38e82
+  description: null

@@ -16,39 +16,39 @@ class Repository(object):
         if not os.path.exists(BACKUP_DIR):
             self.clone_repo()
         
-        self.repo = git.Repo('repository/ise-policy-repository-https')
+        self.repo = git.Repo('../repository/ise-policy-repository-https')
 
 
     def clone_repo(self):
         # Check out via HTTPS
-        print("Cloning repository")
+        logger.info("Cloning repository")
         cwd = os.getcwd()
         #print(cwd)
-        os.chdir(cwd+'/repository')    
+        os.chdir(cwd+'../repository')    
 
         git.Repo.clone_from('https://wwwin-github.cisco.com/spa-ie/ise-policy-repository.git', 'ise-policy-repository-https')
 
  
     def add_repo(self, target='policy_sets'):
 
-        print("adding files to stagging area")
+        logger.info("adding files to stagging area")
         # Provide a list of the files to stage
         self.repo.index.add(['policy_sets/'+target+'.yml'])
-        print("files added!")
+        logger.info("files added!")
 
 
     def commit_repo(self, comment):
-        print("Commit changes")
+        logger.info("Commit changes")
         self.repo.index.commit(comment)
-        print("commit done!")
+        logger.info("commit done!")
 
     
     def push_repo(self):
 
         #push changes
-        print("Pushing changes")
+        logger.info("Pushing changes")
         self.repo.remotes.origin.push()
-        print("Push Done!")
+        logger.info("Push Done!")
 
 
     def copy_from_tmp(self, target='policy_sets'):

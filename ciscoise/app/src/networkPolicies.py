@@ -9,7 +9,6 @@ from logger import Logger
 
 logger = Logger().logger
 
-
 BACKUP_TMP = "../backups_tmp/"
 BACKUP_DIR = "../repository/ise-policy-repository-https/policy_sets/"
 #BACKUP_DIR = "/Users/plencina/Docker/python/Project_Cisco_ISE/ise-policy-repository/policy_sets/"
@@ -44,7 +43,8 @@ class NetworkPolicies(object):
 
   
   def export_policy(self, comment=None, target='policy_sets'):
-    print("Performing Export task")
+    #print("Performing Export task")
+    logger.info("Performing Export task")
     try:
       policies_result = self.api.network_access_policy_set.get_all().response
 
@@ -52,7 +52,8 @@ class NetworkPolicies(object):
       policies_result['version_comments'] = comment
 
       policies_count = len(policies_result['response'])
-      print("Found {} policy sets".format(policies_count))
+      #print("Found {} policy sets".format(policies_count))
+      logger.info("Found {} policy sets".format(policies_count))
       for index, item in enumerate(policies_result['response']):
         
         authen_policy = self.get_authentication_policy_by_Id(item['id']).response
@@ -64,7 +65,8 @@ class NetworkPolicies(object):
         #author_policy = self.backup_authorization_excepction_policy(item['id'])
         #policies_result['response'][index]['authorization_exception_policy'] = author_policy['response']
 
-        print("Policy Set #{} exported: {}".format(index+1, item['name']))
+        #print("Policy Set #{} exported: {}".format(index+1, item['name']))
+        logger.info("Policy Set #{} exported: {}".format(index+1, item['name']))
 
         #author_policy = self.backup_authorization_global_exception_policy(item['id'])
         #policies_result['response'][index]['authorization_global_exception_policy'] = author_policy['response']
@@ -81,7 +83,8 @@ class NetworkPolicies(object):
         f.write(yaml.safe_dump(python_dict, sort_keys=False))
 
     except Exception as e:
-      print("Export failed!!!: {}".format(e))
+      #print("Export failed!!!: {}".format(e))
+      logger.error("Export failed!!!: {}".format(e))
 
 
 
@@ -242,13 +245,23 @@ class NetworkPolicies(object):
     return dictionary_result
     
 
-  def backup_all_conditions(self):
-    dictionary_result = self.api.network_access_conditions.get_all().response
-    #print(dictionary_result)
-    json_object = json.dumps(dictionary_result, indent=4)
+  def backup_all_conditions(self, target=None):
+    logger.info("Performing backup all conditions")
+    try:
+      dictionary_result = self.api.network_access_conditions.get_all().response
+      #print(dictionary_result)
+      
+      json_str = json.dumps(dictionary_result)
+      python_dict = json.loads(json_str)
+    
+      with open(os.path.join(BACKUP_TMP, target+"_all_conditions_tmp.yml"), "w") as f:
+        f.write(yaml.safe_dump(python_dict, sort_keys=False))
 
-    with open(os.path.join(BACKUP_DIR, "bck_all_conditions.json"), "w") as outfile:
-      outfile.write(json_object)
+      logger.info("Backup all conditions. Done!")
+    
+    except Exception as e:
+      logger.error("Backup all conditions. Fail!")
+      exit(1)
 
 
   def del_policy_set(self, policyId):
@@ -264,6 +277,13 @@ class NetworkPolicies(object):
 
     return all_policy_sets
 
+  def read_file_all_conditions(self, target=None):
+
+    with open(os.path.join(BACKUP_TMP, target+"_all_conditions_tmp.yml")) as f:
+      all_conditions = yaml.safe_load(f)
+
+    return all_conditions
+
 
   def create_policy_set(self, name=None, all_policy_sets=False, endingTag='', target=None):
 
@@ -278,15 +298,16 @@ class NetworkPolicies(object):
           policies.append(item)
           break
 
-    #print("Print all policy sets from policy_sets.yml")
-    #print(policies)
+    file_conditions = self.read_file_all_conditions(target)
+    conditions = []
+    conditions = file_conditions['response']
 
     for data in policies:
 
       if data['name'] != 'Default':
     
         values = {
-          'description': '' if data.get('description') == None else data.get('description'),
+          'description': ' ' if data.get('description') == None else data.get('description'),
           'default': data.get('default'),
           'is_proxy': data.get('isProxy', False),
           'name': data.get('name')+endingTag,
@@ -296,7 +317,7 @@ class NetworkPolicies(object):
           
         }
 
-        print("\n### Working on Policy Set : {} ###".format(values['name']))
+        logger.info("\n### Working on Policy Set : {} ###".format(values['name']))
 
         condition = data.get('condition')
         #print(condition)
@@ -318,36 +339,30 @@ class NetworkPolicies(object):
             if item.get('dictionaryValue', False) == None:
               condition.get('children')[index].pop('dictionaryValue')
             if item.get('conditionType') == 'ConditionReference':
-              condition['children'][index]['id'] = self.get_network_conditions_by_name(item.get('name'))
+              for item_cond in conditions:
+                if item_cond['name'] == item.get('name'):
+                  condition['children'][index]['id'] = item_cond['id']
+                  break
               condition.get('children')[index].pop('name')
               condition.get('children')[index].pop('description')
 
         
         values['condition'] = condition
 
-        #print('\n### print values for policy set ###')
-        #print(json.dumps(values, indent=4))
-
         authentication_policy = data.get('authentication_policy')
         for index, item in enumerate(authentication_policy):
           authentication_policy[index].get('rule').pop('id')
           authentication_policy[index].pop('link')
-        
-        #print('\n### print authentication policy backup ###')
-        #print(json.dumps(authentication_policy, indent=4))
-
+     
         authorization_policy = data.get('authorization_policy')
         for index, item in enumerate(authorization_policy):
           authorization_policy[index].get('rule').pop('id')
           authorization_policy[index].pop('link')
 
-        #print('\n### print authorization policy backup ###')
-        #print(json.dumps(authorization_policy, indent=4))
-
         try:
           dictionary_result = self.api.network_access_policy_set.create_network_access_policy_set(**values).response
           policy_id = dictionary_result.response.id
-          print("### Policy Set created: {}. policy_id: {} ###\n".format(values['name'], policy_id))
+          logger.info("### Policy Set created: {}. policy_id: {} ###\n".format(values['name'], policy_id))
 
           #authentication rule section
           current_authen_policy = self.get_authentication_policy_by_Id(dictionary_result.response.id).response.get('response')[0]
@@ -373,7 +388,11 @@ class NetworkPolicies(object):
               #create new authorization rules based on the original backup
               item.get('rule').get('condition').pop('link')
               if item.get('rule').get('condition').get('conditionType') == 'ConditionReference':
-                item['rule']['condition']['id'] = self.get_network_conditions_by_name(item.get('rule').get('condition').get('name'))
+                for item_cond in conditions:
+                  if item_cond['name'] == item.get('rule').get('condition').get('name'):
+                    item['rule']['condition']['id'] = item_cond['id']
+                    break
+                #item['rule']['condition']['id'] = self.get_network_conditions_by_name(item.get('rule').get('condition').get('name'))
                 item.get('rule').get('condition').pop('name')
               self.create_authorization_rule(policy_id, item)
 
@@ -384,7 +403,8 @@ class NetworkPolicies(object):
         
           #return dictionary_result.response.id
         except Exception as e:
-          print(" --- ERROR ---: {}".format(e))
+          logger.error(" --- ERROR ---: {}".format(e))
+          exit(1)
 
     
   def update_authentication_rule(self, id, policy_id, data):
@@ -392,9 +412,6 @@ class NetworkPolicies(object):
     values = data
     values['id'] = id
     values['policy_id'] = policy_id
-
-    #print('\n### values to update authentication rule ###')
-    #print(values)
 
     url = "{}/api/v1/policy/network-access/policy-set/{}/authentication/{}".format(ISE_BASE_URL, policy_id, id)
 
@@ -408,19 +425,17 @@ class NetworkPolicies(object):
     try:
       response = requests.request("PUT", url, verify=False, headers=headers, data=json.dumps(values))
 
-      print("Authentication rule updated: {}".format(values['rule']['name']))
+      logger.info("Authentication rule updated: {}".format(values['rule']['name']))
 
     except Exception as e:
-      print(" --ERROR --: {}".format(e))
+      logger.error(" --ERROR --: {}".format(e))
+      exit(1)
 
 
   def create_authentication_rule(self, policy_id, data):
 
     values = data
     values['policy_id'] = policy_id    
-
-    #print('\n### values to create authentication rule ###')
-    #print(values)
 
     url = "{}/api/v1/policy/network-access/policy-set/{}/authentication".format(ISE_BASE_URL, policy_id)
     encoded_credentials = b64encode(bytes(f'{ISE_USERNAME}:{ISE_PASSWORD}',encoding='ascii')).decode('ascii')
@@ -433,10 +448,11 @@ class NetworkPolicies(object):
     try:
       response = requests.request("POST", url, verify=False, headers=headers, data=json.dumps(values))
       
-      print("Authentication rule created: {}".format(values['rule']['name']))
+      logger.info("Authentication rule created: {}".format(values['rule']['name']))
 
     except Exception as e:
-      print(" --ERROR --: {}".format(e))
+      logger.error(" --ERROR --: {}".format(e))
+      exit(1)
       
       
 
@@ -463,9 +479,6 @@ class NetworkPolicies(object):
       values.get('rule').get('condition').pop('dictionaryValue', None)
 
 
-    #print('\n### values to create authorization rule ###')
-    #print(values)
-
     url = "{}/api/v1/policy/network-access/policy-set/{}/authorization".format(ISE_BASE_URL, policy_id)
     encoded_credentials = b64encode(bytes(f'{ISE_USERNAME}:{ISE_PASSWORD}',encoding='ascii')).decode('ascii')
 
@@ -477,10 +490,11 @@ class NetworkPolicies(object):
     try:
       response = requests.request("POST", url, verify=False, headers=headers, data=json.dumps(values))
 
-      print("Authorization rule created: {}".format(values['rule']['name']))
+      logger.info("Authorization rule created: {}".format(values['rule']['name']))
 
     except Exception as e:
-      print(" --ERROR --: {}".format(e))
+      logger.error(" --ERROR --: {}".format(e))
+      exit(1)
 
 
   def update_authorization_rule(self, id, policy_id, data):
@@ -488,9 +502,6 @@ class NetworkPolicies(object):
     values = data
     values['id'] = id
     values['policy_id'] = policy_id
-
-    #print('\n### values to update authorization rule ###')
-    #print(values)
 
     url = "{}/api/v1/policy/network-access/policy-set/{}/authorization/{}".format(ISE_BASE_URL, policy_id, id)
 
@@ -504,11 +515,11 @@ class NetworkPolicies(object):
     try:
       response = requests.request("PUT", url, verify=False, headers=headers, data=json.dumps(values))
 
-      print("Authorization rule udpated: {}".format(values['rule']['name']))
+      logger.info("Authorization rule udpated: {}".format(values['rule']['name']))
 
     except Exception as e:
-      print(" --ERROR --: {}".format(e))
-
+      logger.error(" --ERROR --: {}".format(e))
+      exit(1)
 
 
   def create_security_group(self, name, value=-1, description=None):
@@ -519,11 +530,11 @@ class NetworkPolicies(object):
         value=-1,
         description=description
       )
-      print(dictionary_result.headers.Location)
+      logger.info(dictionary_result.headers.Location)
 
       return dictionary_result.headers.Location.split('/')[-1]
     except Exception as e:
-      print(e)
+      logger.error(e)
 
     
   def create_allowed_protocols(self, data):
@@ -567,17 +578,17 @@ class NetworkPolicies(object):
     if values.get('allow_preferred_eap_protocol'):
       values['preferred_eap_protocol'] = data.get('preferredEapProtocol')
 
-    print(json.dumps(values, indent=4))
+    #print(json.dumps(values, indent=4))
 
     try:
       dictionary_result = self.api.allowed_protocols.create_allowed_protocol(**values)
 
-      print(dictionary_result.headers.Location)
+      logger.info(dictionary_result.headers.Location)
 
       return dictionary_result.headers.Location.split('/')[-1]
 
     except Exception as e:
-      print(e)
+      logger.error(e)
 
     
   def update_policy_set(self, data):
@@ -600,10 +611,10 @@ class NetworkPolicies(object):
     try:
       response = requests.request("PUT", url, verify=False, headers=headers, data=json.dumps(values))
 
-      print("Policy Set udpated: {}".format(values['name']))
+      logger.info("Policy Set udpated: {}".format(values['name']))
       return True
 
     except Exception as e:
-      print(" --ERROR --: {}".format(e))
+      logger.error(" --ERROR --: {}".format(e))
       return False
 
