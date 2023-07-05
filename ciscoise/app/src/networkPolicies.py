@@ -66,16 +66,12 @@ class NetworkPolicies(object):
         #policies_result['response'][index]['authorization_exception_policy'] = author_policy['response']
 
         #print("Policy Set #{} exported: {}".format(index+1, item['name']))
-        logger.info("Policy Set #{} exported: {}".format(index+1, item['name']))
+        logger.info("Policy Set exported: {}".format(item['name']))
 
         #author_policy = self.backup_authorization_global_exception_policy(item['id'])
         #policies_result['response'][index]['authorization_global_exception_policy'] = author_policy['response']
 
-      #json_object = json.dumps(policies_result, indent=4)
-
-      #with open(os.path.join(BACKUP_DIR, "bck_all_policy_set.json"), "w") as outfile:
-      #  outfile.write(json_object)
-
+    
       json_str = json.dumps(policies_result)
       python_dict = json.loads(json_str)
    
@@ -305,9 +301,8 @@ class NetworkPolicies(object):
     for data in policies:
 
       if data['name'] != 'Default':
-    
         values = {
-          'description': ' ' if data.get('description') == None else data.get('description'),
+          'description': '' if (data.get('description') == None or data.get('description') == 'Empty string') else data.get('description'),
           'default': data.get('default'),
           'is_proxy': data.get('isProxy', False),
           'name': data.get('name')+endingTag,
@@ -317,7 +312,7 @@ class NetworkPolicies(object):
           
         }
 
-        logger.info("\n### Working on Policy Set : {} ###".format(values['name']))
+        logger.info("### Working on Policy Set : {} ###".format(values['name']))
 
         condition = data.get('condition')
         #print(condition)

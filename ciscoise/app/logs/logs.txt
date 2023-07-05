@@ -735,3 +735,112 @@ logger: 2023-05-17 18:42:03,365 | INFO | Pushing changes
 logger: 2023-05-17 18:42:30,785 | INFO | Push Done!
 logger: 2023-05-17 18:42:30,788 | INFO | ### Total Duration Task: 83 sec.
 
+logger: 2023-05-17 18:52:38,838 | INFO | performing import from previous version
+logger: 2023-05-17 18:52:39,232 | INFO | Performing Export task
+logger: 2023-05-17 18:52:41,348 | INFO | Found 21 policy sets
+logger: 2023-05-17 18:52:45,232 | INFO | Policy Set #1 exported: Wired_MAB_Corp_RollBack
+logger: 2023-05-17 18:52:47,044 | INFO | Policy Set #2 exported: AZGUEST_Pablo_2.0
+logger: 2023-05-17 18:52:49,836 | INFO | Policy Set #3 exported: Wired_MAB
+logger: 2023-05-17 18:52:52,186 | INFO | Policy Set #4 exported: Wireless_802.1X
+logger: 2023-05-17 18:52:55,194 | INFO | Policy Set #5 exported: Wired_802.1X
+logger: 2023-05-17 18:52:58,191 | INFO | Policy Set #6 exported: Wireless_MAB-LAB_SSID
+logger: 2023-05-17 18:53:00,176 | INFO | Policy Set #7 exported: LUX18_Switch_Exception
+logger: 2023-05-17 18:53:06,623 | INFO | Policy Set #8 exported: LHR14_Switch_Exception
+logger: 2023-05-17 18:53:09,292 | INFO | Policy Set #9 exported: LHR13_Blade_Exception
+logger: 2023-05-17 18:53:11,089 | INFO | Policy Set #10 exported: Switch_Blade_10_Corp_Exception
+logger: 2023-05-17 18:53:12,973 | INFO | Policy Set #11 exported: Switch_Blade_9_Corp_Exception
+logger: 2023-05-17 18:53:14,613 | INFO | Policy Set #12 exported: Switch_Blade_8_Corp_Exception
+logger: 2023-05-17 18:53:16,257 | INFO | Policy Set #13 exported: Switch_Blade_7_Corp_Exception
+logger: 2023-05-17 18:53:18,239 | INFO | Policy Set #14 exported: Switch_Blade_6_Corp_Exception
+logger: 2023-05-17 18:53:20,448 | INFO | Policy Set #15 exported: Switch_Blade_5_Corp_Exception
+logger: 2023-05-17 18:53:22,242 | INFO | Policy Set #16 exported: Switch_Blade_4_Corp_Exception
+logger: 2023-05-17 18:53:23,841 | INFO | Policy Set #17 exported: Switch_Blade_3_Corp_Exception
+logger: 2023-05-17 18:53:25,732 | INFO | Policy Set #18 exported: Switch_Blade_2_Corp_Exception
+logger: 2023-05-17 18:53:27,456 | INFO | Policy Set #19 exported: Switch_Blade_1_Corp_Exception
+logger: 2023-05-17 18:53:29,260 | INFO | Policy Set #20 exported: ISE_Loop_vidcast
+logger: 2023-05-17 18:53:31,577 | INFO | Policy Set #21 exported: Default
+logger: 2023-05-17 18:53:32,129 | INFO | Policy Name to create: ISE_Loop_vidcast_copy
+logger: 2023-05-17 18:53:32,130 | INFO | Checking policies to delete...
+logger: 2023-05-17 18:53:32,131 | INFO | There is no need to delete Policies. All Policies are updated
+logger: 2023-05-17 18:53:32,132 | INFO | Checking new policies...
+logger: 2023-05-17 18:53:32,391 | INFO | ### Working on Policy Set : ISE_Loop_vidcast_copy ###
+logger: 2023-05-17 18:53:44,414 | INFO | ### Policy Set created: ISE_Loop_vidcast_copy. policy_id: bf1e9081-029b-4e43-8b4d-e9c6dcce80f7 ###
+
+logger: 2023-05-17 18:53:48,302 | INFO | Authentication rule updated: Default
+logger: 2023-05-17 18:53:52,369 | INFO | Authorization rule created: AWS All
+logger: 2023-05-17 18:53:54,420 | INFO | Authorization rule created: AWS All_copy
+logger: 2023-05-17 18:53:57,108 | INFO | Authorization rule udpated: Default
+logger: 2023-05-17 18:53:57,111 | INFO | ### Total Duration Task: 78 sec.
+
+logger: 2023-05-17 18:57:10,884 | INFO | performing import from previous version
+logger: 2023-05-17 18:57:11,276 | INFO | Performing Export task
+logger: 2023-05-17 18:57:13,058 | INFO | Found 21 policy sets
+logger: 2023-05-17 18:57:15,355 | INFO | Policy Set exported: Wired_MAB_Corp_RollBack
+logger: 2023-05-17 18:57:17,917 | INFO | Policy Set exported: AZGUEST_Pablo_2.0
+logger: 2023-05-17 18:57:20,220 | INFO | Policy Set exported: Wired_MAB
+logger: 2023-05-17 18:57:23,967 | INFO | Policy Set exported: Wireless_802.1X
+logger: 2023-05-17 18:57:27,443 | INFO | Policy Set exported: Wired_802.1X
+logger: 2023-05-17 18:57:30,758 | INFO | Policy Set exported: Wireless_MAB-LAB_SSID
+logger: 2023-05-17 18:57:33,461 | INFO | Policy Set exported: LUX18_Switch_Exception
+logger: 2023-05-17 18:57:35,122 | INFO | Policy Set exported: LHR14_Switch_Exception
+logger: 2023-05-17 18:57:36,863 | INFO | Policy Set exported: LHR13_Blade_Exception
+logger: 2023-05-17 18:57:39,051 | INFO | Policy Set exported: Switch_Blade_10_Corp_Exception
+logger: 2023-05-17 18:57:41,265 | INFO | Policy Set exported: Switch_Blade_9_Corp_Exception
+logger: 2023-05-17 18:57:43,903 | INFO | Policy Set exported: Switch_Blade_8_Corp_Exception
+logger: 2023-05-17 18:57:46,644 | INFO | Policy Set exported: Switch_Blade_7_Corp_Exception
+logger: 2023-05-17 18:57:48,306 | INFO | Policy Set exported: Switch_Blade_6_Corp_Exception
+logger: 2023-05-17 18:57:49,962 | INFO | Policy Set exported: Switch_Blade_5_Corp_Exception
+logger: 2023-05-17 18:57:51,572 | INFO | Policy Set exported: Switch_Blade_4_Corp_Exception
+logger: 2023-05-17 18:57:53,875 | INFO | Policy Set exported: Switch_Blade_3_Corp_Exception
+logger: 2023-05-17 18:57:55,788 | INFO | Policy Set exported: Switch_Blade_2_Corp_Exception
+logger: 2023-05-17 18:57:57,424 | INFO | Policy Set exported: Switch_Blade_1_Corp_Exception
+logger: 2023-05-17 18:57:59,592 | INFO | Policy Set exported: ISE_Loop_vidcast
+logger: 2023-05-17 18:58:06,760 | INFO | Policy Set exported: Default
+logger: 2023-05-17 18:58:07,301 | INFO | Policy Name to create: ISE_Loop_vidcast_copy
+logger: 2023-05-17 18:58:07,302 | INFO | Checking policies to delete...
+logger: 2023-05-17 18:58:07,303 | INFO | There is no need to delete Policies. All Policies are updated
+logger: 2023-05-17 18:58:07,304 | INFO | Checking new policies...
+logger: 2023-05-17 18:58:07,568 | INFO | ### Working on Policy Set : ISE_Loop_vidcast_copy ###
+logger: 2023-05-17 18:58:09,705 | INFO | ### Policy Set created: ISE_Loop_vidcast_copy. policy_id: c76e2cef-d0bc-46ef-94e8-577683981366 ###
+
+logger: 2023-05-17 18:58:13,520 | INFO | Authentication rule updated: Default
+logger: 2023-05-17 18:58:16,951 | INFO | Authorization rule created: AWS All
+logger: 2023-05-17 18:58:18,548 | INFO | Authorization rule created: AWS All_copy
+logger: 2023-05-17 18:58:20,694 | INFO | Authorization rule udpated: Default
+logger: 2023-05-17 18:58:20,700 | INFO | ### Total Duration Task: 69 sec.
+
+logger: 2023-05-17 19:23:59,539 | INFO | performing export policy sets
+logger: 2023-05-17 19:23:59,929 | INFO | Performing backup all conditions
+logger: 2023-05-17 19:24:01,848 | INFO | Backup all conditions. Done!
+logger: 2023-05-17 19:24:01,849 | INFO | Performing Export task
+logger: 2023-05-17 19:24:02,640 | INFO | Found 22 policy sets
+logger: 2023-05-17 19:24:05,811 | INFO | Policy Set exported: Wired_MAB_Corp_RollBack
+logger: 2023-05-17 19:24:08,478 | INFO | Policy Set exported: AZGUEST_Pablo_2.0
+logger: 2023-05-17 19:24:11,669 | INFO | Policy Set exported: Wired_MAB
+logger: 2023-05-17 19:24:15,273 | INFO | Policy Set exported: Wireless_802.1X
+logger: 2023-05-17 19:24:17,930 | INFO | Policy Set exported: Wired_802.1X
+logger: 2023-05-17 19:24:19,948 | INFO | Policy Set exported: Wireless_MAB-LAB_SSID
+logger: 2023-05-17 19:24:21,582 | INFO | Policy Set exported: LUX18_Switch_Exception
+logger: 2023-05-17 19:24:24,627 | INFO | Policy Set exported: LHR14_Switch_Exception
+logger: 2023-05-17 19:24:27,008 | INFO | Policy Set exported: LHR13_Blade_Exception
+logger: 2023-05-17 19:24:29,364 | INFO | Policy Set exported: Switch_Blade_10_Corp_Exception
+logger: 2023-05-17 19:24:31,359 | INFO | Policy Set exported: Switch_Blade_9_Corp_Exception
+logger: 2023-05-17 19:24:34,103 | INFO | Policy Set exported: Switch_Blade_8_Corp_Exception
+logger: 2023-05-17 19:24:35,715 | INFO | Policy Set exported: Switch_Blade_7_Corp_Exception
+logger: 2023-05-17 19:24:38,684 | INFO | Policy Set exported: Switch_Blade_6_Corp_Exception
+logger: 2023-05-17 19:24:41,363 | INFO | Policy Set exported: Switch_Blade_5_Corp_Exception
+logger: 2023-05-17 19:24:45,152 | INFO | Policy Set exported: Switch_Blade_4_Corp_Exception
+logger: 2023-05-17 19:24:49,538 | INFO | Policy Set exported: Switch_Blade_3_Corp_Exception
+logger: 2023-05-17 19:24:51,934 | INFO | Policy Set exported: Switch_Blade_2_Corp_Exception
+logger: 2023-05-17 19:24:53,578 | INFO | Policy Set exported: Switch_Blade_1_Corp_Exception
+logger: 2023-05-17 19:24:55,680 | INFO | Policy Set exported: ISE_Loop_vidcast
+logger: 2023-05-17 19:24:58,108 | INFO | Policy Set exported: ISE_Loop_vidcast_copy
+logger: 2023-05-17 19:25:00,221 | INFO | Policy Set exported: Default
+logger: 2023-05-17 19:25:00,387 | INFO | adding files to stagging area
+logger: 2023-05-17 19:25:00,434 | INFO | files added!
+logger: 2023-05-17 19:25:00,434 | INFO | Commit changes
+logger: 2023-05-17 19:25:00,498 | INFO | commit done!
+logger: 2023-05-17 19:25:00,498 | INFO | Pushing changes
+logger: 2023-05-17 19:25:25,291 | INFO | Push Done!
+logger: 2023-05-17 19:25:25,292 | INFO | ### Total Duration Task: 85 sec.
+
