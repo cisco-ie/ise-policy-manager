@@ -1,0 +1,8 @@
+httptools==0.0.13
+webexteamssdk==1.6
+Office365-REST-Python-Client==2.3.13
+ciscoisesdk==2.0.8
+pip-system-certs==4.0
+pyyaml==6.0
+gitpython==3.1.31
+python-decouple==3.8
