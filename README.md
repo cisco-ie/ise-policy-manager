@@ -37,7 +37,7 @@ and include this variables
 ```bash
 ISE_USERNAME = "{username}"
 ISE_PASSWORD = "{password}"
-ISE_BASE_URL = "https://{ISE IP/HOSTNAME}"
+ISE_BASE_URL = "https://{CISCO ISE IP ADDRESS}"
 ISE_VERSION = "3.1_Patch_1"
 ```
 
