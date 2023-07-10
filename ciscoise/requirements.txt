@@ -1,8 +1,6 @@
-httptools==0.0.13
+appengine-python-standard==1.1.2
 ciscoisesdk==2.0.8
-pip-system-certs==4.0
 pyyaml==6.0
-gitpython==3.1.31
+gitpython==3.1.32
 python-decouple==3.8
-requests==2.28.2
-urllib3==1.26.15
+requests==2.31.0

@@ -27,6 +27,18 @@ $ cd {git clone path}/ciscoise
 $ docker-compose up -d
 ```
 
+Create a new .env file
+```bash
+$ cd {git clone path}/ciscoise/app
+$ touch .env
+```
+and include this variables
+
+ISE_USERNAME = "{username}"
+ISE_PASSWORD = "{password}"
+ISE_BASE_URL = "https://{ISE IP/HOSTNAME}"
+ISE_VERSION = "3.1_Patch_1"
+
 ## Usage
 
 ### Save to git repo
