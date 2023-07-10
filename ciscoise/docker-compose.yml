@@ -3,11 +3,5 @@ version: '3.8'
 services:
   ciscoise:
     build: .
-    #command: uvicorn app.main:app --host 0.0.0.0 --port 9090 --debug 
-    #command: gunicorn --bind 0.0.0.0:9090 app.main:app -c /app/gunicorn.conf.py
-    #command: gunicorn app.main:app -c gunicorn.conf.py
     volumes:
       - .:/app
-    #ports:
-    #  - 9090:9090
-    

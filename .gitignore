@@ -2,3 +2,5 @@
 *.pyc
 *.DS_Store
 *.env
+ciscoise/app/logs/
+ciscoise/app/backups_tmp/
