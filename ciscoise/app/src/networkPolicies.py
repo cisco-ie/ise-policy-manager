@@ -10,7 +10,10 @@ from logger import Logger
 logger = Logger().logger
 
 BACKUP_TMP = "../backups_tmp/"
-BACKUP_DIR = "../repository/ise-policy-repository-https/policy_sets/"
+REPOSITORY_DIR = "../repository/"
+ISE_REPO_DIR = "ise-policy-repository-https/"
+PS_DIR = "policy_sets/"
+BACKUP_DIR = REPOSITORY_DIR+ISE_REPO_DIR+PS_DIR
 #BACKUP_DIR = "/Users/plencina/Docker/python/Project_Cisco_ISE/ise-policy-repository/policy_sets/"
 
 ISE_USERNAME = config('ISE_USERNAME')
@@ -30,8 +33,11 @@ class NetworkPolicies(object):
                                 debug=True,
                                 uses_csrf_token=False)
 
-    if not os.path.exists(BACKUP_DIR):
-      os.mkdir(BACKUP_DIR)
+    if not os.path.exists(REPOSITORY_DIR):
+      os.mkdir(REPOSITORY_DIR)
+
+    if not os.path.exists(BACKUP_TMP):
+      os.mkdir(BACKUP_TMP)
 
 
   def read_backup_tmp_policy_set(self, target='policy_sets'):

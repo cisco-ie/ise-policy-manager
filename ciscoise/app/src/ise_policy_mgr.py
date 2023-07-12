@@ -7,8 +7,6 @@ from logger import Logger
 
 logger = Logger().logger
 
-BACKUP_DIR = "../backups_tmp/"
-
 def do_import(comment='', commit=None, target=None):
 
 

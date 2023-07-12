@@ -18,15 +18,19 @@ class Repository(object):
         
         self.repo = git.Repo('../repository/ise-policy-repository-https')
 
+        if not os.path.exists(BACKUP_DIR):
+            os.mkdir(BACKUP_DIR)
+
 
     def clone_repo(self):
         # Check out via HTTPS
         logger.info("Cloning repository")
         cwd = os.getcwd()
         #print(cwd)
-        os.chdir(cwd+'../repository')    
+        os.chdir('../repository')    
 
-        git.Repo.clone_from('https://wwwin-github.cisco.com/spa-ie/ise-policy-repository.git', 'ise-policy-repository-https')
+        #git.Repo.clone_from('https://wwwin-github.cisco.com/spa-ie/ise-policy-repository.git', 'ise-policy-repository-https')
+        git.Repo.clone_from('https://wwwin-github.cisco.com/plencina/ciscoise-ps-repository.git', 'ise-policy-repository-https')
 
  
     def add_repo(self, target='policy_sets'):
