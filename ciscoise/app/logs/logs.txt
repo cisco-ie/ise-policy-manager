@@ -844,3 +844,216 @@ logger: 2023-05-17 19:25:00,498 | INFO | Pushing changes
 logger: 2023-05-17 19:25:25,291 | INFO | Push Done!
 logger: 2023-05-17 19:25:25,292 | INFO | ### Total Duration Task: 85 sec.
 
+logger: 2023-07-10 15:19:27,844 | INFO | performing export policy sets
+logger: 2023-07-10 15:19:28,223 | INFO | Performing backup all conditions
+logger: 2023-07-10 15:19:37,348 | INFO | Backup all conditions. Done!
+logger: 2023-07-10 15:19:37,350 | INFO | Performing Export task
+logger: 2023-07-10 15:19:38,844 | INFO | Found 22 policy sets
+logger: 2023-07-10 15:19:45,897 | INFO | Policy Set exported: Wired_MAB_Corp_RollBack
+logger: 2023-07-10 15:19:48,152 | INFO | Policy Set exported: AZGUEST_Pablo_2.0
+logger: 2023-07-10 15:19:52,412 | INFO | Policy Set exported: Wired_MAB
+logger: 2023-07-10 15:19:54,699 | INFO | Policy Set exported: Wireless_802.1X
+logger: 2023-07-10 15:19:56,699 | INFO | Policy Set exported: Wired_802.1X
+logger: 2023-07-10 15:19:58,333 | INFO | Policy Set exported: Wireless_MAB-LAB_SSID
+logger: 2023-07-10 15:20:00,163 | INFO | Policy Set exported: LUX18_Switch_Exception
+logger: 2023-07-10 15:20:03,489 | INFO | Policy Set exported: LHR14_Switch_Exception
+logger: 2023-07-10 15:20:05,741 | INFO | Policy Set exported: LHR13_Blade_Exception
+logger: 2023-07-10 15:20:07,851 | INFO | Policy Set exported: Switch_Blade_10_Corp_Exception
+logger: 2023-07-10 15:20:09,945 | INFO | Policy Set exported: Switch_Blade_9_Corp_Exception
+logger: 2023-07-10 15:20:11,942 | INFO | Policy Set exported: Switch_Blade_8_Corp_Exception
+logger: 2023-07-10 15:20:14,350 | INFO | Policy Set exported: Switch_Blade_7_Corp_Exception
+logger: 2023-07-10 15:20:16,254 | INFO | Policy Set exported: Switch_Blade_6_Corp_Exception
+logger: 2023-07-10 15:20:18,646 | INFO | Policy Set exported: Switch_Blade_5_Corp_Exception
+logger: 2023-07-10 15:20:23,330 | INFO | Policy Set exported: Switch_Blade_4_Corp_Exception
+logger: 2023-07-10 15:20:25,385 | INFO | Policy Set exported: Switch_Blade_3_Corp_Exception
+logger: 2023-07-10 15:20:27,141 | INFO | Policy Set exported: Switch_Blade_2_Corp_Exception
+logger: 2023-07-10 15:20:28,885 | INFO | Policy Set exported: Switch_Blade_1_Corp_Exception
+logger: 2023-07-10 15:20:30,832 | INFO | Policy Set exported: ISE_Loop_vidcast
+logger: 2023-07-10 15:20:32,727 | INFO | Policy Set exported: ISE_Loop_vidcast_copy
+logger: 2023-07-10 15:20:36,262 | INFO | Policy Set exported: Default
+logger: 2023-07-10 15:20:36,456 | INFO | adding files to stagging area
+logger: 2023-07-10 15:20:36,498 | INFO | files added!
+logger: 2023-07-10 15:20:36,499 | INFO | Commit changes
+logger: 2023-07-10 15:20:36,569 | INFO | commit done!
+logger: 2023-07-10 15:20:36,570 | INFO | Pushing changes
+logger: 2023-07-10 15:20:45,413 | INFO | Push Done!
+logger: 2023-07-10 15:20:45,415 | INFO | ### Total Duration Task: 77 sec.
+
+logger: 2023-07-10 17:52:05,660 | INFO | performing export policy sets
+logger: 2023-07-10 17:52:06,061 | INFO | Performing backup all conditions
+logger: 2023-07-10 17:52:07,474 | INFO | Backup all conditions. Done!
+logger: 2023-07-10 17:52:07,475 | INFO | Performing Export task
+logger: 2023-07-10 17:52:08,187 | INFO | Found 22 policy sets
+logger: 2023-07-10 17:52:09,700 | INFO | Policy Set exported: Wired_MAB_Corp_RollBack
+logger: 2023-07-10 17:52:11,250 | INFO | Policy Set exported: AZGUEST_Pablo_2.0
+logger: 2023-07-10 17:52:12,834 | INFO | Policy Set exported: Wired_MAB
+logger: 2023-07-10 17:52:14,387 | INFO | Policy Set exported: Wireless_802.1X
+logger: 2023-07-10 17:52:15,944 | INFO | Policy Set exported: Wired_802.1X
+logger: 2023-07-10 17:52:17,323 | INFO | Policy Set exported: Wireless_MAB-LAB_SSID
+logger: 2023-07-10 17:52:18,628 | INFO | Policy Set exported: LUX18_Switch_Exception
+logger: 2023-07-10 17:52:20,012 | INFO | Policy Set exported: LHR14_Switch_Exception
+logger: 2023-07-10 17:52:21,659 | INFO | Policy Set exported: LHR13_Blade_Exception
+logger: 2023-07-10 17:52:23,014 | INFO | Policy Set exported: Switch_Blade_10_Corp_Exception
+logger: 2023-07-10 17:52:24,336 | INFO | Policy Set exported: Switch_Blade_9_Corp_Exception
+logger: 2023-07-10 17:52:25,617 | INFO | Policy Set exported: Switch_Blade_8_Corp_Exception
+logger: 2023-07-10 17:52:26,986 | INFO | Policy Set exported: Switch_Blade_7_Corp_Exception
+logger: 2023-07-10 17:52:28,258 | INFO | Policy Set exported: Switch_Blade_6_Corp_Exception
+logger: 2023-07-10 17:52:29,748 | INFO | Policy Set exported: Switch_Blade_5_Corp_Exception
+logger: 2023-07-10 17:52:31,111 | INFO | Policy Set exported: Switch_Blade_4_Corp_Exception
+logger: 2023-07-10 17:52:32,385 | INFO | Policy Set exported: Switch_Blade_3_Corp_Exception
+logger: 2023-07-10 17:52:33,741 | INFO | Policy Set exported: Switch_Blade_2_Corp_Exception
+logger: 2023-07-10 17:52:35,080 | INFO | Policy Set exported: Switch_Blade_1_Corp_Exception
+logger: 2023-07-10 17:52:36,501 | INFO | Policy Set exported: ISE_Loop_vidcast
+logger: 2023-07-10 17:52:37,901 | INFO | Policy Set exported: ISE_Loop_vidcast_copy
+logger: 2023-07-10 17:52:39,371 | INFO | Policy Set exported: Default
+logger: 2023-07-10 17:52:39,528 | INFO | adding files to stagging area
+logger: 2023-07-10 17:52:39,595 | INFO | files added!
+logger: 2023-07-10 17:52:39,595 | INFO | Commit changes
+logger: 2023-07-10 17:52:39,660 | INFO | commit done!
+logger: 2023-07-10 17:52:39,660 | INFO | Pushing changes
+logger: 2023-07-10 17:52:53,170 | INFO | Push Done!
+logger: 2023-07-10 17:52:53,172 | INFO | ### Total Duration Task: 47 sec.
+
+logger: 2023-07-10 21:00:35,956 | INFO | performing export policy sets
+logger: 2023-07-10 21:00:36,360 | INFO | Performing backup all conditions
+logger: 2023-07-10 21:00:40,497 | INFO | Backup all conditions. Done!
+logger: 2023-07-10 21:00:40,497 | INFO | Performing Export task
+logger: 2023-07-10 21:00:41,938 | INFO | Found 22 policy sets
+logger: 2023-07-10 21:00:48,222 | INFO | Policy Set exported: Wired_MAB_Corp_RollBack
+logger: 2023-07-10 21:00:55,951 | INFO | Policy Set exported: AZGUEST_Pablo_2.0
+logger: 2023-07-10 21:01:06,141 | INFO | Policy Set exported: Wired_MAB
+logger: 2023-07-10 21:01:14,024 | INFO | Policy Set exported: Wireless_802.1X
+logger: 2023-07-10 21:01:25,875 | INFO | Policy Set exported: Wired_802.1X
+logger: 2023-07-10 21:01:36,497 | INFO | Policy Set exported: Wireless_MAB-LAB_SSID
+logger: 2023-07-10 21:01:39,776 | INFO | Policy Set exported: LUX18_Switch_Exception
+logger: 2023-07-10 21:01:42,129 | INFO | Policy Set exported: LHR14_Switch_Exception
+logger: 2023-07-10 21:01:44,386 | INFO | Policy Set exported: LHR13_Blade_Exception
+logger: 2023-07-10 21:01:48,064 | INFO | Policy Set exported: Switch_Blade_10_Corp_Exception
+logger: 2023-07-10 21:01:52,475 | INFO | Policy Set exported: Switch_Blade_9_Corp_Exception
+logger: 2023-07-10 21:01:55,156 | INFO | Policy Set exported: Switch_Blade_8_Corp_Exception
+logger: 2023-07-10 21:01:58,002 | INFO | Policy Set exported: Switch_Blade_7_Corp_Exception
+logger: 2023-07-10 21:02:02,063 | INFO | Policy Set exported: Switch_Blade_6_Corp_Exception
+logger: 2023-07-10 21:02:06,213 | INFO | Policy Set exported: Switch_Blade_5_Corp_Exception
+logger: 2023-07-10 21:02:08,361 | INFO | Policy Set exported: Switch_Blade_4_Corp_Exception
+logger: 2023-07-10 21:02:10,715 | INFO | Policy Set exported: Switch_Blade_3_Corp_Exception
+logger: 2023-07-10 21:02:13,465 | INFO | Policy Set exported: Switch_Blade_2_Corp_Exception
+logger: 2023-07-10 21:02:16,210 | INFO | Policy Set exported: Switch_Blade_1_Corp_Exception
+logger: 2023-07-10 21:02:18,673 | INFO | Policy Set exported: ISE_Loop_vidcast
+logger: 2023-07-10 21:02:22,559 | INFO | Policy Set exported: ISE_Loop_vidcast_copy
+logger: 2023-07-10 21:02:26,064 | INFO | Policy Set exported: Default
+logger: 2023-07-10 21:02:26,217 | INFO | adding files to stagging area
+logger: 2023-07-10 21:02:26,277 | INFO | files added!
+logger: 2023-07-10 21:02:26,277 | INFO | Commit changes
+logger: 2023-07-10 21:02:26,357 | INFO | commit done!
+logger: 2023-07-10 21:02:26,357 | INFO | Pushing changes
+logger: 2023-07-10 21:02:39,615 | INFO | Push Done!
+logger: 2023-07-10 21:02:39,616 | INFO | ### Total Duration Task: 123 sec.
+
+logger: 2023-07-10 21:32:43,050 | INFO | performing export policy sets
+logger: 2023-07-10 21:32:43,465 | INFO | Performing backup all conditions
+logger: 2023-07-10 21:32:44,968 | INFO | Backup all conditions. Done!
+logger: 2023-07-10 21:32:44,969 | INFO | Performing Export task
+logger: 2023-07-10 21:32:45,698 | INFO | Found 22 policy sets
+logger: 2023-07-10 21:32:47,565 | INFO | Policy Set exported: Wired_MAB_Corp_RollBack
+logger: 2023-07-10 21:32:48,987 | INFO | Policy Set exported: AZGUEST_Pablo_2.0
+logger: 2023-07-10 21:32:50,732 | INFO | Policy Set exported: Wired_MAB
+logger: 2023-07-10 21:32:52,131 | INFO | Policy Set exported: Wireless_802.1X
+logger: 2023-07-10 21:32:53,704 | INFO | Policy Set exported: Wired_802.1X
+logger: 2023-07-10 21:32:55,127 | INFO | Policy Set exported: Wireless_MAB-LAB_SSID
+logger: 2023-07-10 21:32:56,533 | INFO | Policy Set exported: LUX18_Switch_Exception
+logger: 2023-07-10 21:32:57,920 | INFO | Policy Set exported: LHR14_Switch_Exception
+logger: 2023-07-10 21:32:59,349 | INFO | Policy Set exported: LHR13_Blade_Exception
+logger: 2023-07-10 21:33:00,742 | INFO | Policy Set exported: Switch_Blade_10_Corp_Exception
+logger: 2023-07-10 21:33:02,310 | INFO | Policy Set exported: Switch_Blade_9_Corp_Exception
+logger: 2023-07-10 21:33:03,702 | INFO | Policy Set exported: Switch_Blade_8_Corp_Exception
+logger: 2023-07-10 21:33:05,084 | INFO | Policy Set exported: Switch_Blade_7_Corp_Exception
+logger: 2023-07-10 21:33:06,496 | INFO | Policy Set exported: Switch_Blade_6_Corp_Exception
+logger: 2023-07-10 21:33:08,548 | INFO | Policy Set exported: Switch_Blade_5_Corp_Exception
+logger: 2023-07-10 21:33:10,156 | INFO | Policy Set exported: Switch_Blade_4_Corp_Exception
+logger: 2023-07-10 21:33:11,707 | INFO | Policy Set exported: Switch_Blade_3_Corp_Exception
+logger: 2023-07-10 21:33:13,553 | INFO | Policy Set exported: Switch_Blade_2_Corp_Exception
+logger: 2023-07-10 21:33:15,096 | INFO | Policy Set exported: Switch_Blade_1_Corp_Exception
+logger: 2023-07-10 21:33:16,621 | INFO | Policy Set exported: ISE_Loop_vidcast
+logger: 2023-07-10 21:33:18,110 | INFO | Policy Set exported: ISE_Loop_vidcast_copy
+logger: 2023-07-10 21:33:19,706 | INFO | Policy Set exported: Default
+logger: 2023-07-10 21:33:19,848 | INFO | adding files to stagging area
+logger: 2023-07-10 21:33:19,893 | INFO | files added!
+logger: 2023-07-10 21:33:19,894 | INFO | Commit changes
+logger: 2023-07-10 21:33:19,986 | INFO | commit done!
+logger: 2023-07-10 21:33:19,986 | INFO | Pushing changes
+logger: 2023-07-10 21:33:34,289 | INFO | Push Done!
+logger: 2023-07-10 21:33:34,291 | INFO | ### Total Duration Task: 51 sec.
+
+logger: 2023-07-10 21:40:37,367 | INFO | performing export policy sets
+logger: 2023-07-10 21:40:37,808 | INFO | Performing backup all conditions
+logger: 2023-07-10 21:40:39,536 | INFO | Backup all conditions. Done!
+logger: 2023-07-10 21:40:39,537 | INFO | Performing Export task
+logger: 2023-07-10 21:40:40,363 | INFO | Found 22 policy sets
+logger: 2023-07-10 21:40:41,986 | INFO | Policy Set exported: Wired_MAB_Corp_RollBack
+logger: 2023-07-10 21:40:43,297 | INFO | Policy Set exported: AZGUEST_Pablo_2.0
+logger: 2023-07-10 21:40:45,101 | INFO | Policy Set exported: Wired_MAB
+logger: 2023-07-10 21:40:46,580 | INFO | Policy Set exported: Wireless_802.1X
+logger: 2023-07-10 21:40:48,113 | INFO | Policy Set exported: Wired_802.1X
+logger: 2023-07-10 21:40:49,565 | INFO | Policy Set exported: Wireless_MAB-LAB_SSID
+logger: 2023-07-10 21:40:50,937 | INFO | Policy Set exported: LUX18_Switch_Exception
+logger: 2023-07-10 21:40:52,409 | INFO | Policy Set exported: LHR14_Switch_Exception
+logger: 2023-07-10 21:40:54,055 | INFO | Policy Set exported: LHR13_Blade_Exception
+logger: 2023-07-10 21:40:55,487 | INFO | Policy Set exported: Switch_Blade_10_Corp_Exception
+logger: 2023-07-10 21:40:56,850 | INFO | Policy Set exported: Switch_Blade_9_Corp_Exception
+logger: 2023-07-10 21:40:58,252 | INFO | Policy Set exported: Switch_Blade_8_Corp_Exception
+logger: 2023-07-10 21:40:59,687 | INFO | Policy Set exported: Switch_Blade_7_Corp_Exception
+logger: 2023-07-10 21:41:01,118 | INFO | Policy Set exported: Switch_Blade_6_Corp_Exception
+logger: 2023-07-10 21:41:02,600 | INFO | Policy Set exported: Switch_Blade_5_Corp_Exception
+logger: 2023-07-10 21:41:04,089 | INFO | Policy Set exported: Switch_Blade_4_Corp_Exception
+logger: 2023-07-10 21:41:05,521 | INFO | Policy Set exported: Switch_Blade_3_Corp_Exception
+logger: 2023-07-10 21:41:06,872 | INFO | Policy Set exported: Switch_Blade_2_Corp_Exception
+logger: 2023-07-10 21:41:08,287 | INFO | Policy Set exported: Switch_Blade_1_Corp_Exception
+logger: 2023-07-10 21:41:09,786 | INFO | Policy Set exported: ISE_Loop_vidcast
+logger: 2023-07-10 21:41:11,190 | INFO | Policy Set exported: ISE_Loop_vidcast_copy
+logger: 2023-07-10 21:41:12,758 | INFO | Policy Set exported: Default
+logger: 2023-07-10 21:41:12,910 | INFO | adding files to stagging area
+logger: 2023-07-10 21:41:12,952 | INFO | files added!
+logger: 2023-07-10 21:41:12,953 | INFO | Commit changes
+logger: 2023-07-10 21:41:13,027 | INFO | commit done!
+logger: 2023-07-10 21:41:13,028 | INFO | Pushing changes
+logger: 2023-07-10 21:41:26,359 | INFO | Push Done!
+logger: 2023-07-10 21:41:26,361 | INFO | ### Total Duration Task: 48 sec.
+
+logger: 2023-07-12 14:36:47,820 | INFO | performing export policy sets
+logger: 2023-07-12 14:44:11,811 | INFO | performing export policy sets
+logger: 2023-07-12 14:45:51,684 | INFO | performing export policy sets
+logger: 2023-07-12 14:45:52,100 | INFO | Performing backup all conditions
+logger: 2023-07-12 14:45:54,839 | INFO | Backup all conditions. Done!
+logger: 2023-07-12 14:45:54,840 | INFO | Performing Export task
+logger: 2023-07-12 14:45:55,396 | ERROR | Export failed!!!: [Errno 2] No such file or directory: '../repository/ise-policy-repository-https/policy_sets/policy_sets.yml'
+logger: 2023-07-12 14:47:58,536 | INFO | performing export policy sets
+logger: 2023-07-12 14:47:58,949 | INFO | Performing backup all conditions
+logger: 2023-07-12 14:48:00,491 | INFO | Backup all conditions. Done!
+logger: 2023-07-12 14:48:00,492 | INFO | Performing Export task
+logger: 2023-07-12 14:48:01,088 | ERROR | Export failed!!!: [Errno 2] No such file or directory: '../repository/ise-policy-repository-https/policy_sets/policy_sets.yml'
+logger: 2023-07-12 14:50:03,488 | INFO | performing export policy sets
+logger: 2023-07-12 14:50:03,900 | INFO | Performing backup all conditions
+logger: 2023-07-12 14:50:05,904 | INFO | Backup all conditions. Done!
+logger: 2023-07-12 14:50:05,904 | INFO | Performing Export task
+logger: 2023-07-12 14:50:06,655 | ERROR | Export failed!!!: [Errno 2] No such file or directory: '../repository/ise-policy-repository-https/policy_sets/policy_sets.yml'
+logger: 2023-07-12 14:50:06,659 | INFO | Cloning repository
+logger: 2023-07-12 14:52:21,443 | INFO | performing export policy sets
+logger: 2023-07-12 14:52:21,853 | INFO | Performing backup all conditions
+logger: 2023-07-12 14:52:23,401 | INFO | Backup all conditions. Done!
+logger: 2023-07-12 14:52:23,402 | INFO | Performing Export task
+logger: 2023-07-12 14:52:23,958 | ERROR | Export failed!!!: [Errno 2] No such file or directory: '../repository/ise-policy-repository-https/policy_sets/policy_sets.yml'
+logger: 2023-07-12 14:52:23,961 | INFO | Cloning repository
+logger: 2023-07-12 14:55:26,953 | INFO | performing export policy sets
+logger: 2023-07-12 14:55:27,358 | INFO | Performing backup all conditions
+logger: 2023-07-12 14:55:29,208 | INFO | Backup all conditions. Done!
+logger: 2023-07-12 14:55:29,209 | INFO | Performing Export task
+logger: 2023-07-12 14:55:29,762 | ERROR | Export failed!!!: [Errno 2] No such file or directory: '../repository/ise-policy-repository-https/policy_sets/policy_sets.yml'
+logger: 2023-07-12 14:55:29,766 | INFO | Cloning repository
+logger: 2023-07-12 14:55:42,941 | INFO | adding files to stagging area
+logger: 2023-07-12 14:55:42,956 | INFO | files added!
+logger: 2023-07-12 14:55:42,957 | INFO | Commit changes
+logger: 2023-07-12 14:55:43,047 | INFO | commit done!
+logger: 2023-07-12 14:55:43,047 | INFO | Pushing changes
+logger: 2023-07-12 14:55:55,433 | INFO | Push Done!
+logger: 2023-07-12 14:55:55,435 | INFO | ### Total Duration Task: 28 sec.
+
