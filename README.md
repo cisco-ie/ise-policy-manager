@@ -39,6 +39,7 @@ ISE_USERNAME = "{username}"
 ISE_PASSWORD = "{password}"
 ISE_BASE_URL = "https://{CISCO ISE IP ADDRESS}"
 ISE_VERSION = "3.1_Patch_1"
+ISE_REPOSITORY = "https://www.github.com/plencina/example.git"
 ```
 
 ## Usage
