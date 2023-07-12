@@ -54,7 +54,7 @@ class NetworkPolicies(object):
     try:
       policies_result = self.api.network_access_policy_set.get_all().response
 
-      policies_result['version'] = int(self.get_current_version_number()) + 1
+      policies_result['version'] = int(self.get_current_version_number(target)) + 1
       policies_result['version_comments'] = comment
 
       policies_count = len(policies_result['response'])
@@ -90,12 +90,15 @@ class NetworkPolicies(object):
 
 
 
-  def get_current_version_number(self):
+  def get_current_version_number(self, target="policy_sets"):
 
-    with open(os.path.join(BACKUP_DIR, "policy_sets.yml")) as f:
-      result = yaml.safe_load(f)
+    try:
+      with open(os.path.join(BACKUP_DIR, target+".yml")) as f:
+        result = yaml.safe_load(f)
 
-    return result['version']
+      return result['version']
+    except:
+      return 0
 
 
   def get_all_policy_set(self):
