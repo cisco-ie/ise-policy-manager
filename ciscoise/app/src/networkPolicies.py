@@ -10,11 +10,11 @@ from logger import Logger
 logger = Logger().logger
 
 BACKUP_TMP = "../backups_tmp/"
+
 REPOSITORY_DIR = "../repository/"
 ISE_REPO_DIR = "ise-policy-repository-https/"
 PS_DIR = "policy_sets/"
 BACKUP_DIR = REPOSITORY_DIR+ISE_REPO_DIR+PS_DIR
-#BACKUP_DIR = "/Users/plencina/Docker/python/Project_Cisco_ISE/ise-policy-repository/policy_sets/"
 
 ISE_USERNAME = config('ISE_USERNAME')
 ISE_PASSWORD = config('ISE_PASSWORD')
@@ -33,11 +33,13 @@ class NetworkPolicies(object):
                                 debug=True,
                                 uses_csrf_token=False)
 
+
     if not os.path.exists(REPOSITORY_DIR):
       os.mkdir(REPOSITORY_DIR)
 
     if not os.path.exists(BACKUP_TMP):
       os.mkdir(BACKUP_TMP)
+
 
 
   def read_backup_tmp_policy_set(self, target='policy_sets'):
@@ -53,6 +55,7 @@ class NetworkPolicies(object):
     logger.info("Performing Export task")
     try:
       policies_result = self.api.network_access_policy_set.get_all().response
+
 
       policies_result['version'] = int(self.get_current_version_number(target)) + 1
       policies_result['version_comments'] = comment

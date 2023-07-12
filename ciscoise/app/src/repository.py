@@ -14,7 +14,6 @@ BACKUP_DIR = "../repository/ise-policy-repository-https/policy_sets/"
 
 ISE_REPOSITORY = config('ISE_REPOSITORY')
 
-
 class Repository(object):
 
     def __init__(self):
@@ -25,7 +24,6 @@ class Repository(object):
 
         if not os.path.exists(BACKUP_DIR):
             os.mkdir(BACKUP_DIR)
-
 
     def clone_repo(self):
         # Check out via HTTPS
