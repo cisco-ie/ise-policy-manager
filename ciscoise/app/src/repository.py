@@ -4,11 +4,16 @@ import shutil
 from ciscoisesdk import IdentityServicesEngineAPI
 from ciscoisesdk.exceptions import ApiError
 from logger import Logger
+from decouple import config
+
 
 logger = Logger().logger
 
 BACKUP_TMP = "../backups_tmp/"
 BACKUP_DIR = "../repository/ise-policy-repository-https/policy_sets/"
+
+ISE_REPOSITORY = config('ISE_REPOSITORY')
+
 
 class Repository(object):
 
@@ -30,7 +35,7 @@ class Repository(object):
         os.chdir('../repository')    
 
         #git.Repo.clone_from('https://wwwin-github.cisco.com/spa-ie/ise-policy-repository.git', 'ise-policy-repository-https')
-        git.Repo.clone_from('https://wwwin-github.cisco.com/plencina/ciscoise-ps-repository.git', 'ise-policy-repository-https')
+        git.Repo.clone_from(ISE_REPOSITORY, 'ise-policy-repository-https')
 
  
     def add_repo(self, target='policy_sets'):
