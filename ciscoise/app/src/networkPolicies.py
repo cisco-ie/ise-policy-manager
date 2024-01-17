@@ -52,7 +52,7 @@ class NetworkPolicies(object):
   
   def export_policy(self, comment=None, target='policy_sets'):
     #print("Performing Export task")
-    logger.info("Performing Export task")
+    logger.info("Performing Export Policy")
     try:
       policies_result = self.api.network_access_policy_set.get_all().response
 
@@ -86,6 +86,8 @@ class NetworkPolicies(object):
    
       with open(os.path.join(BACKUP_TMP, target+"_tmp.yml"), "w") as f:
         f.write(yaml.safe_dump(python_dict, sort_keys=False))
+
+      logger.info("Export Policy. Done!")
 
     except Exception as e:
       #print("Export failed!!!: {}".format(e))

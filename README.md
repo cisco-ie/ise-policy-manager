@@ -86,6 +86,11 @@ export GIT_TOKEN="git_token"
 # python ise-policy-mgr.py --import --target <hostnmae/IP> --rollback <commit_id>
 ```
 
+### Using local repository. You can use this args to work locally and not using a remote repository
+```bash
+# python ise-policy-mgr.py --export --target <hostnmae/IP> --localRepo
+```
+
 ## Support Information
 
 

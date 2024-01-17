@@ -74,14 +74,15 @@ def do_import(comment='', commit=None, target=None):
     repo.save_to_repo(comment, target)
 
 
-def do_export(comment, target=None):
+def do_export(comment, target=None, localRepo=None):
 
   ise = NetworkPolicies()
   ise.backup_all_conditions(target)
   ise.export_policy(comment, target)
 
-  repo = Repository()
-  repo.save_to_repo(comment, target)
+  if not localRepo:
+    repo = Repository()
+    repo.save_to_repo(comment, target)
 
 def do_precheck():
   #several functions to validate that policy can be successfully imported
@@ -134,6 +135,7 @@ def main():
     parser.add_argument("--rollback", help = "Include previos comit_id to rollback", default=None)
     parser.add_argument("--target", help = "Include target device", default=None)
     parser.add_argument("--precheck", action="store_true", help = "Command to validate that policy can be successfully imported")
+    parser.add_argument("--localRepo", action="store_true", help = "Use this arg to work with local Repository, not remote Repositoty")
     
     # Read arguments from command line and convert to a python dict
     args = vars(parser.parse_args())
@@ -154,7 +156,7 @@ def main():
         #print("performing export policy sets")
         #usage: python ise_policy_mgr.py --export --target <hostname/ip> --comment "some comments"
         start = datetime.now()
-        do_export(args['comment'], args['target'])
+        do_export(args['comment'], args['target'], args['localRepo'])
         finish = datetime.now()
         duration = finish - start
         logger.info('### Total Duration Task: {} sec.\n'.format(duration.seconds))
