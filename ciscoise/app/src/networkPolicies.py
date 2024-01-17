@@ -100,7 +100,8 @@ class NetworkPolicies(object):
         result = yaml.safe_load(f)
 
       return result['version']
-    except:
+    except Exception as e:
+      logger.error("Error!!!: {}".format(e))
       return 0
 
 
@@ -246,6 +247,7 @@ class NetworkPolicies(object):
       #print(json.dumps(dictionary_result, indent=4))
       return dictionary_result.response.id
     except Exception as e:
+      logger.error("Error Get Network Conditions by name: {}".format(e))
       return
    
   def get_all_conditions(self):
@@ -541,8 +543,7 @@ class NetworkPolicies(object):
 
       return dictionary_result.headers.Location.split('/')[-1]
     except Exception as e:
-      logger.error(e)
-
+      logger.error(" --ERROR --: {}".format(e))
     
   def create_allowed_protocols(self, data):
 
@@ -595,7 +596,7 @@ class NetworkPolicies(object):
       return dictionary_result.headers.Location.split('/')[-1]
 
     except Exception as e:
-      logger.error(e)
+      logger.error(" --ERROR --: {}".format(e))
 
     
   def update_policy_set(self, data):

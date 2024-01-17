@@ -16,7 +16,17 @@ Appropriate access privileges to install Python packages and associated dependen
 
 ### Installing
 
-Clone the repository. When cloning a repository the `.git` can be left off the end.
+#### Create a github repository to store policy sets
+First, you need to create a github repository using your account to store all policy sets for export condition.
+[Creating new repository]((https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository))
+Choose a Repository name and check init README file.
+You will use this repository link for env variables in the next section (ISE_REPOSITORY).
+In order to upload (push) information to this repository, you have to create a personal access token
+[Creating a personal access token](https://docs.github.com/en/enterprise-server@3.9/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+
+
+#### Clone cisco ise repository
+When cloning a repository the `.git` can be left off the end.
 
 ```bash
 $ git clone https://github.com/cisco-ie/ise-policy-manager.git
@@ -35,14 +45,33 @@ $ touch .env
 and include this variables
 
 ```bash
-ISE_USERNAME = "{username}"
-ISE_PASSWORD = "{password}"
-ISE_BASE_URL = "https://{CISCO ISE IP ADDRESS}"
-ISE_VERSION = "3.1_Patch_1"
-ISE_REPOSITORY = "https://www.github.com/plencina/example.git"
+ISE_USERNAME="username"
+ISE_PASSWORD="password"
+ISE_BASE_URL="https://CISCO_ISE_IP_ADDRESS"
+ISE_VERSION="3.1_Patch_1"
+ISE_REPOSITORY="https://www.github.com/plencina/ise_repo_test.git"
+GIT_USERNAME="git_username"
+GIT_TOKEN="git_token"
+```
+
+or you can create local environment variables in your system.
+Use the export command to create the variables (only for linux or mac)
+```bash
+export ISE_USERNAME="username"
+export ISE_PASSWORD="password"
+export ISE_BASE_URL="https://CISCO_ISE_IP_ADDRESS"
+export ISE_VERSION="3.1_Patch_1"
+export ISE_REPOSITORY="https://www.github.com/pslencinas/test.git"
+export GIT_USERNAME="git_username"
+export GIT_TOKEN="git_token"
 ```
 
 ## Usage
+
+### Precheck validation
+```bash
+# python ise-policy-mgr.py --precheck --target <hostnmae/IP>"
+```
 
 ### Save to git repo
 ```bash

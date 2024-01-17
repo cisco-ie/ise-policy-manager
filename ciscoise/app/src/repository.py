@@ -13,6 +13,7 @@ BACKUP_TMP = "../backups_tmp/"
 BACKUP_DIR = "../repository/ise-policy-repository-https/policy_sets/"
 
 ISE_REPOSITORY = config('ISE_REPOSITORY')
+GIT_TOKEN = config('GIT_TOKEN')
 
 class Repository(object):
 
@@ -32,8 +33,10 @@ class Repository(object):
         #print(cwd)
         os.chdir('../repository')    
 
-        #git.Repo.clone_from('https://wwwin-github.cisco.com/spa-ie/ise-policy-repository.git', 'ise-policy-repository-https')
-        git.Repo.clone_from(ISE_REPOSITORY, 'ise-policy-repository-https')
+        repo_replace = ISE_REPOSITORY.replace("https://www.github.com/", "")
+        git_repo = 'https://{}@github.com/{}'.format(GIT_TOKEN, repo_replace)
+        git.Repo.clone_from(git_repo, 'ise-policy-repository-https')
+        logger.info("Cloning repository, Done!!")
 
  
     def add_repo(self, target='policy_sets'):
