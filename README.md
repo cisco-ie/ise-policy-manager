@@ -72,7 +72,6 @@ export GIT_TOKEN="git_token"
 ```bash
 # python ise-policy-mgr.py --precheck --target <hostnmae/IP>"
 ```
-
 ### Save to git repo
 ```bash
 # python ise-policy-mgr.py --export --target <hostnmae/IP> --comment "Comments about changes"
@@ -90,7 +89,14 @@ export GIT_TOKEN="git_token"
 ```bash
 # python ise-policy-mgr.py --export --target <hostnmae/IP> --localRepo
 ```
-
+### Perform audit check with standard jinja template
+```bash
+# python ise-policy-mgr.py --audit --target <hostnmae/IP>
+```
+### Perform audit check with custom jinja template and audit file
+```bash
+# python ise-policy-mgr.py --audit --audit_file <policy sets to check> --template_name <jinja template to use>
+```
 ## Support Information
 
 

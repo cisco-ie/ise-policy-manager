@@ -5,4 +5,7 @@
 ciscoise/app/logs/
 ciscoise/app/backups_tmp/
 ciscoise/app/repository/
+ciscoise/app/dev/
+ciscoise/app/jinjauditor/*.yml
+ciscoise/app/jinjauditor/audit_output/*.yaml
 *.logs.txt

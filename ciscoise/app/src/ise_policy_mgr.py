@@ -4,10 +4,12 @@ from networkPolicies import NetworkPolicies
 from repository import Repository
 from datetime import datetime
 from logger import Logger
+from jinjaudit import AuditorConfig, GoldenConfigAuditor
 
 logger = Logger().logger
 
 BACKUP_DIR = "../backups_tmp/"
+AUDIT_PS_DIR = "../audit/policy_sets/"
 
 def do_import(comment='', commit=None, target=None):
 
@@ -123,6 +125,55 @@ def do_precheck():
     return False
 
 
+def do_goldenConfig(target=None):
+
+  ise = NetworkPolicies()
+
+  #analize diff policies and apply only changed policy
+  bck_policy_sets = ise.read_backup_tmp_policy_set(target=target)
+  bck_policy_sets = bck_policy_sets['response']
+
+  for item_bck in bck_policy_sets:
+      json_str = json.dumps(item_bck)
+      python_dict = json.loads(json_str)
+   
+      with open(os.path.join(AUDIT_PS_DIR, item_bck['name']+".yml"), "w") as f:
+        f.write(yaml.safe_dump(python_dict, sort_keys=False))
+
+def do_auditCheck(target=None, template_name=None, audit_file=None):
+
+  CONFIG_DIR = "../jinjauditor/config/"
+  TEMPLATE_DIR = "../jinjauditor/templates/"
+  OUTPUT_DIR = "../jinjauditor/audit_output/"
+  TEMPLATE_NAME = template_name if template_name else 'audit.j2'
+  DST_FOLDER = '../jinjauditor/'
+  AUDIT_FILE = DST_FOLDER+audit_file if audit_file else DST_FOLDER+target+"_tmp.yml"
+
+  logger.info("JINJA TEMPLATE: {}{}".format(TEMPLATE_DIR, TEMPLATE_NAME))
+  logger.info("AUDIT FILE: {}".format(AUDIT_FILE))
+
+  comment = 'Audit Check'
+
+  if not audit_file:
+    ise = NetworkPolicies()
+    ise.backup_all_conditions(target)
+    ise.export_policy(comment, target, dstFolder=DST_FOLDER)  
+
+  logger.info("Performing AuditorConfig")
+  config = AuditorConfig(TEMPLATE_NAME, TEMPLATE_DIR)
+  config.read_settings(CONFIG_DIR)
+
+  logger.info("Check Golden config Auditor")
+  control = GoldenConfigAuditor(config)
+
+  audit = control.auditor.audit_file(AUDIT_FILE)
+ 
+  logger.info("Saving audit logs")
+  control.output_audit(audit, OUTPUT_DIR)
+
+  logger.info("Ending Audit Check")
+
+
 
 def main():
 
@@ -136,10 +187,31 @@ def main():
     parser.add_argument("--target", help = "Include target device", default=None)
     parser.add_argument("--precheck", action="store_true", help = "Command to validate that policy can be successfully imported")
     parser.add_argument("--localRepo", action="store_true", help = "Use this arg to work with local Repository, not remote Repositoty")
-    
+    parser.add_argument("--audit", action="store_true")
+    parser.add_argument("--audit_file", help = "Include audit file name", default=None)
+    parser.add_argument("--template_name", help = "Include template file name", default=None)
+
+
     # Read arguments from command line and convert to a python dict
     args = vars(parser.parse_args())
-    if args['precheck']:
+
+    if args['audit']:
+      if args['audit_file'] or args['template_name']:
+        logger.info("Performing Audit with custom audit file")
+        do_auditCheck(audit_file=args['audit_file'], template_name=args['template_name'])
+
+      elif not args['target']:
+        message = "You must include target information\n"
+        message += 'usage: python ise_policy_mgr.py --audit --target <hostname/ip>"\n'
+      
+        logger.error(message)
+        exit(1)
+      else:
+        logger.info("Performing Audit")
+        do_auditCheck(target=args['target'])
+
+
+    elif args['precheck']:
       do_precheck()
 
     elif args['export']:
@@ -152,7 +224,7 @@ def main():
         #print(parser.exit(1, message=message))
 
       else:
-        logger.info("performing export policy sets")
+        logger.info("Performing export policy sets")
         #print("performing export policy sets")
         #usage: python ise_policy_mgr.py --export --target <hostname/ip> --comment "some comments"
         start = datetime.now()

@@ -5,6 +5,7 @@ from requests.auth import HTTPBasicAuth
 import git
 from ciscoisesdk import IdentityServicesEngineAPI
 from ciscoisesdk.exceptions import ApiError
+from collections import OrderedDict
 from logger import Logger
 
 logger = Logger().logger
@@ -50,15 +51,16 @@ class NetworkPolicies(object):
     return all_policy_sets
 
   
-  def export_policy(self, comment=None, target='policy_sets'):
+  def export_policy(self, comment='Export Policy sets', target='policy_sets', dstFolder=BACKUP_TMP):
     #print("Performing Export task")
     logger.info("Performing Export Policy")
+
+    policies_result = {}
     try:
-      policies_result = self.api.network_access_policy_set.get_all().response
-
-
       policies_result['version'] = int(self.get_current_version_number(target)) + 1
-      policies_result['version_comments'] = comment
+      policies_result['comment'] = comment
+
+      policies_result.update(self.api.network_access_policy_set.get_all().response)
 
       policies_count = len(policies_result['response'])
       #print("Found {} policy sets".format(policies_count))
@@ -84,7 +86,9 @@ class NetworkPolicies(object):
       json_str = json.dumps(policies_result)
       python_dict = json.loads(json_str)
    
-      with open(os.path.join(BACKUP_TMP, target+"_tmp.yml"), "w") as f:
+      print(python_dict)
+      logger.info("Saving policy sets in {}".format(dstFolder))
+      with open(os.path.join(dstFolder, target+"_tmp.yml"), "w") as f:
         f.write(yaml.safe_dump(python_dict, sort_keys=False))
 
       logger.info("Export Policy. Done!")
@@ -101,7 +105,7 @@ class NetworkPolicies(object):
       with open(os.path.join(BACKUP_DIR, target+".yml")) as f:
         result = yaml.safe_load(f)
 
-      return result['version']
+      return int (result['version'])
     except Exception as e:
       logger.error("Error!!!: {}".format(e))
       return 0

@@ -1,0 +1,11 @@
+test:
+  HOSTNAME: "alphanumeric_disallow_ws"
+  INT_1: "integer"
+  INT_2: "integer"
+  INT_3: "integer"
+  TRIPLE_DIGIT: "[0-9][0-9][0-9]"
+  OTHER_TRIPLE_DIGIT: "[0-9][0-9][0-9]"
+
+audit:
+  INTEGER: "integer"
+  UUID: "uuid"
