@@ -11,3 +11,4 @@ audit:
   - '\s{0,}id: [0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'
   - '\s{0,}comment: [0-9a-zA-Z]+'
   - '\s{0,}hitCounts: [0-9a-zA-Z]+'
+  - '\s{0,}link: null$'

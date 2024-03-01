@@ -1,0 +1,46 @@
+BEGIN:VCALENDAR
+PRODID:-//Microsoft Corporation//Outlook 10.0 MIMEDIR//EN
+VERSION:2.0
+METHOD:REQUEST
+BEGIN:VTIMEZONE
+TZID:America/Chicago
+LAST-MODIFIED:20221105T024526Z
+TZURL:https://www.tzurl.org/zoneinfo-outlook/America/Chicago
+X-LIC-LOCATION:America/Chicago
+BEGIN:DAYLIGHT
+TZNAME:CDT
+TZOFFSETFROM:-0600
+TZOFFSETTO:-0500
+DTSTART:19700308T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZNAME:CST
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0600
+DTSTART:19701101T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTAMP:20240221T221310Z
+ATTENDEE;CN="Pablo Lencinas";ROLE=REQ-PARTICIPANT;RSVP=TRUE:MAILTO:plencina@cisco.com
+ORGANIZER;CN="Kassandra Keeton":MAILTO:kkeeton@cisco.com
+DTSTART;TZID=America/Chicago:20240226T120000
+DTEND;TZID=America/Chicago:20240226T130000
+LOCATION:https://cisco.webex.com/cisco/j.php?MTID=mf69cdcaf3e2c3b28c9358faa2433b386
+TRANSP:OPAQUE
+SEQUENCE:1708553590
+UID:1b731b90-82c8-4847-a112-74835d804a75
+DESCRIPTION:In this training, we will go over how ChatGPT was utilized to co-create a RegEx solution in python in under 15 minutes. You will learn the prompts used as well as some pointers to help you in your generative AI journey.\n\nThis training is part of Coding Hour. If you would like to join the community, please see:  <a href="https://go2.cisco.com/Coding-Hour" target="_blank">https://go2.cisco.com/Coding-Hour</a>\n\nThis training will be recorded and sent to those who register.\n-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-\n\n\n\n\n\n\nJOIN WEBEX WEBINAR\nhttps://cisco.webex.com/cisco/j.php?MTID=mf69cdcaf3e2c3b28c9358faa2433b386\nWebinar number (access code): 2661 067 7476\n \nWebinar password: jCjA6nBfG25 (52526623 from phones and video systems) \n \n\n\n\n\nTAP TO JOIN FROM A MOBILE DEVICE (ATTENDEES ONLY)\n+1-408-525-6800,,26610677476#52526623# tel:%2B1-408-525-6800,,*01*26610677476%2352526623%23*01* Call-in toll number (US/Canada)\nSome mobile devices may ask attendees to enter a numeric password.\n\n\nJOIN BY PHONE\n+1-408-525-6800 Call-in toll number (US/Canada)\n\nGlobal call-in numbers\nhttps://cisco.webex.com/cisco/globalcallin.php?MTID=m79660b3f22fb8c488ef12cd8e738d014\n\n\n\nCan't join the webinar?\nhttps://collaborationhelp.cisco.com/article/WBX000029055\n\nIMPORTANT NOTICE: Please note that this Webex service allows audio and other information sent during the session to be recorded, which may be discoverable in a legal matter. By joining this session, you automatically consent to such recordings. If you do not consent to being recorded, discuss your concerns with the host or do not join the session.\n
+X-ALT-DESC;FMTTYPE=text/html:In this training, we will go over how ChatGPT was utilized to co-create a RegEx solution in python in under 15 minutes. You will learn the prompts used as well as some pointers to help you in your generative AI journey.<br><br>This training is part of Coding Hour. If you would like to join the community, please see:  &lt;a href="https://go2.cisco.com/Coding-Hour" target="_blank"&gt;https://go2.cisco.com/Coding-Hour&lt;/a&gt;<br><br>This training will be recorded and sent to those who register.<br>-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-<style type="text/css">\ntable {\n	border-collapse: separate; width =100%;    border: 0;    border-spacing: 0;}\n\ntr {\n	line-height: 18px;}\n\na, td {\n	font-size: 14px;	font-family: Arial;	color: #333;	word-wrap: break-word;	word-break: normal;	padding: 0;}\n\n.title {\n	font-size: 28px;}\n\n.image {\n	width: auto;	max-width: auto;}\n\n.footer {\n	width: 604px;}\n\n.main {\n\n}@media screen and (max-device-width: 800px) {\n	.title {\n		font-size: 22px !important;	}\n	.image {\n		width: auto !important;		max-width: 100% !important;	}\n	.footer {\n		width: 100% !important;		max-width: 604px !important\n	}\n	.main {\n		width: 100% !important;		max-width: 604px !important\n	}\n}\n</style>\n\n<table bgcolor="#FFFFFF" style="padding: 0; margin: 0; border: 0; width: 100%;direction:ltr;" align="left">\n	<tr style="height: 28px"><td>&nbsp;</td></tr>\n	<tr>\n		<td align="left" style="padding: 0 20px; margin: 0">\n			<!--<table bgcolor="#FFFFFF" style="border: 0px; width: 100%; padding-left: 50px; padding-right: 50px;" align="left" class="main">\n				<tr>\n					<td align="center" valign="top" >&nbsp;					</td>\n				</tr>\n			</table>-->\n\n\n\n\n\n    <table>\n        <tr>\n            <td>\n                <FONT SIZE="4" COLOR="#666666" FACE="arial">When it's time, join the Webex webinar here. </FONT>\n            </td>\n        </tr>\n    </table>\n    \n    \n    <table>\n        <tr style="line-height: 20px;"><td style="height:20px">&nbsp;</td></tr>\n        <tr>\n            <td style="width:auto!important; ">\n                <table border="0" cellpadding="0" cellspacing="0" style="width:auto;width:auto!important;background-color:#00823B; border:0px solid #00823B; border-radius:25px; min-width:160px!important;">\n                    <tr>\n                        <td align="center" style="padding:10px 36px;"><a href="https://cisco.webex.com/cisco/j.php?MTID=mf69cdcaf3e2c3b28c9358faa2433b386" style="color:#FFFFFF; font-size:20px; text-decoration:none;">Join webinar</a></td>\n                    </tr>\n                </table>\n            </td>\n        </tr>\n    </table>\n    <table>\n        <tr style="line-height: 20px;"><td style="height:20px">&nbsp;</td></tr>\n        <tr>\n            <td>\n                <FONT SIZE="3" COLOR="#666666" FACE="arial">More ways to join:</FONT>\n            </td>\n        </tr>\n        <tr style="line-height: 10px;"><td style="height: 10px;">&nbsp;</td></tr>\n        <tr>\n            <td>\n                <FONT SIZE="3" COLOR="#666666" FACE="arial">Join from the webinar link</FONT>\n            </td>\n        </tr>\n        <tr>\n            <td>\n                <FONT SIZE="2" COLOR="#666666" FACE="arial"><a href='https://cisco.webex.com/cisco/j.php?MTID=mf69cdcaf3e2c3b28c9358faa2433b386' style='color:#005E7D;  text-decoration:none; font-family: Arial;font-size: 14px;line-height: 24px;'>https://cisco.webex.com/cisco/j.php?MTID=mf69cdcaf3e2c3b28c9358faa2433b386</a></FONT>\n            </td>\n        </tr>\n        <tr style="line-height: 20px;"><td style="height:20px">&nbsp;</td></tr>\n        <tr>\n            <td>\n                <FONT SIZE="3" COLOR="#666666" FACE="arial">Join by webinar number</FONT>\n            </td>\n        </tr>\n        <tr>\n            <td>\n                <FONT SIZE="2" COLOR="#666666" FACE="arial"><span dir="ltr">Webinar number (access code):</span> <span dir="auto">2661 067 7476</span></FONT>\n            </td>\n        </tr>\n        <tr>\n            <td>\n                <FONT SIZE="2" COLOR="#666666" FACE="arial"> </FONT>\n            </td>\n        </tr>\n    </table>\n    <table><tr><td><FONT SIZE="2" COLOR="#666666" FACE="arial">Webinar password:</FONT></td><td><FONT SIZE="2"  COLOR="#666666" FACE="arial">jCjA6nBfG25 <span dir="auto">(52526623 from phones and video systems)</span></FONT></td></tr></table>\n    <table>\n        <tr>\n            <td>\n                <FONT SIZE="2" COLOR="#666666" FACE="arial"> </FONT>\n            </td>\n        </tr>\n    </table>\n\n<table><tr style="line-height: 20px;"><td style="height:20px">&nbsp;</td></tr></table>\n <FONT size="2" COLOR="#FF0000" style="font-family: Arial;"></FONT>\n\n&nbsp; <BR><FONT SIZE="4" FACE="ARIAL"><FONT SIZE="3" COLOR="#666666" FACE="arial">Tap to join from a mobile device (attendees only)</FONT> &nbsp; <BR><FONT SIZE="2" COLOR="#666666" FACE="arial"><a href='tel:%2B1-408-525-6800,,*01*26610677476%2352526623%23*01*' style='color:#005E7D;  text-decoration:none; font-family: Arial;font-size: 14px;line-height: 24px;'><span dir="auto">+1-408-525-6800,,26610677476#52526623#</span></a> <span dir="ltr">Call-in toll number (US/Canada)</span></FONT> &nbsp; <BR><FONT SIZE="2" COLOR="#666666" FACE="arial">Some mobile devices may ask attendees to enter a numeric password.</FONT>&nbsp; <BR><BR><FONT SIZE="4" FACE="ARIAL"><FONT SIZE="3" COLOR="#666666" FACE="arial">Join by phone</FONT> &nbsp; <BR><FONT SIZE="2" COLOR="#666666" FACE="arial">+1-408-525-6800 <span dir="ltr">Call-in toll number (US/Canada)</span></FONT> &nbsp; <BR><FONT SIZE="2" COLOR="#666666" FACE="arial"><a href="https://cisco.webex.com/cisco/globalcallin.php?MTID=m79660b3f22fb8c488ef12cd8e738d014" style="text-decoration:none;font-size:14px;color:#005E7D">Global call-in numbers</a></FONT>&nbsp; <BR><BR>\n\n\n\n			<table style="width: 100%;" align="left" class="main">\n                <tr style="height: 20px"><td>&nbsp;</td></tr>\n				<tr>\n					<td style="height: 24px; color: #000000; font-family:Arial; font-size: 14px; line-height: 24px;">Need help? Go to <a href="https://help.webex.com" style="color:#005E7D; text-decoration:none;">https://help.webex.com</a>\n					</td>\n				</tr>\n                <tr style="height: 44px"><td>&nbsp;</td></tr>\n			</table>\n		</td>\n	</tr>\n</table>\n
+SUMMARY:Using Generative AI To Shorten Time to Solution for RegEx in Python
+PRIORITY:5
+CLASS:PUBLIC
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+END:VCALENDAR
